@@ -35,9 +35,9 @@ public class IronBush extends SweetBerryBushBlock {
         boolean flag = i == 3;
         if(!flag && player.getHeldItem(handIn).getItem() == Items.BONE_MEAL) {
             return ActionResultType.PASS;
-        } else if (i > 2) {
-            int j = i + worldIn.rand.nextInt(2);
-            spawnAsEntity(worldIn, pos, new ItemStack(Items.IRON_NUGGET, j + (flag ? 1 : 0)));
+        } else if (i > 1) {
+            //int j = i + worldIn.rand.nextInt(2);
+            spawnAsEntity(worldIn, pos, new ItemStack(Items.IRON_NUGGET, 1));//j + (flag ? 1 : 0)));
             worldIn.playSound((PlayerEntity) null, pos, SoundEvents.ITEM_SWEET_BERRIES_PICK_FROM_BUSH, SoundCategory.BLOCKS, 1.0f, 0.8F + worldIn.rand.nextFloat() * 0.4F);
             worldIn.setBlockState(pos, state.with(AGE, Integer.valueOf(1)), 2);
             return ActionResultType.SUCCESS;

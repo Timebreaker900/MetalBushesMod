@@ -1,0 +1,16 @@
+package com.dave.metalbushesmod.Init;
+
+import com.dave.metalbushesmod.MetalBushesMod;
+import net.minecraft.item.Item;
+import net.minecraftforge.fml.RegistryObject;
+import net.minecraftforge.registries.DeferredRegister;
+import net.minecraftforge.registries.ForgeRegistries;
+
+public class ItemInit {
+
+    public static final DeferredRegister<Item> ITEMS = new DeferredRegister(ForgeRegistries.ITEMS, MetalBushesMod.MODID);
+
+    public static final RegistryObject<Item> DEF_ITEM = ITEMS.register("def_item", () -> new Item(new Item.Properties().group(MetalBushesMod.MetalBushesModItemGroup.instance)));
+
+    //public static final RegistryObject<Item> IRON_BUSH_ITEM = ITEMS
+}

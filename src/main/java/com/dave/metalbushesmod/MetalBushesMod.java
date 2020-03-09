@@ -71,6 +71,7 @@ public class MetalBushesMod
 
     private void doClientStuff(final FMLClientSetupEvent event) {
         RenderTypeLookup.setRenderLayer(BlockInit.IRON_BUSH.get(), RenderType.getCutout());
+        RenderTypeLookup.setRenderLayer(BlockInit.GOLD_BUSH.get(), RenderType.getCutout());
     }
 
     public static class MetalBushesModItemGroup extends ItemGroup {
@@ -82,7 +83,7 @@ public class MetalBushesMod
 
         @Override
         public ItemStack createIcon() {
-            return new ItemStack(BlockInit.DEF_BLOCK.get());
+            return new ItemStack(BlockInit.IRON_BUSH.get());
         }
 
     }

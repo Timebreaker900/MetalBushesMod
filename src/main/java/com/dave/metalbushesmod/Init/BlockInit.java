@@ -1,6 +1,7 @@
 package com.dave.metalbushesmod.Init;
 
 import com.dave.metalbushesmod.MetalBushesMod;
+import com.dave.metalbushesmod.objects.blocks.GoldBush;
 import com.dave.metalbushesmod.objects.blocks.IronBush;
 import net.minecraft.block.Block;
 import net.minecraft.block.SoundType;
@@ -23,6 +24,17 @@ public class BlockInit {
                     .doesNotBlockMovement()
                     .tickRandomly()
                     .sound(SoundType.PLANT)
-            ));
+            )
+    );
+
+    public static final RegistryObject<GoldBush> GOLD_BUSH =  BLOCKS.register(
+            "gold_bush", () -> new GoldBush(Block.Properties
+                    .create(Material.PLANTS)
+                    .hardnessAndResistance(0f)
+                    .doesNotBlockMovement()
+                    .tickRandomly()
+                    .sound(SoundType.PLANT)
+            )
+    );
 
 }

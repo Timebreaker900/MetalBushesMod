@@ -1,3 +1,6 @@
 {
-  "block.metalbushesmod.iron_bush": "Iron Bush"
+  "itemGroup.metalbushesmodtab": "Metal Bushes",
+
+  "block.metalbushesmod.iron_bush": "Iron Bush",
+  "block.metalbushesmod.gold_bush": "Gold Bush"
 }

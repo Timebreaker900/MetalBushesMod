@@ -26,7 +26,7 @@ public class IronBush extends SweetBerryBushBlock {
 
     @Override
     public ItemStack getItem(IBlockReader worldIn, BlockPos pos, BlockState state) {
-        return new ItemStack(ItemInit.DEF_ITEM.get());
+        return new ItemStack(Items.IRON_NUGGET);
     }
 
     @Override
@@ -37,7 +37,7 @@ public class IronBush extends SweetBerryBushBlock {
             return ActionResultType.PASS;
         } else if (i > 2) {
             int j = i + worldIn.rand.nextInt(2);
-            spawnAsEntity(worldIn, pos, new ItemStack(ItemInit.DEF_ITEM.get(), j + (flag ? 1 : 0)));
+            spawnAsEntity(worldIn, pos, new ItemStack(Items.IRON_NUGGET, j + (flag ? 1 : 0)));
             worldIn.playSound((PlayerEntity) null, pos, SoundEvents.ITEM_SWEET_BERRIES_PICK_FROM_BUSH, SoundCategory.BLOCKS, 1.0f, 0.8F + worldIn.rand.nextFloat() * 0.4F);
             worldIn.setBlockState(pos, state.with(AGE, Integer.valueOf(1)), 2);
             return ActionResultType.SUCCESS;

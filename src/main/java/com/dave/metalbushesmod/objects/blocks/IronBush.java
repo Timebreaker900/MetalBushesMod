@@ -32,19 +32,17 @@ public class IronBush extends SweetBerryBushBlock {
     @Override
     public ActionResultType onBlockActivated(BlockState state, World worldIn, BlockPos pos, PlayerEntity player, Hand handIn, BlockRayTraceResult hit) {
         int i = state.get(AGE);
-        System.out.println("AAAA" + i);
         boolean flag = i == 3;
         if(!flag && player.getHeldItem(handIn).getItem() == Items.BONE_MEAL) {
             return ActionResultType.PASS;
-        } else if (i > i) {
+        } else if (i > 2) {
             int j = i + worldIn.rand.nextInt(2);
             spawnAsEntity(worldIn, pos, new ItemStack(ItemInit.DEF_ITEM.get(), j + (flag ? 1 : 0)));
             worldIn.playSound((PlayerEntity) null, pos, SoundEvents.ITEM_SWEET_BERRIES_PICK_FROM_BUSH, SoundCategory.BLOCKS, 1.0f, 0.8F + worldIn.rand.nextFloat() * 0.4F);
             worldIn.setBlockState(pos, state.with(AGE, Integer.valueOf(1)), 2);
             return ActionResultType.SUCCESS;
         } else {
-            return ActionResultType.PASS;
-            //return super.onBlockActivated(state, worldIn, pos, player, handIn, hit);
+            return super.onBlockActivated(state, worldIn, pos, player, handIn, hit);
         }
     }
 

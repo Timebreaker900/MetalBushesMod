@@ -1,0 +1,20 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "GGG",
+    "GSG",
+    "GGG"
+  ],
+  "key": {
+    "G": {
+      "item": "minecraft:tall_grass"
+    },
+    "S": {
+      "item": "minecraft:stick"
+    }
+  },
+  "result": {
+    "item": "metalbushesmod:bush_base"
+  }
+
+}

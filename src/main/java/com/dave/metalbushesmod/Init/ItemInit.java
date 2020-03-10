@@ -10,7 +10,9 @@ public class ItemInit {
 
     public static final DeferredRegister<Item> ITEMS = new DeferredRegister(ForgeRegistries.ITEMS, MetalBushesMod.MODID);
 
-    public static final RegistryObject<Item> DEF_ITEM = ITEMS.register("def_item", () -> new Item(new Item.Properties().group(MetalBushesMod.MetalBushesModItemGroup.instance)));
+    public static final RegistryObject<Item> BUSH_BASE = ITEMS.register(
+            "bush_base", () -> new Item(
+                    new Item.Properties().group(MetalBushesMod.MetalBushesModItemGroup.instance)));
 
     //public static final RegistryObject<Item> IRON_BUSH_ITEM = ITEMS
 }

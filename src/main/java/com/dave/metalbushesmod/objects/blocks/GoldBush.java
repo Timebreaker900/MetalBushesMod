@@ -3,9 +3,7 @@ package com.dave.metalbushesmod.objects.blocks;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.SweetBerryBushBlock;
 import net.minecraft.entity.Entity;
-import net.minecraft.entity.item.ExperienceOrbEntity;
 import net.minecraft.entity.player.PlayerEntity;
-import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.Items;
 import net.minecraft.util.ActionResultType;
@@ -18,18 +16,18 @@ import net.minecraft.world.IBlockReader;
 import net.minecraft.world.World;
 
 
-public class MaterialBush extends SweetBerryBushBlock {
+public class GoldBush extends SweetBerryBushBlock {
 
-    public static Item item;
+    //public static Item item;
 
-    public MaterialBush(Properties properties, Item materialIn) {
+    public GoldBush(Properties properties/* , Item materialIn */) {
         super(properties);
-        this.item = materialIn;
+        //this.item = materialIn;
     }
 
     @Override
     public ItemStack getItem(IBlockReader worldIn, BlockPos pos, BlockState state) {
-        return new ItemStack(item);
+        return new ItemStack(Items.COAL);
     }
 
     @Override
@@ -39,11 +37,10 @@ public class MaterialBush extends SweetBerryBushBlock {
         if(!flag && player.getHeldItem(handIn).getItem() == Items.BONE_MEAL) {
             return ActionResultType.PASS;
         } else if (i > 1) {
-            spawnAsEntity(worldIn, pos, new ItemStack(item, 1));
+            spawnAsEntity(worldIn, pos, new ItemStack(Items.GOLD_NUGGET, 1));
             worldIn.playSound((PlayerEntity) null, pos, SoundEvents.ITEM_SWEET_BERRIES_PICK_FROM_BUSH, SoundCategory.BLOCKS, 1.0f, 0.8F + worldIn.rand.nextFloat() * 0.4F);
             worldIn.setBlockState(pos, state.with(AGE, Integer.valueOf(1)), 2);
 
-            System.out.println("HELLO");
             return ActionResultType.SUCCESS;
         } else {
             return super.onBlockActivated(state, worldIn, pos, player, handIn, hit);

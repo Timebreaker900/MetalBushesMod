@@ -1,10 +1,14 @@
 package com.dave.metalbushesmod.Init;
 
 import com.dave.metalbushesmod.MetalBushesMod;
+import com.dave.metalbushesmod.objects.blocks.ExperienceBush;
 import com.dave.metalbushesmod.objects.blocks.MaterialBush;
 import net.minecraft.block.Block;
 import net.minecraft.block.SoundType;
 import net.minecraft.block.material.Material;
+import net.minecraft.entity.item.ExperienceOrbEntity;
+import net.minecraft.entity.item.ItemEntity;
+import net.minecraft.item.Item;
 import net.minecraft.item.Items;
 import net.minecraftforge.fml.RegistryObject;
 import net.minecraftforge.registries.DeferredRegister;
@@ -13,6 +17,17 @@ import net.minecraftforge.registries.ForgeRegistries;
 public class BlockInit {
 
     public static final DeferredRegister<Block> BLOCKS = new DeferredRegister(ForgeRegistries.BLOCKS, MetalBushesMod.MODID);
+
+    public static final RegistryObject<ExperienceBush> XP_BUSH =  BLOCKS.register(
+            "xp_bush", () -> new ExperienceBush(Block.Properties
+                    .create(Material.PLANTS)
+                    .hardnessAndResistance(0f)
+                    .doesNotBlockMovement()
+                    .tickRandomly()
+                    .sound(SoundType.PLANT),
+                    4
+            )
+    );
 
     public static final RegistryObject<MaterialBush> COAL_BUSH =  BLOCKS.register(
             "coal_bush", () -> new MaterialBush(Block.Properties

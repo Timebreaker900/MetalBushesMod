@@ -17,19 +17,18 @@ import net.minecraft.util.math.BlockRayTraceResult;
 import net.minecraft.world.IBlockReader;
 import net.minecraft.world.World;
 
+public class ExperienceBush extends SweetBerryBushBlock {
 
-public class MaterialBush extends SweetBerryBushBlock {
+    public static int xpPoints;
 
-    public static Item item;
-
-    public MaterialBush(Properties properties, Item materialIn) {
+    public ExperienceBush(Properties properties, int xpPoints) {
         super(properties);
-        this.item = materialIn;
+        this.xpPoints = xpPoints;
     }
 
     @Override
     public ItemStack getItem(IBlockReader worldIn, BlockPos pos, BlockState state) {
-        return new ItemStack(item);
+        return null;
     }
 
     @Override
@@ -39,11 +38,9 @@ public class MaterialBush extends SweetBerryBushBlock {
         if(!flag && player.getHeldItem(handIn).getItem() == Items.BONE_MEAL) {
             return ActionResultType.PASS;
         } else if (i > 1) {
-            spawnAsEntity(worldIn, pos, new ItemStack(item, 1));
+            worldIn.addEntity(new ExperienceOrbEntity(worldIn, pos.getX(), pos.getY(), pos.getZ(), xpPoints));
             worldIn.playSound((PlayerEntity) null, pos, SoundEvents.ITEM_SWEET_BERRIES_PICK_FROM_BUSH, SoundCategory.BLOCKS, 1.0f, 0.8F + worldIn.rand.nextFloat() * 0.4F);
             worldIn.setBlockState(pos, state.with(AGE, Integer.valueOf(1)), 2);
-
-            System.out.println("HELLO");
             return ActionResultType.SUCCESS;
         } else {
             return super.onBlockActivated(state, worldIn, pos, player, handIn, hit);
@@ -54,4 +51,6 @@ public class MaterialBush extends SweetBerryBushBlock {
     public void onEntityCollision(BlockState state, World worldIn, BlockPos pos, Entity entityIn) {
         super.onEntityCollision(state, worldIn, pos, entityIn);
     }
+
+
 }

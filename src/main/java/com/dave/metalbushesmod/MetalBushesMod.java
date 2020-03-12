@@ -70,6 +70,7 @@ public class MetalBushesMod
     }
 
     private void doClientStuff(final FMLClientSetupEvent event) {
+        RenderTypeLookup.setRenderLayer(BlockInit.XP_BUSH.get(), RenderType.getCutout());
         RenderTypeLookup.setRenderLayer(BlockInit.COAL_BUSH.get(), RenderType.getCutout());
         RenderTypeLookup.setRenderLayer(BlockInit.IRON_BUSH.get(), RenderType.getCutout());
         RenderTypeLookup.setRenderLayer(BlockInit.GOLD_BUSH.get(), RenderType.getCutout());

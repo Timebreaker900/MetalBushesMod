@@ -78,7 +78,7 @@ public class MetalBushesMod
 
     @SubscribeEvent
     public void loadCompleteEvent(FMLLoadCompleteEvent event) {
-        //BushWorldGen.generateBushes();
+        BushWorldGen.generateBushes();
     }
 
     public static class MetalBushesModItemGroup extends ItemGroup {

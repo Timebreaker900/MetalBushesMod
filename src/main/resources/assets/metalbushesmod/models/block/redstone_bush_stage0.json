@@ -1,6 +1,6 @@
 {
   "parent": "block/cross",
   "textures": {
-    "cross": "metalbushesmod:blocks/redstone_bush_stage0"
+    "cross": "metalbushesmod:blocks/bush_stage0"
   }
 }

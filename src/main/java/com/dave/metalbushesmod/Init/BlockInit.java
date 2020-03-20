@@ -65,4 +65,14 @@ public class BlockInit {
             )
     );
 
+    public static final RegistryObject<DiamondBush> DIAMOND_BUSH =  BLOCKS.register(
+            "diamond_bush", () -> new DiamondBush(Block.Properties
+                    .create(Material.PLANTS)
+                    .hardnessAndResistance(0f)
+                    .doesNotBlockMovement()
+                    .tickRandomly()
+                    .sound(SoundType.PLANT)
+            )
+    );
+
 }

@@ -39,6 +39,10 @@ public class BushWorldGen  {
         public static final BlockClusterFeatureConfig REDSTONE_BUSH = (new BlockClusterFeatureConfig.Builder(
                 new SimpleBlockStateProvider(BlockInit.REDSTONE_BUSH.get().getDefaultState()),
                 new SimpleBlockPlacer())).func_227316_a_(ImmutableSet.of(Blocks.GRASS_BLOCK)).tries(1).build();
+
+        public static final BlockClusterFeatureConfig DIAMOND_BUSH = (new BlockClusterFeatureConfig.Builder(
+                new SimpleBlockStateProvider(BlockInit.DIAMOND_BUSH.get().getDefaultState()),
+                new SimpleBlockPlacer())).func_227316_a_(ImmutableSet.of(Blocks.GRASS_BLOCK)).tries(1).build();
     }
 
 
@@ -66,6 +70,11 @@ public class BushWorldGen  {
 
             biome.addFeature(GenerationStage.Decoration.VEGETAL_DECORATION, Feature.FLOWER
                     .withConfiguration(BiomeFeatures.REDSTONE_BUSH)
+                    .withPlacement(Placement.COUNT_EXTRA_HEIGHTMAP.configure(new AtSurfaceWithExtraConfig((int)0.4F, 0.1F, 1)))
+            );
+
+            biome.addFeature(GenerationStage.Decoration.VEGETAL_DECORATION, Feature.FLOWER
+                    .withConfiguration(BiomeFeatures.DIAMOND_BUSH)
                     .withPlacement(Placement.COUNT_EXTRA_HEIGHTMAP.configure(new AtSurfaceWithExtraConfig((int)0.4F, 0.1F, 1)))
             );
 

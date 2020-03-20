@@ -74,6 +74,7 @@ public class MetalBushesMod
         RenderTypeLookup.setRenderLayer(BlockInit.IRON_BUSH.get(), RenderType.getCutout());
         RenderTypeLookup.setRenderLayer(BlockInit.GOLD_BUSH.get(), RenderType.getCutout());
         RenderTypeLookup.setRenderLayer(BlockInit.REDSTONE_BUSH.get(), RenderType.getCutout());
+        RenderTypeLookup.setRenderLayer(BlockInit.DIAMOND_BUSH.get(), RenderType.getCutout());
     }
 
     @SubscribeEvent
@@ -90,7 +91,7 @@ public class MetalBushesMod
 
         @Override
         public ItemStack createIcon() {
-            return new ItemStack(BlockInit.IRON_BUSH.get());
+            return new ItemStack(ItemInit.BUSH_BASE.get());
         }
 
     }

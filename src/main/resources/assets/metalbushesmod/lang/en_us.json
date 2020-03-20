@@ -6,6 +6,8 @@
   "block.metalbushesmod.iron_bush": "Iron Bush",
   "block.metalbushesmod.gold_bush": "Gold Bush",
   "block.metalbushesmod.redstone_bush": "Redstone Bush",
+  "block.metalbushesmod.diamond_bush": "Diamond Bush",
 
-  "item.metalbushesmod.bush_base": "Bush Base"
+  "item.metalbushesmod.bush_base": "Bush Base",
+  "item.metalbushesmod.diamond_nugget": "Diamond Nugget"
 }

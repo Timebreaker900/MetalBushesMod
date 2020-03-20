@@ -14,5 +14,7 @@ public class ItemInit {
             "bush_base", () -> new Item(
                     new Item.Properties().group(MetalBushesMod.MetalBushesModItemGroup.instance)));
 
-    //public static final RegistryObject<Item> IRON_BUSH_ITEM = ITEMS
+    public static final RegistryObject<Item> DIAMOND_NUGGET = ITEMS.register(
+            "diamond_nugget", () -> new Item(
+                    new Item.Properties().group(MetalBushesMod.MetalBushesModItemGroup.instance)));
 }

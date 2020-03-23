@@ -1,5 +1,6 @@
 package com.dave.metalbushesmod.objects.blocks;
 
+import com.dave.metalbushesmod.Init.BlockInit;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.SweetBerryBushBlock;
 import net.minecraft.entity.Entity;
@@ -25,9 +26,12 @@ public class CoalBush extends SweetBerryBushBlock {
         super(properties);
     }
 
+
+
     @Override
     public ItemStack getItem(IBlockReader worldIn, BlockPos pos, BlockState state) {
-        return new ItemStack(Items.COAL);
+        //return new ItemStack(Items.COAL);
+        return new ItemStack(BlockInit.COAL_BUSH.get());
     }
 
     @Override

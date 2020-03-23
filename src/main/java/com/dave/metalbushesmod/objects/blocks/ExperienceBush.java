@@ -1,5 +1,6 @@
 package com.dave.metalbushesmod.objects.blocks;
 
+import com.dave.metalbushesmod.Init.BlockInit;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.SweetBerryBushBlock;
 import net.minecraft.entity.Entity;
@@ -28,7 +29,8 @@ public class ExperienceBush extends SweetBerryBushBlock {
 
     @Override
     public ItemStack getItem(IBlockReader worldIn, BlockPos pos, BlockState state) {
-        return null;
+        //return null;
+        return new ItemStack(BlockInit.XP_BUSH.get());
     }
 
     @Override

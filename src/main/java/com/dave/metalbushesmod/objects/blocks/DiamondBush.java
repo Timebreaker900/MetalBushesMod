@@ -1,5 +1,6 @@
 package com.dave.metalbushesmod.objects.blocks;
 
+import com.dave.metalbushesmod.Init.BlockInit;
 import com.dave.metalbushesmod.Init.ItemInit;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.SweetBerryBushBlock;
@@ -24,7 +25,8 @@ public class DiamondBush extends SweetBerryBushBlock{
 
     @Override
     public ItemStack getItem(IBlockReader worldIn, BlockPos pos, BlockState state) {
-        return new ItemStack(ItemInit.DIAMOND_NUGGET.get());
+        //return new ItemStack(ItemInit.DIAMOND_NUGGET.get());
+        return new ItemStack(BlockInit.DIAMOND_BUSH.get());
     }
 
     @Override

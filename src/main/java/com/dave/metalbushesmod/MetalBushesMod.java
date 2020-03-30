@@ -6,6 +6,7 @@ import com.dave.metalbushesmod.world.BushWorldGen;
 import com.google.common.eventbus.Subscribe;
 import net.minecraft.block.Block;
 import net.minecraft.block.Blocks;
+import net.minecraft.block.BushBlock;
 import net.minecraft.client.renderer.RenderType;
 import net.minecraft.client.renderer.RenderTypeLookup;
 import net.minecraft.item.BlockItem;
@@ -69,17 +70,21 @@ public class MetalBushesMod
     }
 
     private void doClientStuff(final FMLClientSetupEvent event) {
+        //Overworld
         RenderTypeLookup.setRenderLayer(BlockInit.XP_BUSH.get(), RenderType.getCutout());
         RenderTypeLookup.setRenderLayer(BlockInit.COAL_BUSH.get(), RenderType.getCutout());
         RenderTypeLookup.setRenderLayer(BlockInit.IRON_BUSH.get(), RenderType.getCutout());
         RenderTypeLookup.setRenderLayer(BlockInit.GOLD_BUSH.get(), RenderType.getCutout());
         RenderTypeLookup.setRenderLayer(BlockInit.REDSTONE_BUSH.get(), RenderType.getCutout());
         RenderTypeLookup.setRenderLayer(BlockInit.DIAMOND_BUSH.get(), RenderType.getCutout());
+        //Nether
+        RenderTypeLookup.setRenderLayer(BlockInit.NETHER_QUARTZ_BUSH.get(), RenderType.getCutout());
     }
 
     @SubscribeEvent
     public void loadCompleteEvent(FMLLoadCompleteEvent event) {
-        BushWorldGen.generateBushes();
+        BushWorldGen.generateBushesOverworld();
+        BushWorldGen.generateBushesNether();
     }
 
     public static class MetalBushesModItemGroup extends ItemGroup {

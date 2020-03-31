@@ -1,0 +1,6 @@
+{
+  "parent": "block/cross",
+  "textures": {
+    "cross": "metalbushesmod:blocks/tin_bush_stage3"
+  }
+}

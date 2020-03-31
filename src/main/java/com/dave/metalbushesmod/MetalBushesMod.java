@@ -3,10 +3,6 @@ package com.dave.metalbushesmod;
 import com.dave.metalbushesmod.Init.BlockInit;
 import com.dave.metalbushesmod.Init.ItemInit;
 import com.dave.metalbushesmod.world.BushWorldGen;
-import com.google.common.eventbus.Subscribe;
-import net.minecraft.block.Block;
-import net.minecraft.block.Blocks;
-import net.minecraft.block.BushBlock;
 import net.minecraft.client.renderer.RenderType;
 import net.minecraft.client.renderer.RenderTypeLookup;
 import net.minecraft.item.BlockItem;
@@ -17,17 +13,14 @@ import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.event.RegistryEvent;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
-import net.minecraftforge.fml.InterModComms;
+import net.minecraftforge.fml.ModList;
 import net.minecraftforge.fml.RegistryObject;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.event.lifecycle.*;
-import net.minecraftforge.fml.event.server.FMLServerStartingEvent;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
 import net.minecraftforge.registries.IForgeRegistry;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
-
-import java.util.stream.Collectors;
 
 @Mod("metalbushesmod")
 @Mod.EventBusSubscriber(modid = MetalBushesMod.MODID, bus = Mod.EventBusSubscriber.Bus.MOD)
@@ -37,7 +30,11 @@ public class MetalBushesMod
     public static final String MODID = "metalbushesmod";
     public static MetalBushesMod instance;
 
+    public static boolean mekanismLoaded = false;
+
     public MetalBushesMod() {
+
+        mekanismLoaded = ModList.get().isLoaded("mekanism");
 
         final IEventBus modEventBus = FMLJavaModLoadingContext.get().getModEventBus();
         modEventBus.addListener(this::setup);
@@ -46,6 +43,13 @@ public class MetalBushesMod
 
         ItemInit.ITEMS.register(modEventBus);
         BlockInit.BLOCKS.register(modEventBus);
+
+        //Mekanism
+        if(mekanismLoaded == true) {
+            ItemInit.ITEMS_FOR_MEKANISM.register(modEventBus);
+            BlockInit.BLOCKS_FOR_MEKANISM.register(modEventBus);
+        }
+
 
         instance = this;
         MinecraftForge.EVENT_BUS.register(this);
@@ -61,6 +65,19 @@ public class MetalBushesMod
             blockItem.setRegistryName(block.getRegistryName());
             registry.register(blockItem);
         });
+
+        //Mekanism
+        if(mekanismLoaded == true) {
+            LOGGER.debug("Mekanism Loaded " + mekanismLoaded);
+
+            BlockInit.BLOCKS_FOR_MEKANISM.getEntries().stream().map(RegistryObject::get).forEach(block -> {
+                final Item.Properties properties = new Item.Properties().group(MetalBushesModItemGroup.instance);
+                final BlockItem blockItem = new BlockItem(block, properties);
+                blockItem.setRegistryName(block.getRegistryName());
+                registry.register(blockItem);
+            });
+
+        }
 
         LOGGER.debug("Registered BlockItems!");
     }
@@ -79,12 +96,24 @@ public class MetalBushesMod
         RenderTypeLookup.setRenderLayer(BlockInit.DIAMOND_BUSH.get(), RenderType.getCutout());
         //Nether
         RenderTypeLookup.setRenderLayer(BlockInit.NETHER_QUARTZ_BUSH.get(), RenderType.getCutout());
+
+        //Mekanism
+        if(mekanismLoaded == true) {
+            RenderTypeLookup.setRenderLayer(BlockInit.COPPER_BUSH.get(), RenderType.getCutout());
+            RenderTypeLookup.setRenderLayer(BlockInit.TIN_BUSH.get(), RenderType.getCutout());
+            RenderTypeLookup.setRenderLayer(BlockInit.OSMIUM_BUSH.get(), RenderType.getCutout());
+        }
     }
 
     @SubscribeEvent
     public void loadCompleteEvent(FMLLoadCompleteEvent event) {
         BushWorldGen.generateBushesOverworld();
         BushWorldGen.generateBushesNether();
+
+        //Mekanism
+        if(mekanismLoaded == true) {
+            BushWorldGen.generateBushesOverworldMekansim();
+        }
     }
 
     public static class MetalBushesModItemGroup extends ItemGroup {

@@ -53,6 +53,21 @@ public class BushWorldGen  {
         public static final BlockClusterFeatureConfig NETHER_QUARTZ_BUSH = (new BlockClusterFeatureConfig.Builder(
                 new SimpleBlockStateProvider(BlockInit.NETHER_QUARTZ_BUSH.get().getDefaultState()),
                 new SimpleBlockPlacer())).func_227316_a_(ImmutableSet.of(Blocks.NETHERRACK)).tries(1).build();
+
+        //Mekanism
+        public static final BlockClusterFeatureConfig COPPER_BUSH = (new BlockClusterFeatureConfig.Builder(
+                new SimpleBlockStateProvider(BlockInit.COPPER_BUSH.get().getDefaultState()),
+                new SimpleBlockPlacer())).func_227316_a_(ImmutableSet.of(Blocks.GRASS_BLOCK)).tries(1).build();
+
+        public static final BlockClusterFeatureConfig TIN_BUSH = (new BlockClusterFeatureConfig.Builder(
+                new SimpleBlockStateProvider(BlockInit.TIN_BUSH.get().getDefaultState()),
+                new SimpleBlockPlacer())).func_227316_a_(ImmutableSet.of(Blocks.GRASS_BLOCK)).tries(1).build();
+
+        public static final BlockClusterFeatureConfig OSMIUM_BUSH = (new BlockClusterFeatureConfig.Builder(
+                new SimpleBlockStateProvider(BlockInit.OSMIUM_BUSH.get().getDefaultState()),
+                new SimpleBlockPlacer())).func_227316_a_(ImmutableSet.of(Blocks.GRASS_BLOCK)).tries(1).build();
+
+
     }
 
 
@@ -103,4 +118,24 @@ public class BushWorldGen  {
         }
     }
 
+    //Mekanism
+    public static void generateBushesOverworldMekansim() {
+        for(Biome biome : ForgeRegistries.BIOMES) {
+
+            biome.addFeature(GenerationStage.Decoration.VEGETAL_DECORATION, Feature.FLOWER
+                    .withConfiguration(BiomeFeatures.COPPER_BUSH)
+                    .withPlacement(Placement.COUNT_EXTRA_HEIGHTMAP.configure(new AtSurfaceWithExtraConfig((int)0.4F, 0.1F, 1)))
+            );
+
+            biome.addFeature(GenerationStage.Decoration.VEGETAL_DECORATION, Feature.FLOWER
+                    .withConfiguration(BiomeFeatures.TIN_BUSH)
+                    .withPlacement(Placement.COUNT_EXTRA_HEIGHTMAP.configure(new AtSurfaceWithExtraConfig((int)0.4F, 0.1F, 1)))
+            );
+
+            biome.addFeature(GenerationStage.Decoration.VEGETAL_DECORATION, Feature.FLOWER
+                    .withConfiguration(BiomeFeatures.OSMIUM_BUSH)
+                    .withPlacement(Placement.COUNT_EXTRA_HEIGHTMAP.configure(new AtSurfaceWithExtraConfig((int)0.4F, 0.1F, 1)))
+            );
+        }
+    }
 }

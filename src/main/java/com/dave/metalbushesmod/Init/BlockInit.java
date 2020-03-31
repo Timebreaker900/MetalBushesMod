@@ -1,7 +1,10 @@
 package com.dave.metalbushesmod.Init;
 
 import com.dave.metalbushesmod.MetalBushesMod;
-import com.dave.metalbushesmod.objects.blocks.*;
+import com.dave.metalbushesmod.objects.blocks.mekanism.CopperBush;
+import com.dave.metalbushesmod.objects.blocks.mekanism.OsmiumBush;
+import com.dave.metalbushesmod.objects.blocks.mekanism.TinBush;
+import com.dave.metalbushesmod.objects.blocks.vanilla.*;
 import net.minecraft.block.Block;
 import net.minecraft.block.SoundType;
 import net.minecraft.block.material.Material;
@@ -12,6 +15,8 @@ import net.minecraftforge.registries.ForgeRegistries;
 public class BlockInit {
 
     public static final DeferredRegister<Block> BLOCKS = new DeferredRegister(ForgeRegistries.BLOCKS, MetalBushesMod.MODID);
+
+    public static final DeferredRegister<Block> BLOCKS_FOR_MEKANISM = new DeferredRegister(ForgeRegistries.BLOCKS, MetalBushesMod.MODID);
 
     public static final RegistryObject<ExperienceBush> XP_BUSH =  BLOCKS.register(
             "xp_bush", () -> new ExperienceBush(Block.Properties
@@ -74,6 +79,7 @@ public class BlockInit {
             )
     );
 
+
     public static final RegistryObject<NetherQuartzBush> NETHER_QUARTZ_BUSH =  BLOCKS.register(
             "nether_quartz_bush", () -> new NetherQuartzBush(Block.Properties
                     .create(Material.PLANTS)
@@ -84,4 +90,35 @@ public class BlockInit {
             )
     );
 
+
+    //Mekanism
+    public static final RegistryObject<CopperBush> COPPER_BUSH =  BLOCKS_FOR_MEKANISM.register(
+            "copper_bush", () -> new CopperBush(Block.Properties
+                    .create(Material.PLANTS)
+                    .hardnessAndResistance(0f)
+                    .doesNotBlockMovement()
+                    .tickRandomly()
+                    .sound(SoundType.PLANT)
+            )
+    );
+
+    public static final RegistryObject<TinBush> TIN_BUSH =  BLOCKS_FOR_MEKANISM.register(
+            "tin_bush", () -> new TinBush(Block.Properties
+                    .create(Material.PLANTS)
+                    .hardnessAndResistance(0f)
+                    .doesNotBlockMovement()
+                    .tickRandomly()
+                    .sound(SoundType.PLANT)
+            )
+    );
+
+    public static final RegistryObject<OsmiumBush> OSMIUM_BUSH =  BLOCKS_FOR_MEKANISM.register(
+            "osmium_bush", () -> new OsmiumBush(Block.Properties
+                    .create(Material.PLANTS)
+                    .hardnessAndResistance(0f)
+                    .doesNotBlockMovement()
+                    .tickRandomly()
+                    .sound(SoundType.PLANT)
+            )
+    );
 }

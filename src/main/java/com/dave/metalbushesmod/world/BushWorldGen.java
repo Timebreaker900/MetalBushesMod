@@ -108,14 +108,14 @@ public class BushWorldGen  {
 
     }
     public static void generateBushesNether() {
-        for(Biome biome : ForgeRegistries.BIOMES) {
+        /* for(Biome biome : ForgeRegistries.BIOMES) {
             if(biome == Biomes.NETHER) {
                 Biomes.NETHER.addFeature(GenerationStage.Decoration.VEGETAL_DECORATION, Feature.FLOWER
                         .withConfiguration(BiomeFeatures.NETHER_QUARTZ_BUSH)
                         .withPlacement(Placement.COUNT_HEIGHTMAP_DOUBLE.configure(new FrequencyConfig(30)))
                 );
             }
-        }
+        }*/
     }
 
     //Mekanism

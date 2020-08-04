@@ -8,9 +8,9 @@ import net.minecraftforge.registries.ForgeRegistries;
 
 public class ItemInit {
 
-    public static final DeferredRegister<Item> ITEMS = new DeferredRegister(ForgeRegistries.ITEMS, MetalBushesMod.MODID);
+    public static final DeferredRegister<Item> ITEMS = DeferredRegister.create(ForgeRegistries.ITEMS, MetalBushesMod.MODID);
 
-    public static final DeferredRegister<Item> ITEMS_FOR_MEKANISM = new DeferredRegister(ForgeRegistries.ITEMS, MetalBushesMod.MODID);
+    public static final DeferredRegister<Item> ITEMS_FOR_MEKANISM = DeferredRegister.create(ForgeRegistries.ITEMS, MetalBushesMod.MODID);
 
     public static final RegistryObject<Item> BUSH_BASE = ITEMS.register(
             "bush_base", () -> new Item(

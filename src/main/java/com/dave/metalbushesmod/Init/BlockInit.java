@@ -14,9 +14,9 @@ import net.minecraftforge.registries.ForgeRegistries;
 
 public class BlockInit {
 
-    public static final DeferredRegister<Block> BLOCKS = new DeferredRegister(ForgeRegistries.BLOCKS, MetalBushesMod.MODID);
+    public static final DeferredRegister<Block> BLOCKS = DeferredRegister.create(ForgeRegistries.BLOCKS, MetalBushesMod.MODID);
 
-    public static final DeferredRegister<Block> BLOCKS_FOR_MEKANISM = new DeferredRegister(ForgeRegistries.BLOCKS, MetalBushesMod.MODID);
+    public static final DeferredRegister<Block> BLOCKS_FOR_MEKANISM = DeferredRegister.create(ForgeRegistries.BLOCKS, MetalBushesMod.MODID);
 
     public static final RegistryObject<ExperienceBush> XP_BUSH =  BLOCKS.register(
             "xp_bush", () -> new ExperienceBush(Block.Properties

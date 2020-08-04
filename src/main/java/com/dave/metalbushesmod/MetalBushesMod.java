@@ -30,11 +30,11 @@ public class MetalBushesMod
     public static final String MODID = "metalbushesmod";
     public static MetalBushesMod instance;
 
-    //public static boolean mekanismLoaded = false;
+    public static boolean mekanismLoaded = false;
 
     public MetalBushesMod() {
 
-        //mekanismLoaded = ModList.get().isLoaded("mekanism");
+        mekanismLoaded = ModList.get().isLoaded("mekanism");
 
         final IEventBus modEventBus = FMLJavaModLoadingContext.get().getModEventBus();
         modEventBus.addListener(this::setup);
@@ -45,10 +45,10 @@ public class MetalBushesMod
         BlockInit.BLOCKS.register(modEventBus);
 
         //Mekanism
-        /* if(mekanismLoaded == true) {
+        if(mekanismLoaded == true) {
             ItemInit.ITEMS_FOR_MEKANISM.register(modEventBus);
             BlockInit.BLOCKS_FOR_MEKANISM.register(modEventBus);
-        } */
+        }
 
 
         instance = this;
@@ -67,7 +67,7 @@ public class MetalBushesMod
         });
 
         //Mekanism
-        /* if(mekanismLoaded == true) {
+        if(mekanismLoaded == true) {
             LOGGER.debug("Mekanism Loaded " + mekanismLoaded);
 
             BlockInit.BLOCKS_FOR_MEKANISM.getEntries().stream().map(RegistryObject::get).forEach(block -> {
@@ -77,7 +77,7 @@ public class MetalBushesMod
                 registry.register(blockItem);
             });
 
-        } */
+        }
 
         LOGGER.debug("Registered BlockItems!");
     }
@@ -98,11 +98,11 @@ public class MetalBushesMod
         RenderTypeLookup.setRenderLayer(BlockInit.NETHER_QUARTZ_BUSH.get(), RenderType.getCutout());
 
         //Mekanism
-        /* if(mekanismLoaded == true) {
+        if(mekanismLoaded == true) {
             RenderTypeLookup.setRenderLayer(BlockInit.COPPER_BUSH.get(), RenderType.getCutout());
             RenderTypeLookup.setRenderLayer(BlockInit.TIN_BUSH.get(), RenderType.getCutout());
             RenderTypeLookup.setRenderLayer(BlockInit.OSMIUM_BUSH.get(), RenderType.getCutout());
-        } */
+        }
     }
 
     @SubscribeEvent
@@ -111,9 +111,9 @@ public class MetalBushesMod
         BushWorldGen.generateBushesNether();
 
         //Mekanism
-        /* if(mekanismLoaded == true) {
+        if(mekanismLoaded == true) {
             BushWorldGen.generateBushesOverworldMekansim();
-        } */
+        }
     }
 
     public static class MetalBushesModItemGroup extends ItemGroup {

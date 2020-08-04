@@ -10,7 +10,7 @@
       "item": "metalbushesmod:bush_base"
     },
     "I": {
-      "tag": "minecraft:diamond"
+      "tag": "forge:gems/diamond"
     },
     "G": {
       "item": "minecraft:diamond_block"

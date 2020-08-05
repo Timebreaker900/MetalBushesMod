@@ -1,6 +1,7 @@
 package com.dave.metalbushesmod.world;
 
 import com.dave.metalbushesmod.Init.BlockInit;
+import com.dave.metalbushesmod.util.WorldHelper;
 import com.google.common.collect.ImmutableSet;
 import net.minecraft.block.Blocks;
 import net.minecraft.client.audio.BiomeSoundHandler;
@@ -14,6 +15,7 @@ import net.minecraft.world.gen.blockstateprovider.SimpleBlockStateProvider;
 import net.minecraft.world.gen.feature.BlockClusterFeatureConfig;
 import net.minecraft.world.gen.feature.Feature;
 import net.minecraft.world.gen.placement.*;
+import net.minecraftforge.common.BiomeDictionary;
 import net.minecraftforge.registries.ForgeRegistries;
 
 public class BushWorldGen  {
@@ -112,13 +114,15 @@ public class BushWorldGen  {
     }
     public static void generateBushesNether() {
         for (Biome biome : ForgeRegistries.BIOMES) {
-            if (biome.getCategory() == Biome.Category.NETHER) {
+            //if (biome.getCategory() == Biome.Category.NETHER) {
+            if (WorldHelper.biomeHasType(biome, BiomeDictionary.Type.NETHER)) {
 
-                biome.addFeature(GenerationStage.Decoration.UNDERGROUND_DECORATION, Feature.FLOWER
+                biome.addFeature(GenerationStage.Decoration.VEGETAL_DECORATION, Feature.FLOWER
                         .withConfiguration(BiomeFeatures.NETHER_QUARTZ_BUSH)
-                        .withPlacement(Placement.COUNT_EXTRA_HEIGHTMAP.configure(new AtSurfaceWithExtraConfig((int)0.4F, 0.1F, 1)))
-                        //.withPlacement(Placement.COUNT_HEIGHTMAP.configure(new FrequencyConfig(30)))
+                        //.withPlacement(Placement.COUNT_EXTRA_HEIGHTMAP.configure(new AtSurfaceWithExtraConfig((int)0.4F, 0.1F, 1)))
+                        .withPlacement(Placement.COUNT_HEIGHTMAP.configure(new FrequencyConfig(30)))
                 );
+
             }
         }
 

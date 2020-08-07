@@ -3,11 +3,13 @@ package com.dave.metalbushesmod.world;
 import com.dave.metalbushesmod.Init.BlockInit;
 import com.dave.metalbushesmod.util.WorldHelper;
 import com.google.common.collect.ImmutableSet;
+import net.minecraft.block.BlockState;
 import net.minecraft.block.Blocks;
 import net.minecraft.client.audio.BiomeSoundHandler;
 import net.minecraft.client.world.DimensionRenderInfo;
 import net.minecraft.world.biome.Biome;
 import net.minecraft.world.biome.Biomes;
+import net.minecraft.world.biome.WarpedForestBiome;
 import net.minecraft.world.biome.provider.NetherBiomeProvider;
 import net.minecraft.world.gen.GenerationStage;
 import net.minecraft.world.gen.blockplacer.SimpleBlockPlacer;
@@ -51,7 +53,7 @@ public class BushWorldGen  {
         //Nether
         public static final BlockClusterFeatureConfig NETHER_QUARTZ_BUSH = (new BlockClusterFeatureConfig.Builder(
                 new SimpleBlockStateProvider(BlockInit.NETHER_QUARTZ_BUSH.get().getDefaultState()),
-                new SimpleBlockPlacer())).whitelist(ImmutableSet.of(Blocks.NETHERRACK)).tries(1).build();
+                new SimpleBlockPlacer())).whitelist(ImmutableSet.of(Blocks.NETHERRACK)).tries(50).build();
 
 
 
@@ -115,12 +117,12 @@ public class BushWorldGen  {
     public static void generateBushesNether() {
         for (Biome biome : ForgeRegistries.BIOMES) {
             //if (biome.getCategory() == Biome.Category.NETHER) {
-            if (WorldHelper.biomeHasType(biome, BiomeDictionary.Type.NETHER)) {
-
-                biome.addFeature(GenerationStage.Decoration.VEGETAL_DECORATION, Feature.FLOWER
+            //if (WorldHelper.biomeHasType(biome, BiomeDictionary.Type.NETHER)) {
+            if (biome == Biomes.NETHER_WASTES) {
+                biome.addFeature(GenerationStage.Decoration.VEGETAL_DECORATION, Feature.RANDOM_PATCH//Feature.field_236282_M_
                         .withConfiguration(BiomeFeatures.NETHER_QUARTZ_BUSH)
-                        //.withPlacement(Placement.COUNT_EXTRA_HEIGHTMAP.configure(new AtSurfaceWithExtraConfig((int)0.4F, 0.1F, 1)))
-                        .withPlacement(Placement.COUNT_HEIGHTMAP.configure(new FrequencyConfig(30)))
+                        .withPlacement(Placement.CHANCE_HEIGHTMAP_DOUBLE.configure(new ChanceConfig(12)))
+                        //.withPlacement(Placement.COUNT_HEIGHTMAP.configure(new FrequencyConfig(30)))
                 );
 
             }

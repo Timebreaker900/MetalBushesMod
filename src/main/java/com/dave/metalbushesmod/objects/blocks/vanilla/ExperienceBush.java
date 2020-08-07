@@ -6,7 +6,6 @@ import net.minecraft.block.SweetBerryBushBlock;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.item.ExperienceOrbEntity;
 import net.minecraft.entity.player.PlayerEntity;
-import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.Items;
 import net.minecraft.util.ActionResultType;
@@ -29,11 +28,10 @@ public class ExperienceBush extends SweetBerryBushBlock {
 
     @Override
     public ItemStack getItem(IBlockReader worldIn, BlockPos pos, BlockState state) {
-        //return null;
         return new ItemStack(BlockInit.XP_BUSH.get());
     }
 
-    @Override
+   @Override
     public ActionResultType onBlockActivated(BlockState state, World worldIn, BlockPos pos, PlayerEntity player, Hand handIn, BlockRayTraceResult hit) {
         int i = state.get(AGE);
         boolean flag = i == 3;
@@ -48,6 +46,7 @@ public class ExperienceBush extends SweetBerryBushBlock {
             return super.onBlockActivated(state, worldIn, pos, player, handIn, hit);
         }
     }
+
 
     @Override
     public void onEntityCollision(BlockState state, World worldIn, BlockPos pos, Entity entityIn) {

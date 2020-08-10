@@ -118,14 +118,14 @@ public class BushWorldGen  {
         for (Biome biome : ForgeRegistries.BIOMES) {
             //if (biome.getCategory() == Biome.Category.NETHER) {
             //if (WorldHelper.biomeHasType(biome, BiomeDictionary.Type.NETHER)) {
-            if (biome == Biomes.NETHER_WASTES) {
+            //if (biome == Biomes.NETHER_WASTES) {
                 biome.addFeature(GenerationStage.Decoration.VEGETAL_DECORATION, Feature.RANDOM_PATCH//Feature.field_236282_M_
                         .withConfiguration(BiomeFeatures.NETHER_QUARTZ_BUSH)
                         .withPlacement(Placement.CHANCE_HEIGHTMAP_DOUBLE.configure(new ChanceConfig(12)))
                         //.withPlacement(Placement.COUNT_HEIGHTMAP.configure(new FrequencyConfig(30)))
                 );
 
-            }
+            //}
         }
 
     }

@@ -1,24 +1,18 @@
 package com.dave.metalbushesmod.world;
 
 import com.dave.metalbushesmod.Init.BlockInit;
-import com.dave.metalbushesmod.config.MetalBushesConfig;
-import com.dave.metalbushesmod.util.WorldHelper;
 import com.google.common.collect.ImmutableSet;
-import net.minecraft.block.BlockState;
 import net.minecraft.block.Blocks;
-import net.minecraft.client.audio.BiomeSoundHandler;
-import net.minecraft.client.world.DimensionRenderInfo;
 import net.minecraft.world.biome.Biome;
 import net.minecraft.world.biome.Biomes;
-import net.minecraft.world.biome.WarpedForestBiome;
-import net.minecraft.world.biome.provider.NetherBiomeProvider;
 import net.minecraft.world.gen.GenerationStage;
 import net.minecraft.world.gen.blockplacer.SimpleBlockPlacer;
 import net.minecraft.world.gen.blockstateprovider.SimpleBlockStateProvider;
+import net.minecraft.world.gen.blockstateprovider.WeightedBlockStateProvider;
 import net.minecraft.world.gen.feature.BlockClusterFeatureConfig;
+import net.minecraft.world.gen.feature.BlockStateProvidingFeatureConfig;
 import net.minecraft.world.gen.feature.Feature;
 import net.minecraft.world.gen.placement.*;
-import net.minecraftforge.common.BiomeDictionary;
 import net.minecraftforge.registries.ForgeRegistries;
 
 public class BushWorldGen  {
@@ -52,12 +46,8 @@ public class BushWorldGen  {
                 new SimpleBlockPlacer())).whitelist(ImmutableSet.of(Blocks.GRASS_BLOCK)).tries(1).build();
 
         //Nether
-        public static final BlockClusterFeatureConfig NETHER_QUARTZ_BUSH = (new BlockClusterFeatureConfig.Builder(
-                new SimpleBlockStateProvider(BlockInit.NETHER_QUARTZ_BUSH.get().getDefaultState()),
-                new SimpleBlockPlacer())).whitelist(ImmutableSet.of(Blocks.NETHERRACK)).tries(50).build();
-
-
-
+        public static final BlockStateProvidingFeatureConfig NETHER_QUARTZ_BUSH = new BlockStateProvidingFeatureConfig(
+                new SimpleBlockStateProvider(BlockInit.NETHER_QUARTZ_BUSH.get().getDefaultState()));
 
     }
 
@@ -115,17 +105,17 @@ public class BushWorldGen  {
         }
 
     }
+
     public static void generateBushesNether() {
         for (Biome biome : ForgeRegistries.BIOMES) {
             //if (biome.getCategory() == Biome.Category.NETHER) {
             //if (WorldHelper.biomeHasType(biome, BiomeDictionary.Type.NETHER)) {
-            if (biome == Biomes.NETHER_WASTES) {
-                biome.addFeature(GenerationStage.Decoration.VEGETAL_DECORATION, Feature.RANDOM_PATCH//Feature.field_236282_M_
+            //if (biome == Biomes.NETHER_WASTES) {
+                biome.addFeature(GenerationStage.Decoration.VEGETAL_DECORATION, Feature.field_236282_M_
                         .withConfiguration(BiomeFeatures.NETHER_QUARTZ_BUSH)
-                        //.withPlacement(Placement.CHANCE_HEIGHTMAP_DOUBLE.configure(new ChanceConfig(12)))
-                        .withPlacement(Placement.COUNT_HEIGHTMAP.configure(new FrequencyConfig(30)))
+                        .withPlacement(Placement.COUNT_HEIGHTMAP.configure(new FrequencyConfig(1)))
                 );
-            }
+            //}
         }
 
     }

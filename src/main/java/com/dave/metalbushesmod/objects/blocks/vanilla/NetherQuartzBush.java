@@ -20,7 +20,7 @@ public class NetherQuartzBush extends SweetBerryBushBlock {
         super(properties);
     }
 
-    @Override
+    /* @Override
     public boolean isValidPosition(BlockState state, IWorldReader worldIn, BlockPos pos) {
         BlockState blockstate = worldIn.getBlockState(pos.down());
         Block block = blockstate.getBlock();
@@ -42,7 +42,7 @@ public class NetherQuartzBush extends SweetBerryBushBlock {
         } else {
             return true;
         }
-    }
+    } */
 
     @Override
     protected boolean isValidGround(BlockState state, IBlockReader worldIn, BlockPos pos) {

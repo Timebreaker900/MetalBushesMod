@@ -10,7 +10,7 @@ import java.io.File;
 
 @Mod.EventBusSubscriber
 public class Config {
-    private static final ForgeConfigSpec.Builder builder = new ForgeConfigSpec.Builder();
+    /* private static final ForgeConfigSpec.Builder builder = new ForgeConfigSpec.Builder();
     public static final ForgeConfigSpec config;
 
     static {
@@ -27,5 +27,5 @@ public class Config {
         file.load();
         MetalBushesMod.LOGGER.info("Loaded Config: " + path);
         config.setConfig(file);
-    }
+    } */
 }

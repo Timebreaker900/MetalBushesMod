@@ -39,10 +39,10 @@ public class MetalBushesMod
 
     public MetalBushesMod() {
 
-        ModLoadingContext.get().registerConfig(ModConfig.Type.SERVER, Config.config);
-        Config.loadConfig(Config.config, FMLPaths.CONFIGDIR.get().resolve("metalbushes.toml").toString());
+        /* ModLoadingContext.get().registerConfig(ModConfig.Type.SERVER, Config.config);
+        Config.loadConfig(Config.config, FMLPaths.CONFIGDIR.get().resolve("metalbushes.toml").toString()); */
 
-        LOGGER.debug("ConfigOutput: " +MetalBushesConfig.mekanism_support.get());
+        //LOGGER.debug("ConfigOutput: " +MetalBushesConfig.mekanism_support.get());
 
         mekanismLoaded = ModList.get().isLoaded("mekanism");
 
@@ -55,10 +55,12 @@ public class MetalBushesMod
         BlockInit.BLOCKS.register(modEventBus);
 
         //Mekanism
-        if(mekanismLoaded == true) {
-            ItemInit.ITEMS_FOR_MEKANISM.register(modEventBus);
-            BlockInit.BLOCKS_FOR_MEKANISM.register(modEventBus);
-        }
+        //if (MetalBushesConfig.mekanism_support.get() == true) {
+            if (mekanismLoaded == true) {
+                ItemInit.ITEMS_FOR_MEKANISM.register(modEventBus);
+                BlockInit.BLOCKS_FOR_MEKANISM.register(modEventBus);
+            }
+        //}
 
         instance = this;
         MinecraftForge.EVENT_BUS.register(this);
@@ -76,17 +78,18 @@ public class MetalBushesMod
         });
 
         //Mekanism
-        if (mekanismLoaded == true) {
-            LOGGER.debug("Mekanism Loaded " + mekanismLoaded);
+        //if (MetalBushesConfig.mekanism_support.get() == true) {
+            if (mekanismLoaded == true) {
+                LOGGER.debug("Mekanism Loaded " + mekanismLoaded);
 
-            BlockInit.BLOCKS_FOR_MEKANISM.getEntries().stream().map(RegistryObject::get).forEach(block -> {
-                final Item.Properties properties = new Item.Properties().group(MetalBushesModItemGroup.instance);
-                final BlockItem blockItem = new BlockItem(block, properties);
-                blockItem.setRegistryName(block.getRegistryName());
-                registry.register(blockItem);
-            });
-
-        }
+                BlockInit.BLOCKS_FOR_MEKANISM.getEntries().stream().map(RegistryObject::get).forEach(block -> {
+                    final Item.Properties properties = new Item.Properties().group(MetalBushesModItemGroup.instance);
+                    final BlockItem blockItem = new BlockItem(block, properties);
+                    blockItem.setRegistryName(block.getRegistryName());
+                    registry.register(blockItem);
+                });
+            }
+        //}
 
         LOGGER.debug("Registered BlockItems!");
     }
@@ -107,26 +110,30 @@ public class MetalBushesMod
         RenderTypeLookup.setRenderLayer(BlockInit.NETHER_QUARTZ_BUSH.get(), RenderType.getCutout());
 
         //Mekanism
-        if (mekanismLoaded == true) {
-            RenderTypeLookup.setRenderLayer(BlockInit.COPPER_BUSH.get(), RenderType.getCutout());
-            RenderTypeLookup.setRenderLayer(BlockInit.TIN_BUSH.get(), RenderType.getCutout());
-            RenderTypeLookup.setRenderLayer(BlockInit.OSMIUM_BUSH.get(), RenderType.getCutout());
-        }
+        //if (MetalBushesConfig.mekanism_support.get() == true) {
+            if (mekanismLoaded == true) {
+                RenderTypeLookup.setRenderLayer(BlockInit.COPPER_BUSH.get(), RenderType.getCutout());
+                RenderTypeLookup.setRenderLayer(BlockInit.TIN_BUSH.get(), RenderType.getCutout());
+                RenderTypeLookup.setRenderLayer(BlockInit.OSMIUM_BUSH.get(), RenderType.getCutout());
+            }
+        //}
     }
 
 
 
     @SubscribeEvent
     public void loadCompleteEvent (FMLLoadCompleteEvent event){
-        if(MetalBushesConfig.globalBushGen.get() == true){
+        //if(MetalBushesConfig.globalBushGen.get() == true){
             BushWorldGen.generateBushesOverworld();
             BushWorldGen.generateBushesNether();
 
             //Mekanism
-            if (mekanismLoaded == true) {
-                BushWorldGen.generateBushesOverworldMekansim();
-            }
-        }
+            //if (MetalBushesConfig.mekanism_support.get() == true) {
+                if (mekanismLoaded == true) {
+                    BushWorldGen.generateBushesOverworldMekansim();
+                }
+            //}
+        //}
     }
 
 

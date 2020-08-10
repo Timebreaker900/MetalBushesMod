@@ -15,6 +15,6 @@ public class MetalBushesConfig {
                 .define("globalBushGen.globalBushGen", true);
 
         mekanism_support = config
-                .define("otherModSupport.mekanism_support", true);
+                .define("otherModSupport.mekanism_support", false);
     }
 }

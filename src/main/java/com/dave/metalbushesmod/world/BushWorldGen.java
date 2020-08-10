@@ -1,6 +1,7 @@
 package com.dave.metalbushesmod.world;
 
 import com.dave.metalbushesmod.Init.BlockInit;
+import com.dave.metalbushesmod.config.MetalBushesConfig;
 import com.dave.metalbushesmod.util.WorldHelper;
 import com.google.common.collect.ImmutableSet;
 import net.minecraft.block.BlockState;
@@ -118,7 +119,7 @@ public class BushWorldGen  {
         for (Biome biome : ForgeRegistries.BIOMES) {
             //if (biome.getCategory() == Biome.Category.NETHER) {
             //if (WorldHelper.biomeHasType(biome, BiomeDictionary.Type.NETHER)) {
-            if (biome.getCategory() == Biome.Category.NETHER) {
+            if (biome == Biomes.NETHER_WASTES) {
                 biome.addFeature(GenerationStage.Decoration.VEGETAL_DECORATION, Feature.RANDOM_PATCH//Feature.field_236282_M_
                         .withConfiguration(BiomeFeatures.NETHER_QUARTZ_BUSH)
                         //.withPlacement(Placement.CHANCE_HEIGHTMAP_DOUBLE.configure(new ChanceConfig(12)))
@@ -131,7 +132,7 @@ public class BushWorldGen  {
 
     //Mekanism
     public static void generateBushesOverworldMekansim() {
-        for(Biome biome : ForgeRegistries.BIOMES) {
+        for (Biome biome : ForgeRegistries.BIOMES) {
 
             biome.addFeature(GenerationStage.Decoration.VEGETAL_DECORATION, Feature.FLOWER
                     .withConfiguration(BiomeFeaturesMekanism.COPPER_BUSH)
@@ -151,5 +152,6 @@ public class BushWorldGen  {
                     .withPlacement(Placement.COUNT_HEIGHTMAP_DOUBLE.configure(new FrequencyConfig(1)))
             );
         }
+
     }
 }

@@ -2,6 +2,7 @@ buildscript {
     repositories {
         maven { url =  'https://files.minecraftforge.net/maven' }
         maven { url = "https://plugins.gradle.org/m2/" }
+        maven { url = 'https://modmaven.k-4u.nl/' }
         jcenter()
         mavenCentral()
     }
@@ -98,10 +99,15 @@ dependencies {
 
     compileOnly fg.deobf("mezz.jei:jei-${mc_version}:${jei_version}:api")
     runtimeOnly fg.deobf("mezz.jei:jei-${mc_version}:${jei_version}")
-    //compile fg.deobf("curse.maven:mekanism:2913421")
+    compile fg.deobf("curse.maven:mekanism:3022330")
 
     compileOnly fg.deobf("mcjty.theoneprobe:TheOneProbe-1.16:${top_version}:api")
     runtimeOnly fg.deobf("mcjty.theoneprobe:TheOneProbe-1.16:${top_version}")
+
+    //Mekanism
+    //compileOnly "mekanism:Mekanism:${mekanism_version}:api"
+    //runtimeOnly fg.deobf("mekanism:Mekanism:${mekanism_version}")// core
+    //runtimeOnly fg.deobf("mekanism:Mekanism:${mekanism_version}:generators")// Mekanism: Generators
 }
 
 jar {

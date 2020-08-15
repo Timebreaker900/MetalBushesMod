@@ -95,14 +95,14 @@ minecraft {
 
 dependencies {
 
-    minecraft 'net.minecraftforge:forge:1.16.1-32.0.106'
+    minecraft 'net.minecraftforge:forge:1.16.2-33.0.5'
 
-    compileOnly fg.deobf("mezz.jei:jei-${mc_version}:${jei_version}:api")
+    /* compileOnly fg.deobf("mezz.jei:jei-${mc_version}:${jei_version}:api")
     runtimeOnly fg.deobf("mezz.jei:jei-${mc_version}:${jei_version}")
     compile fg.deobf("curse.maven:mekanism:3022330")
 
     compileOnly fg.deobf("mcjty.theoneprobe:TheOneProbe-1.16:${top_version}:api")
-    runtimeOnly fg.deobf("mcjty.theoneprobe:TheOneProbe-1.16:${top_version}")
+    runtimeOnly fg.deobf("mcjty.theoneprobe:TheOneProbe-1.16:${top_version}") */
 
     //Mekanism
     //compileOnly "mekanism:Mekanism:${mekanism_version}:api"

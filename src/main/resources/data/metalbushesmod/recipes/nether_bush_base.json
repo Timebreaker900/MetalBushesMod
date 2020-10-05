@@ -1,0 +1,20 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "GGG",
+    "GSG",
+    "GGG"
+  ],
+  "key": {
+    "G": {
+      "item": "minecraft:netherrack"
+    },
+    "S": {
+      "item": "metalbushesmod:bush_base"
+    }
+  },
+  "result": {
+    "item": "metalbushesmod:nether_bush_base"
+  }
+
+}

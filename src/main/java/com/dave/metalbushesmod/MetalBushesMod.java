@@ -36,6 +36,7 @@ public class MetalBushesMod
     public static MetalBushesMod instance;
 
     public static boolean mekanismLoaded = false;
+    //public static boolean immersiveEngineering = false;
 
     public MetalBushesMod() {
 
@@ -45,6 +46,7 @@ public class MetalBushesMod
         //LOGGER.debug("ConfigOutput: " +MetalBushesConfig.mekanism_support.get());
 
         mekanismLoaded = ModList.get().isLoaded("mekanism");
+        //immersiveEngineering = ModList.get().isLoaded("immersiveengineering");
 
         final IEventBus modEventBus = FMLJavaModLoadingContext.get().getModEventBus();
         modEventBus.addListener(this::setup);
@@ -53,6 +55,9 @@ public class MetalBushesMod
 
         ItemInit.ITEMS.register(modEventBus);
         BlockInit.BLOCKS.register(modEventBus);
+
+        LOGGER.debug("Mekanism Loaded " + mekanismLoaded);
+        //LOGGER.debug("Immersive Engineering Loaded " + immersiveEngineering);
 
         //Mekanism
         //if (MetalBushesConfig.mekanism_support.get() == true) {

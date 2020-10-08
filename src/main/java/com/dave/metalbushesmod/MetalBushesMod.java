@@ -82,7 +82,7 @@ public class MetalBushesMod
                     registry.register(blockItem);
                 });
             } */
-        //}
+        //}w
 
         LOGGER.debug("Registered BlockItems!");
     }
@@ -117,8 +117,8 @@ public class MetalBushesMod
     @SubscribeEvent
     public void loadCompleteEvent (FMLLoadCompleteEvent event){
         //if(MetalBushesConfig.globalBushGen.get() == true){
-            BushWorldGen.initBushes();
-            BushWorldGen.setupBushes();
+            //BushWorldGen.initBushes();
+            //BushWorldGen.setupBushes();
             //BushWorldGen.generateBushesNether();
 
             //Mekanism

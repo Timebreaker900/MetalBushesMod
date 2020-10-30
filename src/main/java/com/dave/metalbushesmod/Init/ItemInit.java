@@ -27,7 +27,7 @@ public class ItemInit {
 
 
     //Mekanism
-    /* public static final RegistryObject<Item> COPPER_NUGGET = ITEMS_FOR_MEKANISM.register(
+    public static final RegistryObject<Item> COPPER_NUGGET = ITEMS_FOR_MEKANISM.register(
             "copper_nugget", () -> new Item(
                     new Item.Properties().group(MetalBushesMod.MetalBushesModItemGroup.instance)));
 
@@ -37,5 +37,5 @@ public class ItemInit {
 
     public static final RegistryObject<Item> OSMIUM_NUGGET = ITEMS_FOR_MEKANISM.register(
             "osmium_nugget", () -> new Item(
-                    new Item.Properties().group(MetalBushesMod.MetalBushesModItemGroup.instance))); */
+                    new Item.Properties().group(MetalBushesMod.MetalBushesModItemGroup.instance)));
 }

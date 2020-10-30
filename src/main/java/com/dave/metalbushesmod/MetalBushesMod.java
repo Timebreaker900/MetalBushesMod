@@ -11,6 +11,8 @@ import net.minecraft.item.ItemGroup;
 import net.minecraft.item.ItemStack;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.event.RegistryEvent;
+import net.minecraftforge.event.world.BiomeLoadingEvent;
+import net.minecraftforge.eventbus.api.Event;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.ModList;
@@ -25,6 +27,8 @@ import net.minecraftforge.registries.IForgeRegistry;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
+import java.util.logging.ConsoleHandler;
+
 @Mod("metalbushesmod")
 @Mod.EventBusSubscriber(modid = MetalBushesMod.MODID, bus = Mod.EventBusSubscriber.Bus.MOD)
 public class MetalBushesMod
@@ -38,11 +42,13 @@ public class MetalBushesMod
     public MetalBushesMod() {
 
         mekanismLoaded = ModList.get().isLoaded("mekanism");
+        LOGGER.debug("mekanismLoaded: " + mekanismLoaded);
 
         final IEventBus modEventBus = FMLJavaModLoadingContext.get().getModEventBus();
         modEventBus.addListener(this::setup);
         modEventBus.addListener(this::doClientStuff);
         modEventBus.addListener(this::loadCompleteEvent);
+        //MinecraftForge.EVENT_BUS.addListener(BushWorldGen::addFeaturesToBiomes);
 
         ItemInit.ITEMS.register(modEventBus);
         BlockInit.BLOCKS.register(modEventBus);
@@ -57,6 +63,11 @@ public class MetalBushesMod
 
         instance = this;
         MinecraftForge.EVENT_BUS.register(this);
+    }
+
+    private void loadCompleteEvent(final FMLClientSetupEvent event) {
+
+        MinecraftForge.EVENT_BUS.addListener(BushWorldGen::addFeaturesToBiomes);
     }
 
     @SubscribeEvent
@@ -82,7 +93,7 @@ public class MetalBushesMod
                     registry.register(blockItem);
                 });
             } */
-        //}w
+        //}
 
         LOGGER.debug("Registered BlockItems!");
     }
@@ -109,24 +120,6 @@ public class MetalBushesMod
                 RenderTypeLookup.setRenderLayer(BlockInit.TIN_BUSH.get(), RenderType.getCutout());
                 RenderTypeLookup.setRenderLayer(BlockInit.OSMIUM_BUSH.get(), RenderType.getCutout());
             } */
-        //}
-    }
-
-
-
-    @SubscribeEvent
-    public void loadCompleteEvent (FMLLoadCompleteEvent event){
-        //if(MetalBushesConfig.globalBushGen.get() == true){
-            //BushWorldGen.initBushes();
-            //BushWorldGen.setupBushes();
-            //BushWorldGen.generateBushesNether();
-
-            //Mekanism
-            //if (MetalBushesConfig.mekanism_support.get() == true) {
-                /* if (mekanismLoaded == true) {
-                    BushWorldGen.generateBushesOverworldMekansim();
-                } */
-            //}
         //}
     }
 

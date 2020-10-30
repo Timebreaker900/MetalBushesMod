@@ -1,6 +1,9 @@
 package com.dave.metalbushesmod.Init;
 
 import com.dave.metalbushesmod.MetalBushesMod;
+import com.dave.metalbushesmod.objects.blocks.mekanism.CopperBush;
+import com.dave.metalbushesmod.objects.blocks.mekanism.OsmiumBush;
+import com.dave.metalbushesmod.objects.blocks.mekanism.TinBush;
 import com.dave.metalbushesmod.objects.blocks.vanilla.*;
 import net.minecraft.block.AbstractBlock;
 import net.minecraft.block.Block;
@@ -14,7 +17,7 @@ public class BlockInit {
 
     public static final DeferredRegister<Block> BLOCKS = DeferredRegister.create(ForgeRegistries.BLOCKS, MetalBushesMod.MODID);
 
-    //public static final DeferredRegister<Block> BLOCKS_FOR_MEKANISM = DeferredRegister.create(ForgeRegistries.BLOCKS, MetalBushesMod.MODID);
+    public static final DeferredRegister<Block> BLOCKS_FOR_MEKANISM = DeferredRegister.create(ForgeRegistries.BLOCKS, MetalBushesMod.MODID);
 
     public static final RegistryObject<ExperienceBush> XP_BUSH =  BLOCKS.register(
             "xp_bush", () -> new ExperienceBush(AbstractBlock.Properties
@@ -90,7 +93,7 @@ public class BlockInit {
 
 
     //Mekanism
-    /* public static final RegistryObject<CopperBush> COPPER_BUSH =  BLOCKS_FOR_MEKANISM.register(
+    public static final RegistryObject<CopperBush> COPPER_BUSH =  BLOCKS_FOR_MEKANISM.register(
             "copper_bush", () -> new CopperBush(AbstractBlock.Properties
                     .create(Material.PLANTS)
                     .hardnessAndResistance(0f)
@@ -118,5 +121,5 @@ public class BlockInit {
                     .tickRandomly()
                     .sound(SoundType.PLANT)
             )
-    ); */
+    );
 }

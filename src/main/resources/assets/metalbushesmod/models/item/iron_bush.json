@@ -1,3 +1,6 @@
 {
-  "parent": "metalbushesmod:block/iron_bush_stage3"
+  "parent": "item/generated",
+  "textures": {
+    "layer0": "metalbushesmod:items/iron_bush"
+  }
 }

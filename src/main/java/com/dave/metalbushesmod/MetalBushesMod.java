@@ -45,21 +45,24 @@ public class MetalBushesMod
         LOGGER.debug("mekanismLoaded: " + mekanismLoaded);
 
         final IEventBus modEventBus = FMLJavaModLoadingContext.get().getModEventBus();
-        modEventBus.addListener(this::setup);
         modEventBus.addListener(this::doClientStuff);
-        modEventBus.addListener(this::loadCompleteEvent);
+
         //MinecraftForge.EVENT_BUS.addListener(BushWorldGen::addFeaturesToBiomes);
 
         ItemInit.ITEMS.register(modEventBus);
         BlockInit.BLOCKS.register(modEventBus);
 
+
+
         //Mekanism
         //if (MetalBushesConfig.mekanism_support.get() == true) {
-            /* if (mekanismLoaded == true) {
+            if (mekanismLoaded == true) {
                 ItemInit.ITEMS_FOR_MEKANISM.register(modEventBus);
                 BlockInit.BLOCKS_FOR_MEKANISM.register(modEventBus);
-            } */
+            }
         //}
+
+        modEventBus.addListener(this::loadCompleteEvent);
 
         instance = this;
         MinecraftForge.EVENT_BUS.register(this);
@@ -83,7 +86,7 @@ public class MetalBushesMod
 
         //Mekanism
         //if (MetalBushesConfig.mekanism_support.get() == true) {
-            /* if (mekanismLoaded == true) {
+            if (mekanismLoaded == true) {
                 LOGGER.debug("Mekanism Loaded " + mekanismLoaded);
 
                 BlockInit.BLOCKS_FOR_MEKANISM.getEntries().stream().map(RegistryObject::get).forEach(block -> {
@@ -92,14 +95,10 @@ public class MetalBushesMod
                     blockItem.setRegistryName(block.getRegistryName());
                     registry.register(blockItem);
                 });
-            } */
+            }
         //}
 
         LOGGER.debug("Registered BlockItems!");
-    }
-
-    private void setup(final FMLCommonSetupEvent event) {
-
     }
 
     private void doClientStuff(final FMLClientSetupEvent event) {
@@ -115,11 +114,11 @@ public class MetalBushesMod
 
         //Mekanism
         //if (MetalBushesConfig.mekanism_support.get() == true) {
-            /* if (mekanismLoaded == true) {
+            if (mekanismLoaded == true) {
                 RenderTypeLookup.setRenderLayer(BlockInit.COPPER_BUSH.get(), RenderType.getCutout());
                 RenderTypeLookup.setRenderLayer(BlockInit.TIN_BUSH.get(), RenderType.getCutout());
                 RenderTypeLookup.setRenderLayer(BlockInit.OSMIUM_BUSH.get(), RenderType.getCutout());
-            } */
+            }
         //}
     }
 

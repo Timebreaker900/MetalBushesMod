@@ -22,27 +22,51 @@ public class FeatureConfigs {
     //Vanilla
     public static final BlockClusterFeatureConfig XP_BUSH = (new BlockClusterFeatureConfig.Builder(
             new SimpleBlockStateProvider(BlockInit.XP_BUSH.get().getDefaultState()),
-            new SimpleBlockPlacer())).whitelist(ImmutableSet.of(Blocks.GRASS_BLOCK)).tries(1).build();
+            new SimpleBlockPlacer())).whitelist(ImmutableSet.of(Blocks.GRASS_BLOCK))
+            .tries(1)
+            .xSpread(25)
+            .ySpread(25)
+            .build();
 
     public static final BlockClusterFeatureConfig COAL_BUSH = (new BlockClusterFeatureConfig.Builder(
             new SimpleBlockStateProvider(BlockInit.COAL_BUSH.get().getDefaultState()),
-            new SimpleBlockPlacer())).whitelist(ImmutableSet.of(Blocks.GRASS_BLOCK)).tries(1).build();
+            new SimpleBlockPlacer())).whitelist(ImmutableSet.of(Blocks.GRASS_BLOCK))
+            .tries(1)
+            .xSpread(25)
+            .ySpread(25)
+            .build();
 
     public static final BlockClusterFeatureConfig IRON_BUSH = (new BlockClusterFeatureConfig.Builder(
             new SimpleBlockStateProvider(BlockInit.IRON_BUSH.get().getDefaultState()),
-            new SimpleBlockPlacer())).whitelist(ImmutableSet.of(Blocks.GRASS_BLOCK)).tries(1).build();
+            new SimpleBlockPlacer())).whitelist(ImmutableSet.of(Blocks.GRASS_BLOCK))
+            .tries(1)
+            .xSpread(25)
+            .ySpread(25)
+            .build();
 
     public static final BlockClusterFeatureConfig GOLD_BUSH = (new BlockClusterFeatureConfig.Builder(
             new SimpleBlockStateProvider(BlockInit.GOLD_BUSH.get().getDefaultState()),
-            new SimpleBlockPlacer())).whitelist(ImmutableSet.of(Blocks.GRASS_BLOCK)).tries(1).build();
+            new SimpleBlockPlacer())).whitelist(ImmutableSet.of(Blocks.GRASS_BLOCK))
+            .tries(1)
+            .xSpread(25)
+            .ySpread(25)
+            .build();
 
     public static final BlockClusterFeatureConfig REDSTONE_BUSH = (new BlockClusterFeatureConfig.Builder(
             new SimpleBlockStateProvider(BlockInit.REDSTONE_BUSH.get().getDefaultState()),
-            new SimpleBlockPlacer())).whitelist(ImmutableSet.of(Blocks.GRASS_BLOCK)).tries(1).build();
+            new SimpleBlockPlacer())).whitelist(ImmutableSet.of(Blocks.GRASS_BLOCK))
+            .tries(1)
+            .xSpread(25)
+            .ySpread(25)
+            .build();
 
     public static final BlockClusterFeatureConfig DIAMOND_BUSH = (new BlockClusterFeatureConfig.Builder(
             new SimpleBlockStateProvider(BlockInit.DIAMOND_BUSH.get().getDefaultState()),
-            new SimpleBlockPlacer())).whitelist(ImmutableSet.of(Blocks.GRASS_BLOCK)).tries(1).build();
+            new SimpleBlockPlacer())).whitelist(ImmutableSet.of(Blocks.GRASS_BLOCK))
+            .tries(1)
+            .xSpread(25)
+            .ySpread(25)
+            .build();
 
 
     /*

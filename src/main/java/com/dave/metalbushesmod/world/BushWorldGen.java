@@ -31,6 +31,10 @@ public class BushWorldGen {
 
     private static void addBushToOverworld(BiomeLoadingEvent biome) {
 
+        if(biome.getCategory() == Biome.Category.PLAINS) {
+            
+        }
+
         //Overworld
         biome.getGeneration().withFeature(GenerationStage.Decoration.VEGETAL_DECORATION, FeatureConfigs.XP_BUSH_Configured);
         biome.getGeneration().withFeature(GenerationStage.Decoration.VEGETAL_DECORATION, FeatureConfigs.COAL_BUSH_Configured);

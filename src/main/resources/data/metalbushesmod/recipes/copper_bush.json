@@ -1,23 +1,38 @@
 {
-  "type": "minecraft:crafting_shaped",
-  "pattern": [
-    " I ",
-    "GBG",
-    " I "
-  ],
-  "key": {
-    "B": {
-      "item": "metalbushesmod:bush_base"
-    },
-    "I": {
-      "tag": "forge:ingots/copper"
-    },
-    "G": {
-      "tag": "forge:storage_blocks/copper"
+  "type": "forge:conditional",
+  "recipes": [
+    {
+      "conditions": [
+        {
+          "value": {
+            "tag": "forge:ingots/copper",
+            "type": "forge:tag_empty"
+          },
+          "type": "forge:not"
+        }
+      ],
+      "recipe": {
+        "type": "minecraft:crafting_shaped",
+        "pattern": [
+          " I ",
+          "GBG",
+          " I "
+        ],
+        "key": {
+          "B": {
+            "item": "metalbushesmod:bush_base"
+          },
+          "I": {
+            "tag": "forge:ingots/copper"
+          },
+          "G": {
+            "tag": "forge:storage_blocks/copper"
+          }
+        },
+        "result": {
+          "item": "metalbushesmod:copper_bush"
+        }
+      }
     }
-  },
-  "result": {
-    "item": "metalbushesmod:copper_bush"
-  }
-
+  ]
 }

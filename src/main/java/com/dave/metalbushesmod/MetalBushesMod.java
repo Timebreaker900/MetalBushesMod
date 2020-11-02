@@ -36,6 +36,9 @@ import java.util.logging.ConsoleHandler;
 @EventBusSubscriber(modid = MetalBushesMod.MODID, bus = EventBusSubscriber.Bus.MOD)
 public class MetalBushesMod
 {
+    //TAGS
+    //https://github.com/MinecraftForge/MinecraftForge/tree/1.16.x/src/generated/resources/data/forge/tags
+
     public static final Logger LOGGER = LogManager.getLogger();
     public static final String MODID = "metalbushesmod";
     public static MetalBushesMod instance;
@@ -62,10 +65,10 @@ public class MetalBushesMod
 
         //Mekanism
         //if (MetalBushesConfig.mekanism_support.get() == true) {
-            if (mekanismLoaded == true) {
+            //if (mekanismLoaded == true) {
                 ItemInit.ITEMS_FOR_MEKANISM.register(modEventBus);
                 BlockInit.BLOCKS_FOR_MEKANISM.register(modEventBus);
-            }
+            //}
         //}
 
         modEventBus.addListener(this::loadCompleteEvent);
@@ -95,7 +98,7 @@ public class MetalBushesMod
 
         //Mekanism
         //if (MetalBushesConfig.mekanism_support.get() == true) {
-            if (mekanismLoaded == true) {
+            //if (mekanismLoaded == true) {
                 LOGGER.debug("Mekanism Loaded " + mekanismLoaded);
 
                 BlockInit.BLOCKS_FOR_MEKANISM.getEntries().stream().map(RegistryObject::get).forEach(block -> {
@@ -104,7 +107,7 @@ public class MetalBushesMod
                     blockItem.setRegistryName(block.getRegistryName());
                     registry.register(blockItem);
                 });
-            }
+            //}
         //}
 
         LOGGER.debug("Registered BlockItems!");
@@ -123,11 +126,11 @@ public class MetalBushesMod
 
         //Mekanism
         //if (MetalBushesConfig.mekanism_support.get() == true) {
-            if (mekanismLoaded == true) {
+            //if (mekanismLoaded == true) {
                 RenderTypeLookup.setRenderLayer(BlockInit.COPPER_BUSH.get(), RenderType.getCutout());
                 RenderTypeLookup.setRenderLayer(BlockInit.TIN_BUSH.get(), RenderType.getCutout());
                 RenderTypeLookup.setRenderLayer(BlockInit.OSMIUM_BUSH.get(), RenderType.getCutout());
-            }
+            //}
         //}
     }
 

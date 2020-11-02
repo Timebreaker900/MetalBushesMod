@@ -1,23 +1,38 @@
 {
-  "type": "minecraft:crafting_shaped",
-  "pattern": [
-    " I ",
-    "GBG",
-    " I "
-  ],
-  "key": {
-    "B": {
-      "item": "metalbushesmod:bush_base"
-    },
-    "I": {
-      "tag": "forge:ingots/tin"
-    },
-    "G": {
-      "tag": "forge:storage_blocks/tin"
+  "type": "forge:conditional",
+  "recipes": [
+    {
+      "conditions": [
+        {
+          "value": {
+            "tag": "forge:ingots/tin",
+            "type": "forge:tag_empty"
+          },
+          "type": "forge:not"
+        }
+      ],
+      "recipe": {
+        "type": "minecraft:crafting_shaped",
+        "pattern": [
+          " I ",
+          "GBG",
+          " I "
+        ],
+        "key": {
+          "B": {
+            "item": "metalbushesmod:bush_base"
+          },
+          "I": {
+            "tag": "forge:ingots/tin"
+          },
+          "G": {
+            "tag": "forge:storage_blocks/tin"
+          }
+        },
+        "result": {
+          "item": "metalbushesmod:tin_bush"
+        }
+      }
     }
-  },
-  "result": {
-    "item": "metalbushesmod:tin_bush"
-  }
-
+  ]
 }

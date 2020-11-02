@@ -2,6 +2,7 @@ package com.dave.metalbushesmod;
 
 import com.dave.metalbushesmod.Init.BlockInit;
 import com.dave.metalbushesmod.Init.ItemInit;
+import com.dave.metalbushesmod.config.ConfigHandler;
 import com.dave.metalbushesmod.world.BushWorldGen;
 import net.minecraft.client.renderer.RenderType;
 import net.minecraft.client.renderer.RenderTypeLookup;
@@ -19,6 +20,7 @@ import net.minecraftforge.fml.ModList;
 import net.minecraftforge.fml.ModLoadingContext;
 import net.minecraftforge.fml.RegistryObject;
 import net.minecraftforge.fml.common.Mod;
+import net.minecraftforge.fml.common.Mod.EventBusSubscriber;
 import net.minecraftforge.fml.config.ModConfig;
 import net.minecraftforge.fml.event.lifecycle.*;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
@@ -27,10 +29,11 @@ import net.minecraftforge.registries.IForgeRegistry;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
+import java.io.File;
 import java.util.logging.ConsoleHandler;
 
 @Mod("metalbushesmod")
-@Mod.EventBusSubscriber(modid = MetalBushesMod.MODID, bus = Mod.EventBusSubscriber.Bus.MOD)
+@EventBusSubscriber(modid = MetalBushesMod.MODID, bus = EventBusSubscriber.Bus.MOD)
 public class MetalBushesMod
 {
     public static final Logger LOGGER = LogManager.getLogger();
@@ -41,13 +44,16 @@ public class MetalBushesMod
 
     public MetalBushesMod() {
 
+        //Config
+        ModLoadingContext.get().registerConfig(ModConfig.Type.COMMON, ConfigHandler.CONFIG_SPEC);
+
+        //Mod Loaded?
         mekanismLoaded = ModList.get().isLoaded("mekanism");
         LOGGER.debug("mekanismLoaded: " + mekanismLoaded);
 
         final IEventBus modEventBus = FMLJavaModLoadingContext.get().getModEventBus();
         modEventBus.addListener(this::doClientStuff);
 
-        //MinecraftForge.EVENT_BUS.addListener(BushWorldGen::addFeaturesToBiomes);
 
         ItemInit.ITEMS.register(modEventBus);
         BlockInit.BLOCKS.register(modEventBus);
@@ -70,7 +76,10 @@ public class MetalBushesMod
 
     private void loadCompleteEvent(final FMLClientSetupEvent event) {
 
-        MinecraftForge.EVENT_BUS.addListener(BushWorldGen::addFeaturesToBiomes);
+        if (ConfigHandler.CONFIG.allowWorldGen.get() == true) {
+            MinecraftForge.EVENT_BUS.addListener(BushWorldGen::addFeaturesToBiomes);
+        }
+
     }
 
     @SubscribeEvent

@@ -2,6 +2,7 @@ package com.dave.metalbushesmod.world;
 
 import com.dave.metalbushesmod.Init.BlockInit;
 import com.dave.metalbushesmod.MetalBushesMod;
+import com.dave.metalbushesmod.config.ConfigHandler;
 import com.google.common.collect.ImmutableSet;
 import net.minecraft.block.Blocks;
 import net.minecraft.world.biome.Biome;
@@ -9,7 +10,6 @@ import net.minecraft.world.gen.GenerationStage;
 import net.minecraft.world.gen.blockplacer.SimpleBlockPlacer;
 import net.minecraft.world.gen.blockstateprovider.SimpleBlockStateProvider;
 import net.minecraft.world.gen.feature.BlockClusterFeatureConfig;
-import net.minecraft.world.gen.feature.BlockStateProvidingFeatureConfig;
 import net.minecraft.world.gen.feature.ConfiguredFeature;
 import net.minecraft.world.gen.feature.Feature;
 import net.minecraftforge.event.world.BiomeLoadingEvent;
@@ -36,12 +36,53 @@ public class BushWorldGen {
         }
 
         //Overworld
-        biome.getGeneration().withFeature(GenerationStage.Decoration.VEGETAL_DECORATION, FeatureConfigs.XP_BUSH_Configured);
-        biome.getGeneration().withFeature(GenerationStage.Decoration.VEGETAL_DECORATION, FeatureConfigs.COAL_BUSH_Configured);
-        biome.getGeneration().withFeature(GenerationStage.Decoration.VEGETAL_DECORATION, FeatureConfigs.IRON_BUSH_Configured);
-        biome.getGeneration().withFeature(GenerationStage.Decoration.VEGETAL_DECORATION, FeatureConfigs.GOLD_BUSH_Configured);
-        biome.getGeneration().withFeature(GenerationStage.Decoration.VEGETAL_DECORATION, FeatureConfigs.REDSTONE_BUSH_Configured);
-        biome.getGeneration().withFeature(GenerationStage.Decoration.VEGETAL_DECORATION, FeatureConfigs.DIAMOND_BUSH_Configured);
+        //XP BUSH
+        if(ConfigHandler.CONFIG.allowExperienceGen.get() == true) {
+            biome.getGeneration().withFeature(
+                    GenerationStage.Decoration.VEGETAL_DECORATION,
+                    FeatureConfigs.XP_BUSH_Configured
+            );
+        }
+
+        //COAL BUSH
+        if(ConfigHandler.CONFIG.allowCoalGen.get() == true) {
+            biome.getGeneration().withFeature(
+                    GenerationStage.Decoration.VEGETAL_DECORATION,
+                    FeatureConfigs.COAL_BUSH_Configured
+            );
+        }
+
+        //IRON BUSH
+        if(ConfigHandler.CONFIG.allowIronGen.get() == true) {
+            biome.getGeneration().withFeature(
+                    GenerationStage.Decoration.VEGETAL_DECORATION,
+                    FeatureConfigs.IRON_BUSH_Configured
+            );
+        }
+
+        //GOLD BUSH
+        if(ConfigHandler.CONFIG.allowGoldGen.get() == true) {
+            biome.getGeneration().withFeature(
+                    GenerationStage.Decoration.VEGETAL_DECORATION,
+                    FeatureConfigs.GOLD_BUSH_Configured
+            );
+        }
+
+        //REDSTONE BUSH
+        if(ConfigHandler.CONFIG.allowRedstoneGen.get() == true) {
+            biome.getGeneration().withFeature(
+                    GenerationStage.Decoration.VEGETAL_DECORATION,
+                    FeatureConfigs.REDSTONE_BUSH_Configured
+            );
+        }
+
+        //DIAMOND BUSH
+        if(ConfigHandler.CONFIG.allowDiamondGen.get() == true) {
+            biome.getGeneration().withFeature(
+                    GenerationStage.Decoration.VEGETAL_DECORATION,
+                    FeatureConfigs.DIAMOND_BUSH_Configured
+            );
+        }
 
         if (MetalBushesMod.mekanismLoaded == true) {
             biome.getGeneration().withFeature(

@@ -1,7 +1,6 @@
 package com.dave.metalbushesmod.world;
 
 import com.dave.metalbushesmod.Init.BlockInit;
-import com.dave.metalbushesmod.MetalBushesMod;
 import com.google.common.collect.ImmutableSet;
 import net.minecraft.block.Blocks;
 import net.minecraft.world.gen.blockplacer.SimpleBlockPlacer;
@@ -9,8 +8,6 @@ import net.minecraft.world.gen.blockstateprovider.SimpleBlockStateProvider;
 import net.minecraft.world.gen.feature.BlockClusterFeatureConfig;
 import net.minecraft.world.gen.feature.ConfiguredFeature;
 import net.minecraft.world.gen.feature.Feature;
-
-import static com.dave.metalbushesmod.MetalBushesMod.*;
 
 public class FeatureConfigs {
 

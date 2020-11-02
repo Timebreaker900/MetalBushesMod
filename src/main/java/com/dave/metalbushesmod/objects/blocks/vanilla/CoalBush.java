@@ -1,6 +1,7 @@
 package com.dave.metalbushesmod.objects.blocks.vanilla;
 
 import com.dave.metalbushesmod.Init.BlockInit;
+import com.dave.metalbushesmod.Init.ItemInit;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.SweetBerryBushBlock;
 import net.minecraft.entity.Entity;
@@ -30,7 +31,6 @@ public class CoalBush extends SweetBerryBushBlock {
 
     @Override
     public ItemStack getItem(IBlockReader worldIn, BlockPos pos, BlockState state) {
-        //return new ItemStack(Items.COAL);
         return new ItemStack(BlockInit.COAL_BUSH.get());
     }
 
@@ -41,7 +41,7 @@ public class CoalBush extends SweetBerryBushBlock {
         if(!flag && player.getHeldItem(handIn).getItem() == Items.BONE_MEAL) {
             return ActionResultType.PASS;
         } else if (i > 1) {
-            spawnAsEntity(worldIn, pos, new ItemStack(Items.COAL, 1));
+            spawnAsEntity(worldIn, pos, new ItemStack(ItemInit.COAL_NUGGET.get(), 1));
             worldIn.playSound((PlayerEntity) null, pos, SoundEvents.ITEM_SWEET_BERRIES_PICK_FROM_BUSH, SoundCategory.BLOCKS, 1.0f, 0.8F + worldIn.rand.nextFloat() * 0.4F);
             worldIn.setBlockState(pos, state.with(AGE, Integer.valueOf(1)), 2);
 

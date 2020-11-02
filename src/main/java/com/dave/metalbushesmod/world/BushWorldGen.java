@@ -9,9 +9,9 @@ import net.minecraft.world.biome.Biome;
 import net.minecraft.world.gen.GenerationStage;
 import net.minecraft.world.gen.blockplacer.SimpleBlockPlacer;
 import net.minecraft.world.gen.blockstateprovider.SimpleBlockStateProvider;
-import net.minecraft.world.gen.feature.BlockClusterFeatureConfig;
-import net.minecraft.world.gen.feature.ConfiguredFeature;
-import net.minecraft.world.gen.feature.Feature;
+import net.minecraft.world.gen.feature.*;
+import net.minecraft.world.gen.placement.Placement;
+import net.minecraft.world.gen.placement.TopSolidRangeConfig;
 import net.minecraftforge.event.world.BiomeLoadingEvent;
 
 
@@ -122,14 +122,23 @@ public class BushWorldGen {
         //Vanilla
         biome.getGeneration().withFeature(
                 GenerationStage.Decoration.VEGETAL_DECORATION,
-                new ConfiguredFeature(
-                        Feature.RANDOM_PATCH,
-                        (new BlockClusterFeatureConfig.Builder(
+                //new ConfiguredFeature(
+                        Feature.NETHER_FOREST_VEGETATION
+                        .withConfiguration(
+                                new BlockStateProvidingFeatureConfig(
+                                        new SimpleBlockStateProvider(BlockInit.NETHER_QUARTZ_BUSH.get().getDefaultState())
+                                )
+                        )
+                        .withPlacement(
+                                Placement.COUNT_MULTILAYER.configure(new FeatureSpreadConfig(1))
+                        )
+                        //)
+                        /* (new BlockClusterFeatureConfig.Builder(
                                 new SimpleBlockStateProvider(BlockInit.NETHER_QUARTZ_BUSH.get().getDefaultState()),
                                 new SimpleBlockPlacer())
-                        ).whitelist(ImmutableSet.of(Blocks.NETHERRACK)).tries(1).build()
-                )
+                        ).whitelist(ImmutableSet.of(Blocks.NETHERRACK)).tries(1).build() */
         );
+
     }
 
 }

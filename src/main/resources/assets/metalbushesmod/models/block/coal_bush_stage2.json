@@ -1,6 +1,6 @@
 {
   "parent": "block/cross",
   "textures": {
-    "cross": "metalbushesmod:blocks/coal_bush_stage3"
+    "cross": "metalbushesmod:blocks/coal_bush_stage2"
   }
 }

@@ -25,7 +25,6 @@ public class DiamondBush extends SweetBerryBushBlock{
 
     @Override
     public ItemStack getItem(IBlockReader worldIn, BlockPos pos, BlockState state) {
-        //return new ItemStack(ItemInit.DIAMOND_NUGGET.get());
         return new ItemStack(BlockInit.DIAMOND_BUSH.get());
     }
 

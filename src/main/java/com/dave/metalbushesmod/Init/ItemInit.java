@@ -20,7 +20,7 @@ public class ItemInit {
     public static final RegistryObject<Item> NETHER_BUSH_BASE = ITEMS.register(
             "nether_bush_base", () -> new Item(
                     new Item.Properties().group(MetalBushesMod.MetalBushesModItemGroup.instance)));
-
+    
     public static final RegistryObject<Item> DIAMOND_NUGGET = ITEMS.register(
             "diamond_nugget", () -> new Item(
                     new Item.Properties().group(MetalBushesMod.MetalBushesModItemGroup.instance)));

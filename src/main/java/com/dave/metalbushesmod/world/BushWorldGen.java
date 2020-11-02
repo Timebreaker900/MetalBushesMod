@@ -32,7 +32,7 @@ public class BushWorldGen {
     private static void addBushToOverworld(BiomeLoadingEvent biome) {
 
         if(biome.getCategory() == Biome.Category.PLAINS) {
-            
+
         }
 
         //Overworld

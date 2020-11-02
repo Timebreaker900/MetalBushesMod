@@ -21,6 +21,10 @@ public class ConfigHandler {
         public final ForgeConfigSpec.BooleanValue allowDiamondGen;
         public final ForgeConfigSpec.BooleanValue allowExperienceGen;
 
+        public final ForgeConfigSpec.BooleanValue allowCopperGen;
+        public final ForgeConfigSpec.BooleanValue allowOsmiumGen;
+        public final ForgeConfigSpec.BooleanValue allowTinGen;
+
         private General() {
             ConfigBuilder.push("World Gen");
             allowWorldGen = ConfigBuilder
@@ -41,6 +45,25 @@ public class ConfigHandler {
             allowExperienceGen = ConfigBuilder
                     .define("Experience Bush Gen", true);
             ConfigBuilder.pop();
+
+            ConfigBuilder.push("Copper Bush");
+            allowCopperGen = ConfigBuilder
+                    .comment("Active with: Mekanism")
+                    .define("Copper Bush Gen", true);
+            ConfigBuilder.pop();
+
+            ConfigBuilder.push("Osmium Bush");
+            allowOsmiumGen = ConfigBuilder
+                    .comment("Active with: Mekanism")
+                    .define("Osmium Bush Gen", true);
+            ConfigBuilder.pop();
+
+            ConfigBuilder.push("Tin Bush");
+            allowTinGen = ConfigBuilder
+                    .comment("Active with: Mekanism")
+                    .define("Tin Bush Gen", true);
+            ConfigBuilder.pop();
+
         }
     }
 }

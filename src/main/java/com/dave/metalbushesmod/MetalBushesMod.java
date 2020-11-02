@@ -58,18 +58,14 @@ public class MetalBushesMod
         modEventBus.addListener(this::doClientStuff);
 
 
+        //Vanilla
         ItemInit.ITEMS.register(modEventBus);
         BlockInit.BLOCKS.register(modEventBus);
 
-
-
         //Mekanism
-        //if (MetalBushesConfig.mekanism_support.get() == true) {
-            //if (mekanismLoaded == true) {
-                ItemInit.ITEMS_FOR_MEKANISM.register(modEventBus);
-                BlockInit.BLOCKS_FOR_MEKANISM.register(modEventBus);
-            //}
-        //}
+        ItemInit.ITEMS_FOR_MEKANISM.register(modEventBus);
+        BlockInit.BLOCKS_FOR_MEKANISM.register(modEventBus);
+
 
         modEventBus.addListener(this::loadCompleteEvent);
 

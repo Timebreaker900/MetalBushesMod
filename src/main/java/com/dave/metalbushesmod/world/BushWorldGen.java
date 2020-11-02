@@ -84,37 +84,47 @@ public class BushWorldGen {
             );
         }
 
+        //COPPER BUSH
         if (MetalBushesMod.mekanismLoaded == true) {
-            biome.getGeneration().withFeature(
-                    GenerationStage.Decoration.VEGETAL_DECORATION,
-                    new ConfiguredFeature(
-                            Feature.RANDOM_PATCH,
-                            (new BlockClusterFeatureConfig.Builder(
-                                    new SimpleBlockStateProvider(BlockInit.COPPER_BUSH.get().getDefaultState()),
-                                    new SimpleBlockPlacer())
-                            ).whitelist(ImmutableSet.of(Blocks.GRASS_BLOCK)).tries(1).build()
-                    )
-            );
-            biome.getGeneration().withFeature(
-                    GenerationStage.Decoration.VEGETAL_DECORATION,
-                    new ConfiguredFeature(
-                            Feature.RANDOM_PATCH,
-                            (new BlockClusterFeatureConfig.Builder(
-                                    new SimpleBlockStateProvider(BlockInit.OSMIUM_BUSH.get().getDefaultState()),
-                                    new SimpleBlockPlacer())
-                            ).whitelist(ImmutableSet.of(Blocks.GRASS_BLOCK)).tries(1).build()
-                    )
-            );
-            biome.getGeneration().withFeature(
-                    GenerationStage.Decoration.VEGETAL_DECORATION,
-                    new ConfiguredFeature(
-                            Feature.RANDOM_PATCH,
-                            (new BlockClusterFeatureConfig.Builder(
-                                    new SimpleBlockStateProvider(BlockInit.TIN_BUSH.get().getDefaultState()),
-                                    new SimpleBlockPlacer())
-                            ).whitelist(ImmutableSet.of(Blocks.GRASS_BLOCK)).tries(1).build()
-                    )
-            );
+            if(ConfigHandler.CONFIG.allowCopperGen.get() == true) {
+                biome.getGeneration().withFeature(
+                        GenerationStage.Decoration.VEGETAL_DECORATION,
+                        new ConfiguredFeature(
+                                Feature.RANDOM_PATCH,
+                                (new BlockClusterFeatureConfig.Builder(
+                                        new SimpleBlockStateProvider(BlockInit.COPPER_BUSH.get().getDefaultState()),
+                                        new SimpleBlockPlacer())
+                                ).whitelist(ImmutableSet.of(Blocks.GRASS_BLOCK)).tries(1).build()
+                        )
+                );
+            }
+            //OSMIUM BUSH
+            if(ConfigHandler.CONFIG.allowOsmiumGen.get() == true) {
+                biome.getGeneration().withFeature(
+                        GenerationStage.Decoration.VEGETAL_DECORATION,
+                        new ConfiguredFeature(
+                                Feature.RANDOM_PATCH,
+                                (new BlockClusterFeatureConfig.Builder(
+                                        new SimpleBlockStateProvider(BlockInit.OSMIUM_BUSH.get().getDefaultState()),
+                                        new SimpleBlockPlacer())
+                                ).whitelist(ImmutableSet.of(Blocks.GRASS_BLOCK)).tries(1).build()
+                        )
+                );
+            }
+
+            //TIN BUSH
+            if(ConfigHandler.CONFIG.allowTinGen.get() == true) {
+                biome.getGeneration().withFeature(
+                        GenerationStage.Decoration.VEGETAL_DECORATION,
+                        new ConfiguredFeature(
+                                Feature.RANDOM_PATCH,
+                                (new BlockClusterFeatureConfig.Builder(
+                                        new SimpleBlockStateProvider(BlockInit.TIN_BUSH.get().getDefaultState()),
+                                        new SimpleBlockPlacer())
+                                ).whitelist(ImmutableSet.of(Blocks.GRASS_BLOCK)).tries(1).build()
+                        )
+                );
+            }
         }
     }
 

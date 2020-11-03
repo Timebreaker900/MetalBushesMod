@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "NNN",
+    "NNN",
+    "NNN"
+  ],
+  "key": {
+    "N": {
+      "item": "metalbushesmod:tiny_blaze_powder"
+    }
+  },
+  "result": {
+    "item": "minecraft:blaze_powder"
+  }
+
+}

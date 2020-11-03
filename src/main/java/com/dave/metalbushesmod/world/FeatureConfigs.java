@@ -1,8 +1,11 @@
 package com.dave.metalbushesmod.world;
 
 import com.dave.metalbushesmod.Init.BlockInit;
+import com.google.common.collect.ImmutableList;
 import com.google.common.collect.ImmutableSet;
+import net.minecraft.block.Block;
 import net.minecraft.block.Blocks;
+import net.minecraft.block.SandBlock;
 import net.minecraft.world.gen.blockplacer.SimpleBlockPlacer;
 import net.minecraft.world.gen.blockstateprovider.SimpleBlockStateProvider;
 import net.minecraft.world.gen.feature.BlockClusterFeatureConfig;
@@ -65,6 +68,14 @@ public class FeatureConfigs {
             .ySpread(25)
             .build();
 
+    public static final BlockClusterFeatureConfig BLAZE_BUSH = (new BlockClusterFeatureConfig.Builder(
+            new SimpleBlockStateProvider(BlockInit.BLAZE_BUSH.get().getDefaultState()),
+            new SimpleBlockPlacer())).whitelist(ImmutableSet.of(Blocks.SAND))
+            .tries(1)
+            .xSpread(25)
+            .ySpread(25)
+            .build();
+
 
     /*
     ##########
@@ -107,6 +118,10 @@ public class FeatureConfigs {
     public static ConfiguredFeature DIAMOND_BUSH_Configured = new ConfiguredFeature(
             Feature.RANDOM_PATCH,
             DIAMOND_BUSH);
+
+    public static ConfiguredFeature BLAZE_BUSH_Configured = new ConfiguredFeature(
+            Feature.RANDOM_PATCH,
+            BLAZE_BUSH);
 
     //Nether
     /* public static ConfiguredFeature NETHER_QUARTZ_BUSH_Configured = new ConfiguredFeature(

@@ -93,6 +93,14 @@ public class BushWorldGen {
             }
         }
 
+        //BLAZE BUSH
+        if(bc == Biome.Category.DESERT){
+            biome.getGeneration().withFeature(
+                    GenerationStage.Decoration.VEGETAL_DECORATION,
+                    FeatureConfigs.BLAZE_BUSH_Configured
+            );
+        }
+
         //COPPER BUSH
         if (MetalBushesMod.mekanismLoaded == true) {
             if(bc == Biome.Category.PLAINS || bc == Biome.Category.SAVANNA) {

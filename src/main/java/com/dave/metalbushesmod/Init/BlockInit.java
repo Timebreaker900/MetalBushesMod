@@ -80,6 +80,16 @@ public class BlockInit {
             )
     );
 
+    public static final RegistryObject<BlazeBush> BLAZE_BUSH = BLOCKS.register(
+            "blaze_bush", () -> new BlazeBush(AbstractBlock.Properties
+                    .create(Material.PLANTS)
+                    .hardnessAndResistance(0f)
+                    .doesNotBlockMovement()
+                    .tickRandomly()
+                    .sound(SoundType.PLANT)
+            )
+    );
+
 
     public static final RegistryObject<NetherQuartzBush> NETHER_QUARTZ_BUSH =  BLOCKS.register(
             "nether_quartz_bush", () -> new NetherQuartzBush(AbstractBlock.Properties

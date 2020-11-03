@@ -2,26 +2,32 @@ package com.dave.metalbushesmod.objects.blocks.vanilla;
 
 import com.dave.metalbushesmod.Init.BlockInit;
 import com.dave.metalbushesmod.Init.ItemInit;
-import net.minecraft.block.Block;
-import net.minecraft.block.BlockState;
-import net.minecraft.block.Blocks;
-import net.minecraft.block.SweetBerryBushBlock;
+import com.dave.metalbushesmod.Init.ParticleInit;
+import net.minecraft.block.*;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.Items;
+import net.minecraft.particles.ParticleTypes;
 import net.minecraft.util.*;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.BlockRayTraceResult;
 import net.minecraft.world.IBlockReader;
 import net.minecraft.world.IWorldReader;
 import net.minecraft.world.World;
+import net.minecraftforge.api.distmarker.Dist;
+import net.minecraftforge.api.distmarker.OnlyIn;
+
+import java.util.Random;
 
 public class BlazeBush extends SweetBerryBushBlock {
 
     public BlazeBush(Properties properties) {
+
         super(properties);
     }
+
+
 
     @Override
     public boolean isValidPosition(BlockState state, IWorldReader worldIn, BlockPos pos) {
@@ -77,5 +83,16 @@ public class BlazeBush extends SweetBerryBushBlock {
     @Override
     public void onEntityCollision(BlockState state, World worldIn, BlockPos pos, Entity entityIn) {
         super.onEntityCollision(state, worldIn, pos, entityIn);
+    }
+
+    @OnlyIn(Dist.CLIENT)
+    public void animateTick(BlockState stateIn, World worldIn, BlockPos pos, Random rand) {
+        if (stateIn.get(AGE) > 2) {
+            double d0 = (double) pos.getX() + 0.5D; // Breite
+            double d1 = (double) pos.getY() + 0.5D; // Höhe
+            double d2 = (double) pos.getZ() + 0.5D; // Länge
+            worldIn.addParticle(ParticleTypes.SMOKE, d0, d1, d2, 0.0D, 0.0D, 0.0D);
+            worldIn.addParticle(ParticleInit.BLAZE_BUSH_PARTICLE.get(), d0, d1, d2, 0.0D, 0.0D, 0.0D);
+        }
     }
 }

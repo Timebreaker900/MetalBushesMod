@@ -2,6 +2,7 @@ package com.dave.metalbushesmod;
 
 import com.dave.metalbushesmod.Init.BlockInit;
 import com.dave.metalbushesmod.Init.ItemInit;
+import com.dave.metalbushesmod.Init.ParticleInit;
 import com.dave.metalbushesmod.config.ConfigHandler;
 import com.dave.metalbushesmod.world.BushWorldGen;
 import net.minecraft.client.renderer.RenderType;
@@ -46,6 +47,8 @@ public class MetalBushesMod
     public static boolean mekanismLoaded = false;
 
     public MetalBushesMod() {
+        instance = this;
+        final IEventBus modEventBus = FMLJavaModLoadingContext.get().getModEventBus();
 
         //Config
         ModLoadingContext.get().registerConfig(ModConfig.Type.COMMON, ConfigHandler.CONFIG_SPEC);
@@ -54,9 +57,10 @@ public class MetalBushesMod
         mekanismLoaded = ModList.get().isLoaded("mekanism");
         LOGGER.debug("mekanismLoaded: " + mekanismLoaded);
 
-        final IEventBus modEventBus = FMLJavaModLoadingContext.get().getModEventBus();
         modEventBus.addListener(this::doClientStuff);
 
+        //Particles
+        ParticleInit.PARTICLES.register(modEventBus);
 
         //Vanilla
         ItemInit.ITEMS.register(modEventBus);
@@ -69,7 +73,6 @@ public class MetalBushesMod
 
         modEventBus.addListener(this::loadCompleteEvent);
 
-        instance = this;
         MinecraftForge.EVENT_BUS.register(this);
     }
 

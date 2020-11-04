@@ -31,99 +31,122 @@ public class BushWorldGen {
 
     private static void addBushToOverworld(BiomeLoadingEvent biome) {
 
-        if(biome.getCategory() == Biome.Category.PLAINS) {
+        Biome.Category bc = biome.getCategory();
 
-        }
-
-        //Overworld
         //XP BUSH
-        if(ConfigHandler.CONFIG.allowExperienceGen.get() == true) {
-            biome.getGeneration().withFeature(
-                    GenerationStage.Decoration.VEGETAL_DECORATION,
-                    FeatureConfigs.XP_BUSH_Configured
-            );
+        if(bc == Biome.Category.PLAINS || bc == Biome.Category.SAVANNA || bc == Biome.Category.FOREST) {
+            if(ConfigHandler.CONFIG.allowExperienceGen.get() == true) {
+                biome.getGeneration().withFeature(
+                        GenerationStage.Decoration.VEGETAL_DECORATION,
+                        FeatureConfigs.XP_BUSH_Configured
+                );
+            }
         }
+
 
         //COAL BUSH
-        if(ConfigHandler.CONFIG.allowCoalGen.get() == true) {
-            biome.getGeneration().withFeature(
-                    GenerationStage.Decoration.VEGETAL_DECORATION,
-                    FeatureConfigs.COAL_BUSH_Configured
-            );
+        if(bc == Biome.Category.TAIGA || bc == Biome.Category.EXTREME_HILLS || bc == Biome.Category.ICY || bc == Biome.Category.FOREST) {
+            if (ConfigHandler.CONFIG.allowCoalGen.get() == true) {
+                biome.getGeneration().withFeature(
+                        GenerationStage.Decoration.VEGETAL_DECORATION,
+                        FeatureConfigs.COAL_BUSH_Configured
+                );
+            }
         }
 
+
         //IRON BUSH
-        if(ConfigHandler.CONFIG.allowIronGen.get() == true) {
-            biome.getGeneration().withFeature(
-                    GenerationStage.Decoration.VEGETAL_DECORATION,
-                    FeatureConfigs.IRON_BUSH_Configured
-            );
+        if(bc == Biome.Category.PLAINS || bc == Biome.Category.TAIGA || bc == Biome.Category.SAVANNA || bc == Biome.Category.FOREST) {
+            if (ConfigHandler.CONFIG.allowIronGen.get() == true) {
+                biome.getGeneration().withFeature(
+                        GenerationStage.Decoration.VEGETAL_DECORATION,
+                        FeatureConfigs.IRON_BUSH_Configured
+                );
+            }
         }
 
         //GOLD BUSH
-        if(ConfigHandler.CONFIG.allowGoldGen.get() == true) {
-            biome.getGeneration().withFeature(
-                    GenerationStage.Decoration.VEGETAL_DECORATION,
-                    FeatureConfigs.GOLD_BUSH_Configured
-            );
+        if(bc == Biome.Category.SAVANNA || bc == Biome.Category.FOREST) {
+            if (ConfigHandler.CONFIG.allowGoldGen.get() == true) {
+                biome.getGeneration().withFeature(
+                        GenerationStage.Decoration.VEGETAL_DECORATION,
+                        FeatureConfigs.GOLD_BUSH_Configured
+                );
+            }
         }
 
-        //REDSTONE BUSH
-        if(ConfigHandler.CONFIG.allowRedstoneGen.get() == true) {
-            biome.getGeneration().withFeature(
-                    GenerationStage.Decoration.VEGETAL_DECORATION,
-                    FeatureConfigs.REDSTONE_BUSH_Configured
-            );
+        //REDSTONE BUSH & DIAMOND BUSH
+        if(bc == Biome.Category.PLAINS || bc == Biome.Category.FOREST) {
+
+            if (ConfigHandler.CONFIG.allowRedstoneGen.get() == true) {
+                biome.getGeneration().withFeature(
+                        GenerationStage.Decoration.VEGETAL_DECORATION,
+                        FeatureConfigs.REDSTONE_BUSH_Configured
+                );
+            }
+
+            if(ConfigHandler.CONFIG.allowDiamondGen.get() == true) {
+                biome.getGeneration().withFeature(
+                        GenerationStage.Decoration.VEGETAL_DECORATION,
+                        FeatureConfigs.DIAMOND_BUSH_Configured
+                );
+            }
         }
 
-        //DIAMOND BUSH
-        if(ConfigHandler.CONFIG.allowDiamondGen.get() == true) {
+        //BLAZE BUSH
+        if(bc == Biome.Category.DESERT){
             biome.getGeneration().withFeature(
                     GenerationStage.Decoration.VEGETAL_DECORATION,
-                    FeatureConfigs.DIAMOND_BUSH_Configured
+                    FeatureConfigs.BLAZE_BUSH_Configured
             );
         }
 
         //COPPER BUSH
         if (MetalBushesMod.mekanismLoaded == true) {
-            if(ConfigHandler.CONFIG.allowCopperGen.get() == true) {
-                biome.getGeneration().withFeature(
-                        GenerationStage.Decoration.VEGETAL_DECORATION,
-                        new ConfiguredFeature(
-                                Feature.RANDOM_PATCH,
-                                (new BlockClusterFeatureConfig.Builder(
-                                        new SimpleBlockStateProvider(BlockInit.COPPER_BUSH.get().getDefaultState()),
-                                        new SimpleBlockPlacer())
-                                ).whitelist(ImmutableSet.of(Blocks.GRASS_BLOCK)).tries(1).build()
-                        )
-                );
+            if(bc == Biome.Category.PLAINS || bc == Biome.Category.SAVANNA) {
+                if (ConfigHandler.CONFIG.allowCopperGen.get() == true) {
+                    biome.getGeneration().withFeature(
+                            GenerationStage.Decoration.VEGETAL_DECORATION,
+                            new ConfiguredFeature(
+                                    Feature.RANDOM_PATCH,
+                                    (new BlockClusterFeatureConfig.Builder(
+                                            new SimpleBlockStateProvider(BlockInit.COPPER_BUSH.get().getDefaultState()),
+                                            new SimpleBlockPlacer())
+                                    ).whitelist(ImmutableSet.of(Blocks.GRASS_BLOCK)).tries(1).build()
+                            )
+                    );
+                }
             }
             //OSMIUM BUSH
-            if(ConfigHandler.CONFIG.allowOsmiumGen.get() == true) {
-                biome.getGeneration().withFeature(
-                        GenerationStage.Decoration.VEGETAL_DECORATION,
-                        new ConfiguredFeature(
-                                Feature.RANDOM_PATCH,
-                                (new BlockClusterFeatureConfig.Builder(
-                                        new SimpleBlockStateProvider(BlockInit.OSMIUM_BUSH.get().getDefaultState()),
-                                        new SimpleBlockPlacer())
-                                ).whitelist(ImmutableSet.of(Blocks.GRASS_BLOCK)).tries(1).build()
-                        )
-                );
+            if(bc == Biome.Category.TAIGA || bc == Biome.Category.ICY) {
+                if (ConfigHandler.CONFIG.allowOsmiumGen.get() == true) {
+                    biome.getGeneration().withFeature(
+                            GenerationStage.Decoration.VEGETAL_DECORATION,
+                            new ConfiguredFeature(
+                                    Feature.RANDOM_PATCH,
+                                    (new BlockClusterFeatureConfig.Builder(
+                                            new SimpleBlockStateProvider(BlockInit.OSMIUM_BUSH.get().getDefaultState()),
+                                            new SimpleBlockPlacer())
+                                    ).whitelist(ImmutableSet.of(Blocks.GRASS_BLOCK)).tries(1).build()
+                            )
+                    );
+                }
             }
 
             //TIN BUSH
-            if(ConfigHandler.CONFIG.allowTinGen.get() == true) {
-                biome.getGeneration().withFeature(
-                        GenerationStage.Decoration.VEGETAL_DECORATION,
-                        new ConfiguredFeature(
-                                Feature.RANDOM_PATCH,
-                                (new BlockClusterFeatureConfig.Builder(
-                                        new SimpleBlockStateProvider(BlockInit.TIN_BUSH.get().getDefaultState()),
-                                        new SimpleBlockPlacer())
-                                ).whitelist(ImmutableSet.of(Blocks.GRASS_BLOCK)).tries(1).build()
-                        )
-                );
+            if(bc == Biome.Category.PLAINS || bc == Biome.Category.FOREST) {
+                if (ConfigHandler.CONFIG.allowTinGen.get() == true) {
+                    biome.getGeneration().withFeature(
+                            GenerationStage.Decoration.VEGETAL_DECORATION,
+                            new ConfiguredFeature(
+                                    Feature.RANDOM_PATCH,
+                                    (new BlockClusterFeatureConfig.Builder(
+                                            new SimpleBlockStateProvider(BlockInit.TIN_BUSH.get().getDefaultState()),
+                                            new SimpleBlockPlacer())
+                                    ).whitelist(ImmutableSet.of(Blocks.GRASS_BLOCK)).tries(1).build()
+                            )
+                    );
+                }
             }
         }
     }
@@ -133,7 +156,7 @@ public class BushWorldGen {
         biome.getGeneration().withFeature(
                 GenerationStage.Decoration.VEGETAL_DECORATION,
                 //new ConfiguredFeature(
-                        Feature.NETHER_FOREST_VEGETATION
+                Feature.NETHER_FOREST_VEGETATION
                         .withConfiguration(
                                 new BlockStateProvidingFeatureConfig(
                                         new SimpleBlockStateProvider(BlockInit.NETHER_QUARTZ_BUSH.get().getDefaultState())
@@ -142,7 +165,7 @@ public class BushWorldGen {
                         .withPlacement(
                                 Placement.COUNT_MULTILAYER.configure(new FeatureSpreadConfig(1))
                         )
-                        //)
+                //)
                         /* (new BlockClusterFeatureConfig.Builder(
                                 new SimpleBlockStateProvider(BlockInit.NETHER_QUARTZ_BUSH.get().getDefaultState()),
                                 new SimpleBlockPlacer())

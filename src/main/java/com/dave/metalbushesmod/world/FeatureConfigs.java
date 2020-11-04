@@ -65,6 +65,13 @@ public class FeatureConfigs {
             .ySpread(25)
             .build();
 
+    public static final BlockClusterFeatureConfig BLAZE_BUSH = (new BlockClusterFeatureConfig.Builder(
+            new SimpleBlockStateProvider(BlockInit.BLAZE_BUSH.get().getDefaultState()),
+            new SimpleBlockPlacer())).whitelist(ImmutableSet.of(Blocks.SAND))
+            .tries(1)
+            .xSpread(25)
+            .ySpread(25)
+            .build();
 
     /*
     ##########
@@ -107,6 +114,10 @@ public class FeatureConfigs {
     public static ConfiguredFeature DIAMOND_BUSH_Configured = new ConfiguredFeature(
             Feature.RANDOM_PATCH,
             DIAMOND_BUSH);
+
+    public static ConfiguredFeature BLAZE_BUSH_Configured = new ConfiguredFeature(
+            Feature.RANDOM_PATCH,
+            BLAZE_BUSH);
 
     //Nether
     /* public static ConfiguredFeature NETHER_QUARTZ_BUSH_Configured = new ConfiguredFeature(

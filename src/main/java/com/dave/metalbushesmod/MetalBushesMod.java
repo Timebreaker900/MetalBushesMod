@@ -117,6 +117,7 @@ public class MetalBushesMod
         RenderTypeLookup.setRenderLayer(BlockInit.GOLD_BUSH.get(), RenderType.getCutout());
         RenderTypeLookup.setRenderLayer(BlockInit.REDSTONE_BUSH.get(), RenderType.getCutout());
         RenderTypeLookup.setRenderLayer(BlockInit.DIAMOND_BUSH.get(), RenderType.getCutout());
+        RenderTypeLookup.setRenderLayer(BlockInit.BLAZE_BUSH.get(), RenderType.getCutout());
         //Nether
         RenderTypeLookup.setRenderLayer(BlockInit.NETHER_QUARTZ_BUSH.get(), RenderType.getCutout());
 

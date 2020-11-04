@@ -1,6 +1,10 @@
 {
   "itemGroup.metalbushesmodtab": "Metal Bushes",
 
+  "item.metalbushesmod.bush_base": "Bush Base",
+  "item.metalbushesmod.bush_wooden_base": "Bush Wooden Base",
+  "item.metalbushesmod.nether_bush_base": "Nether Bush Base",
+
   "block.metalbushesmod.xp_bush": "Experience Bush",
   "block.metalbushesmod.coal_bush": "Coal Bush",
   "block.metalbushesmod.iron_bush": "Iron Bush",
@@ -8,13 +12,15 @@
   "block.metalbushesmod.redstone_bush": "Redstone Bush",
   "block.metalbushesmod.diamond_bush": "Diamond Bush",
 
+  "block.metalbushesmod.blaze_bush": "Blaze Bush",
+
   "block.metalbushesmod.nether_quartz_bush": "Nether Quartz Bush",
 
-  "item.metalbushesmod.bush_base": "Bush Base",
-  "item.metalbushesmod.nether_bush_base": "Nether Bush Base",
+
 
   "item.metalbushesmod.coal_nugget": "Coal Nugget",
   "item.metalbushesmod.diamond_nugget": "Diamond Nugget",
+  "item.metalbushesmod.tiny_blaze_powder": "Tiny Blaze Powder",
 
 
 

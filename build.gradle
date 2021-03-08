@@ -80,7 +80,7 @@ repositories {
 
 dependencies {
 
-    minecraft 'net.minecraftforge:forge:1.16.4-35.0.1'
+    minecraft 'net.minecraftforge:forge:1.16.5-36.0.42'
 
     //JEI
     //compileOnly "mezz.jei:jei-${mc_version}:${jei_version}:api"

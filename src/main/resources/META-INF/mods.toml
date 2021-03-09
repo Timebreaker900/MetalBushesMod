@@ -7,7 +7,7 @@ license="Dave's License"
 [[mods]]
 
 modId="metalbushesmod"
-version="2.1"
+version="2.2"
 displayName="Metal Bushes Mod"
 #updateJSONURL="http://myurl.me/" #optional
 displayURL="https://www.curseforge.com/minecraft/mc-mods/metal-bushes" #optional

@@ -10,12 +10,12 @@ buildscript {
     }
 }
 apply plugin: 'net.minecraftforge.gradle'
-apply plugin: 'eclipse'
+apply plugin: 'idea'
 apply plugin: 'maven-publish'
 
-version = '1.0'
-group = 'com.yourname.modid' // http://maven.apache.org/guides/mini/guide-naming-conventions.html
-archivesBaseName = 'modid'
+version = "${mod_version}"
+group = 'com.dave.metalbushesmod' // http://maven.apache.org/guides/mini/guide-naming-conventions.html
+archivesBaseName = 'metalbushesmod'
 
 sourceCompatibility = targetCompatibility = compileJava.sourceCompatibility = compileJava.targetCompatibility = '1.8' // Need this here so eclipse task generates correctly.
 
@@ -33,7 +33,7 @@ minecraft {
             property 'forge.logging.console.level', 'debug'
 
             mods {
-                examplemod {
+                metalbushesmod {
                     source sourceSets.main
                 }
             }
@@ -49,7 +49,7 @@ minecraft {
             property 'forge.logging.console.level', 'debug'
 
             mods {
-                examplemod {
+                metalbushesmod {
                     source sourceSets.main
                 }
             }
@@ -64,10 +64,10 @@ minecraft {
             // Recommended logging level for the console
             property 'forge.logging.console.level', 'debug'
 
-            args '--mod', 'examplemod', '--all', '--output', file('src/generated/resources/')
+            args '--mod', 'metalbushesmod', '--all', '--output', file('src/generated/resources/')
 
             mods {
-                examplemod {
+                metalbushesmod {
                     source sourceSets.main
                 }
             }

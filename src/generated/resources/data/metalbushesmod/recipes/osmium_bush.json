@@ -4,29 +4,35 @@
     {
       "conditions": [
         {
-          "value":{
-            "tag": "forge:ingots/osmium",
-            "type": "forge:tag_empty"
-          },
-          "type": "forge:not"
+          "values": [
+            {
+              "modid": "mekanism",
+              "type": "forge:mod_loaded"
+            },
+            {
+              "modid": "create",
+              "type": "forge:mod_loaded"
+            }
+          ],
+          "type": "forge:or"
         }
       ],
       "recipe": {
         "type": "minecraft:crafting_shaped",
         "pattern": [
           " I ",
-          "GBG",
+          "BSB",
           " I "
         ],
         "key": {
-          "B": {
-            "item": "metalbushesmod:bush_base"
-          },
           "I": {
             "tag": "forge:ingots/osmium"
           },
-          "G": {
+          "B": {
             "tag": "forge:storage_blocks/osmium"
+          },
+          "S": {
+            "item": "metalbushesmod:bush_base"
           }
         },
         "result": {

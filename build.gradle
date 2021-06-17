@@ -34,7 +34,8 @@ minecraft {
 
             mods {
                 metalbushesmod {
-                    source sourceSets.main
+                    //source sourceSets.main
+                    source sourceSets.main.resources { srcDir 'src/generated/resources' }
                 }
             }
         }
@@ -68,7 +69,7 @@ minecraft {
 
             mods {
                 metalbushesmod {
-                    source sourceSets.main
+                    source sourceSets.main.resources { srcDir 'src/generated/resources' }
                 }
             }
         }
@@ -80,20 +81,23 @@ repositories {
 
 dependencies {
 
-    minecraft 'net.minecraftforge:forge:1.16.5-36.0.42'
+    minecraft 'net.minecraftforge:forge:1.16.5-36.1.0'
 
     //JEI
-    //compileOnly "mezz.jei:jei-${mc_version}:${jei_version}:api"
-    //runtimeOnly fg.deobf("mezz.jei:jei-${mc_version}:${jei_version}")
+    compileOnly "mezz.jei:jei-${mc_version}:${jei_version}:api"
+    runtimeOnly fg.deobf("mezz.jei:jei-${mc_version}:${jei_version}")
 
     //TOP
     //compileOnly "mcjty.theoneprobe:TheOneProbe-${mc_release}:${mc_release}-${mcjty_version}:api"
     //runtimeOnly fg.deobf("mcjty.theoneprobe:TheOneProbe-${mc_release}:${mc_release}-${mcjty_version}")
 
-    //compileOnly "mekanism:Mekanism:${mekanism_version}:api"
-    //runtimeOnly fg.deobf("mekanism:Mekanism:${mekanism_version}")// core
+    //MEKANISM
+    compileOnly "mekanism:Mekanism:${mekanism_version}:api"
+    runtimeOnly fg.deobf("mekanism:Mekanism:${mekanism_version}")// core
 
-
+    //Immersive Engineering
+    //compileOnly "blusunrize.immersiveengineering:ImmersiveEngineering:${immersiveengineering_version}:api"
+    //runtimeOnly fg.deobf("blusunrize.immersiveengineering:ImmersiveEngineering:${immersiveengineering_version}")
 }
 
 // Example for how to get properties into the manifest for reading by the runtime..

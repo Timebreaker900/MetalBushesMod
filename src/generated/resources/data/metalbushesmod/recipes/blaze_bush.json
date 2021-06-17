@@ -2,22 +2,21 @@
   "type": "minecraft:crafting_shaped",
   "pattern": [
     " I ",
-    "GBG",
+    "BSB",
     " I "
   ],
   "key": {
-    "B": {
-      "item": "metalbushesmod:bush_wooden_base"
-    },
     "I": {
       "item": "minecraft:blaze_rod"
     },
-    "G": {
+    "B": {
       "item": "minecraft:blaze_powder"
+    },
+    "S": {
+      "item": "metalbushesmod:bush_wooden_base"
     }
   },
   "result": {
     "item": "metalbushesmod:blaze_bush"
   }
-
 }

@@ -1,0 +1,53 @@
+{
+  "advancements": [
+    {
+      "conditions": [
+        {
+          "values": [
+            {
+              "modid": "mekanism",
+              "type": "forge:mod_loaded"
+            },
+            {
+              "modid": "create",
+              "type": "forge:mod_loaded"
+            }
+          ],
+          "type": "forge:or"
+        }
+      ],
+      "advancement": {
+        "parent": "minecraft:recipes/root",
+        "rewards": {
+          "recipes": [
+            "metalbushesmod:osmium_bush"
+          ]
+        },
+        "criteria": {
+          "has_dirt": {
+            "trigger": "minecraft:inventory_changed",
+            "conditions": {
+              "items": [
+                {
+                  "item": "minecraft:dirt"
+                }
+              ]
+            }
+          },
+          "has_the_recipe": {
+            "trigger": "minecraft:recipe_unlocked",
+            "conditions": {
+              "recipe": "metalbushesmod:osmium_bush"
+            }
+          }
+        },
+        "requirements": [
+          [
+            "has_dirt",
+            "has_the_recipe"
+          ]
+        ]
+      }
+    }
+  ]
+}

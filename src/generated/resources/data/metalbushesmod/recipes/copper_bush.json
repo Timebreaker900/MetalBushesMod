@@ -4,29 +4,26 @@
     {
       "conditions": [
         {
-          "value": {
-            "tag": "forge:ingots/copper",
-            "type": "forge:tag_empty"
-          },
-          "type": "forge:not"
+          "modid": "mekanism",
+          "type": "forge:mod_loaded"
         }
       ],
       "recipe": {
         "type": "minecraft:crafting_shaped",
         "pattern": [
           " I ",
-          "GBG",
+          "BSB",
           " I "
         ],
         "key": {
-          "B": {
-            "item": "metalbushesmod:bush_base"
-          },
           "I": {
             "tag": "forge:ingots/copper"
           },
-          "G": {
+          "B": {
             "tag": "forge:storage_blocks/copper"
+          },
+          "S": {
+            "item": "metalbushesmod:bush_base"
           }
         },
         "result": {

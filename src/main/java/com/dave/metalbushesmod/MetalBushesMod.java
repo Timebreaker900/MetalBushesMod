@@ -4,10 +4,12 @@ import com.dave.metalbushesmod.Init.BlockInit;
 import com.dave.metalbushesmod.Init.ItemInit;
 import com.dave.metalbushesmod.Init.ParticleInit;
 import com.dave.metalbushesmod.config.ConfigHandler;
+import com.dave.metalbushesmod.data.RecipeBuilder;
 import com.dave.metalbushesmod.world.BushWorldGen;
 import net.minecraft.block.Block;
 import net.minecraft.client.renderer.RenderType;
 import net.minecraft.client.renderer.RenderTypeLookup;
+import net.minecraft.data.DataGenerator;
 import net.minecraft.item.BlockItem;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemGroup;
@@ -50,6 +52,9 @@ public class MetalBushesMod
     public MetalBushesMod() {
         instance = this;
         final IEventBus modEventBus = FMLJavaModLoadingContext.get().getModEventBus();
+
+        //Recipes
+        modEventBus.addListener(this::onGatherData);
 
         //Config
         ModLoadingContext.get().registerConfig(ModConfig.Type.COMMON, ConfigHandler.CONFIG_SPEC);
@@ -136,6 +141,10 @@ public class MetalBushesMod
         //}
     }
 
+    private void onGatherData(GatherDataEvent e) {
+        DataGenerator generator = e.getGenerator();
+        generator.addProvider(new RecipeBuilder(generator));
+    }
 
     public static class MetalBushesModItemGroup extends ItemGroup {
 

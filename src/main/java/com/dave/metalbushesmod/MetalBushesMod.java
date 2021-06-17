@@ -48,6 +48,8 @@ public class MetalBushesMod
     public static MetalBushesMod instance;
 
     public static boolean mekanismLoaded = false;
+    public static boolean immersiveEngineeringLoaded = false;
+    public static boolean createLoaded = false;
 
     public MetalBushesMod() {
         instance = this;
@@ -62,6 +64,12 @@ public class MetalBushesMod
         //Mod Loaded?
         mekanismLoaded = ModList.get().isLoaded("mekanism");
         LOGGER.debug("mekanismLoaded: " + mekanismLoaded);
+
+        immersiveEngineeringLoaded = ModList.get().isLoaded("immersiveengineering");
+        LOGGER.debug("immersiveengineeringLoaded: " + immersiveEngineeringLoaded);
+
+        createLoaded = ModList.get().isLoaded("create");
+        LOGGER.debug("createLoaded: " + createLoaded);
 
         modEventBus.addListener(this::doClientStuff);
 

@@ -1,4 +1,4 @@
-package com.dave.metalbushesmod.objects.blocks.mekanism;
+package com.dave.metalbushesmod.objects.blocks.modded;
 
 import com.dave.metalbushesmod.Init.BlockInit;
 import com.dave.metalbushesmod.Init.ItemInit;
@@ -6,19 +6,21 @@ import net.minecraft.block.BlockState;
 import net.minecraft.block.SweetBerryBushBlock;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.player.PlayerEntity;
+import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.Items;
-import net.minecraft.util.ActionResultType;
-import net.minecraft.util.Hand;
-import net.minecraft.util.SoundCategory;
-import net.minecraft.util.SoundEvents;
+import net.minecraft.tags.ItemTags;
+import net.minecraft.util.*;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.BlockRayTraceResult;
 import net.minecraft.world.IBlockReader;
 import net.minecraft.world.World;
+import net.minecraftforge.common.Tags;
 
 public class CopperBush extends SweetBerryBushBlock {
 
+    private static final ResourceLocation COPPER_NUGGETS_LOCATION = new ResourceLocation("forge", "nuggets/copper");
+    private static final Tags.IOptionalNamedTag<Item> COPPER_NUGGETS_TAG = ItemTags.createOptional(COPPER_NUGGETS_LOCATION);
 
     public CopperBush(Properties properties) {
         super(properties);

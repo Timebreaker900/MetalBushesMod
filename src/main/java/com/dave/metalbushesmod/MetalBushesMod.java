@@ -80,9 +80,9 @@ public class MetalBushesMod
         ItemInit.ITEMS.register(modEventBus);
         BlockInit.BLOCKS.register(modEventBus);
 
-        //Mekanism
-        ItemInit.ITEMS_FOR_MEKANISM.register(modEventBus);
-        BlockInit.BLOCKS_FOR_MEKANISM.register(modEventBus);
+        //Modded
+        ItemInit.ITEMS_MODDED.register(modEventBus);
+        BlockInit.BLOCKS_MODDED.register(modEventBus);
 
 
         modEventBus.addListener(this::loadCompleteEvent);
@@ -115,7 +115,7 @@ public class MetalBushesMod
             //if (mekanismLoaded == true) {
                 LOGGER.debug("Mekanism Loaded " + mekanismLoaded);
 
-                BlockInit.BLOCKS_FOR_MEKANISM.getEntries().stream().map(RegistryObject::get).forEach(block -> {
+                BlockInit.BLOCKS_MODDED.getEntries().stream().map(RegistryObject::get).forEach(block -> {
                     final Item.Properties properties = new Item.Properties().group(MetalBushesModItemGroup.instance);
                     final BlockItem blockItem = new BlockItem(block, properties);
                     blockItem.setRegistryName(block.getRegistryName());
@@ -145,6 +145,7 @@ public class MetalBushesMod
                 RenderTypeLookup.setRenderLayer(BlockInit.COPPER_BUSH.get(), RenderType.getCutout());
                 RenderTypeLookup.setRenderLayer(BlockInit.TIN_BUSH.get(), RenderType.getCutout());
                 RenderTypeLookup.setRenderLayer(BlockInit.OSMIUM_BUSH.get(), RenderType.getCutout());
+                RenderTypeLookup.setRenderLayer(BlockInit.ZINC_BUSH.get(), RenderType.getCutout());
             //}
         //}
     }

@@ -1,4 +1,4 @@
-package com.dave.metalbushesmod.objects.blocks.mekanism;
+package com.dave.metalbushesmod.objects.blocks.modded;
 
 import com.dave.metalbushesmod.Init.BlockInit;
 import com.dave.metalbushesmod.Init.ItemInit;
@@ -18,16 +18,16 @@ import net.minecraft.world.IBlockReader;
 import net.minecraft.world.World;
 
 
-public class TinBush extends SweetBerryBushBlock {
+public class OsmiumBush extends SweetBerryBushBlock {
 
 
-    public TinBush(Properties properties) {
+    public OsmiumBush(Properties properties) {
         super(properties);
     }
 
     @Override
     public ItemStack getItem(IBlockReader worldIn, BlockPos pos, BlockState state) {
-        return new ItemStack(BlockInit.TIN_BUSH.get());
+        return new ItemStack(BlockInit.OSMIUM_BUSH.get());
     }
 
     @Override
@@ -37,7 +37,7 @@ public class TinBush extends SweetBerryBushBlock {
         if(!flag && player.getHeldItem(handIn).getItem() == Items.BONE_MEAL) {
             return ActionResultType.PASS;
         } else if (i > 1) {
-            spawnAsEntity(worldIn, pos, new ItemStack(ItemInit.TIN_NUGGET.get(), 1));
+            spawnAsEntity(worldIn, pos, new ItemStack(ItemInit.OSMIUM_NUGGET.get(), 1));
             worldIn.playSound((PlayerEntity) null, pos, SoundEvents.ITEM_SWEET_BERRIES_PICK_FROM_BUSH, SoundCategory.BLOCKS, 1.0f, 0.8F + worldIn.rand.nextFloat() * 0.4F);
             worldIn.setBlockState(pos, state.with(AGE, Integer.valueOf(1)), 2);
 

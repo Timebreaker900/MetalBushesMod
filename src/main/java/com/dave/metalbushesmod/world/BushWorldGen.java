@@ -101,9 +101,10 @@ public class BushWorldGen {
             );
         }
 
-        //COPPER BUSH
-        if (MetalBushesMod.mekanismLoaded == true) {
-            if(bc == Biome.Category.PLAINS || bc == Biome.Category.SAVANNA) {
+
+        if (MetalBushesMod.mekanismLoaded == true || MetalBushesMod.createLoaded == true) {
+            //COPPER BUSH
+            if (bc == Biome.Category.PLAINS || bc == Biome.Category.SAVANNA) {
                 if (ConfigHandler.CONFIG.allowCopperGen.get() == true) {
                     biome.getGeneration().withFeature(
                             GenerationStage.Decoration.VEGETAL_DECORATION,
@@ -117,6 +118,8 @@ public class BushWorldGen {
                     );
                 }
             }
+        }
+        if (MetalBushesMod.mekanismLoaded == true) {
             //OSMIUM BUSH
             if(bc == Biome.Category.TAIGA || bc == Biome.Category.ICY) {
                 if (ConfigHandler.CONFIG.allowOsmiumGen.get() == true) {
@@ -142,6 +145,24 @@ public class BushWorldGen {
                                     Feature.RANDOM_PATCH,
                                     (new BlockClusterFeatureConfig.Builder(
                                             new SimpleBlockStateProvider(BlockInit.TIN_BUSH.get().getDefaultState()),
+                                            new SimpleBlockPlacer())
+                                    ).whitelist(ImmutableSet.of(Blocks.GRASS_BLOCK)).tries(1).build()
+                            )
+                    );
+                }
+            }
+        }
+        //Create
+        if (MetalBushesMod.createLoaded == true) {
+            //ZINC BUSH
+            if (bc == Biome.Category.PLAINS || bc == Biome.Category.SAVANNA || bc == Biome.Category.FOREST) {
+                if (ConfigHandler.CONFIG.allowZincGen.get() == true) {
+                    biome.getGeneration().withFeature(
+                            GenerationStage.Decoration.VEGETAL_DECORATION,
+                            new ConfiguredFeature(
+                                    Feature.RANDOM_PATCH,
+                                    (new BlockClusterFeatureConfig.Builder(
+                                            new SimpleBlockStateProvider(BlockInit.ZINC_BUSH.get().getDefaultState()),
                                             new SimpleBlockPlacer())
                                     ).whitelist(ImmutableSet.of(Blocks.GRASS_BLOCK)).tries(1).build()
                             )

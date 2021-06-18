@@ -24,6 +24,7 @@ public class ConfigHandler {
         public final ForgeConfigSpec.BooleanValue allowCopperGen;
         public final ForgeConfigSpec.BooleanValue allowOsmiumGen;
         public final ForgeConfigSpec.BooleanValue allowTinGen;
+        public final ForgeConfigSpec.BooleanValue allowZincGen;
 
         private General() {
             ConfigBuilder.push("World Gen");
@@ -64,6 +65,11 @@ public class ConfigHandler {
                     .define("Tin Bush Gen", true);
             ConfigBuilder.pop();
 
+            ConfigBuilder.push("Zinc Bush");
+            allowZincGen = ConfigBuilder
+                    .comment("Active with: Create")
+                    .define("Zinc Bush Gen", true);
+            ConfigBuilder.pop();
         }
     }
 }

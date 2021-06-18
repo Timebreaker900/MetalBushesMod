@@ -38,6 +38,12 @@ public class RecipeBuilder extends RecipeProvider implements IConditionBuilder {
     private static final Tags.IOptionalNamedTag<Item> OSMIUM_INGOT_TAG = ItemTags.createOptional(OSMIUM_INGOT_LOCATION);
     private static final Tags.IOptionalNamedTag<Item> OSMIUM_BLOCK_TAG = ItemTags.createOptional(OSMIUM_BLOCK_LOCATION);
 
+    //ZINC
+    private static final ResourceLocation ZINC_INGOT_LOCATION = new ResourceLocation("forge", "ingots/zinc");
+    private static final ResourceLocation ZINC_BLOCK_LOCATION = new ResourceLocation("forge", "storage_blocks/zinc");
+    private static final Tags.IOptionalNamedTag<Item> ZINC_INGOT_TAG = ItemTags.createOptional(ZINC_INGOT_LOCATION);
+    private static final Tags.IOptionalNamedTag<Item> ZINC_BLOCK_TAG = ItemTags.createOptional(ZINC_BLOCK_LOCATION);
+
     //https://github.com/LotuxPunk/depthmeter/blob/2fd6ed9742db1a6d37ab73f60a7679dcfa052525/src/main/java/com/vandendaelen/depthmeter/data/RecipeBuilder.java#L30
 
     public RecipeBuilder(DataGenerator generatorIn) {
@@ -50,6 +56,7 @@ public class RecipeBuilder extends RecipeProvider implements IConditionBuilder {
         ResourceLocation COPPER_BUSH = new ResourceLocation("metalbushesmod", "copper_bush");
         ResourceLocation TIN_BUSH = new ResourceLocation("metalbushesmod", "tin_bush");
         ResourceLocation OSMIUM_BUSH = new ResourceLocation("metalbushesmod", "osmium_bush");
+        ResourceLocation ZINC_BUSH = new ResourceLocation("metalbushesmod", "zinc_bush");
 
         //Bush Base
         ShapedRecipeBuilder.shapedRecipe(ItemInit.BUSH_BASE.get(), 1)
@@ -166,7 +173,8 @@ public class RecipeBuilder extends RecipeProvider implements IConditionBuilder {
         //COPPPER BUSH
         ConditionalRecipe.builder()
                 .addCondition(
-                    modLoaded("mekanism")
+                    //modLoaded("mekanism")
+                        or(modLoaded("mekanism"), modLoaded("create"))
                 )
                 .addRecipe(
                         ShapedRecipeBuilder
@@ -220,5 +228,24 @@ public class RecipeBuilder extends RecipeProvider implements IConditionBuilder {
                 )
                 .generateAdvancement()
                 .build(consumer, OSMIUM_BUSH);
+
+        //ZINC BUSH
+        ConditionalRecipe.builder()
+                .addCondition(
+                        modLoaded("create")
+                )
+                .addRecipe(
+                        ShapedRecipeBuilder
+                                .shapedRecipe(BlockInit.ZINC_BUSH.get(), 1)
+                                .patternLine(" I ")
+                                .patternLine("BSB")
+                                .patternLine(" I ")
+                                .key('I', ZINC_INGOT_TAG)
+                                .key('B', ZINC_BLOCK_TAG)
+                                .key('S', ItemInit.BUSH_BASE.get())
+                                .addCriterion("has_dirt", hasItem(Blocks.DIRT))::build
+                )
+                .generateAdvancement()
+                .build(consumer, ZINC_BUSH);
     }
 }

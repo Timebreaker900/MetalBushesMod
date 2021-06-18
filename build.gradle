@@ -57,7 +57,7 @@ minecraft {
 
             mods {
                 metalbushesmod {
-                    source sourceSets.main
+                    source sourceSets.main.resources { srcDir 'src/generated/resources' }
                 }
             }
         }
@@ -99,15 +99,15 @@ dependencies {
     //runtimeOnly fg.deobf("mcjty.theoneprobe:TheOneProbe-${mc_release}:${mc_release}-${mcjty_version}")
 
     //MEKANISM
-    compileOnly "mekanism:Mekanism:${mekanism_version}:api"
-    runtimeOnly fg.deobf("mekanism:Mekanism:${mekanism_version}")// core
+    //compileOnly "mekanism:Mekanism:${mekanism_version}:api"
+    //runtimeOnly fg.deobf("mekanism:Mekanism:${mekanism_version}")// core
 
     //Immersive Engineering
-    compileOnly "blusunrize.immersiveengineering:ImmersiveEngineering:${immersiveengineering_version}:api"
-    runtimeOnly fg.deobf("blusunrize.immersiveengineering:ImmersiveEngineering:${immersiveengineering_version}")
+    //compileOnly "blusunrize.immersiveengineering:ImmersiveEngineering:${immersiveengineering_version}:api"
+    //runtimeOnly fg.deobf("blusunrize.immersiveengineering:ImmersiveEngineering:${immersiveengineering_version}")
 
     //Create
-    compile fg.deobf("curse.maven:create-328085:3278516")
+    //compile fg.deobf("curse.maven:create-328085:3278516")
 }
 
 // Example for how to get properties into the manifest for reading by the runtime..

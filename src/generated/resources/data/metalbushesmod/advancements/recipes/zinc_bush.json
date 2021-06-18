@@ -3,24 +3,15 @@
     {
       "conditions": [
         {
-          "values": [
-            {
-              "modid": "mekanism",
-              "type": "forge:mod_loaded"
-            },
-            {
-              "modid": "create",
-              "type": "forge:mod_loaded"
-            }
-          ],
-          "type": "forge:or"
+          "modid": "create",
+          "type": "forge:mod_loaded"
         }
       ],
       "advancement": {
         "parent": "minecraft:recipes/root",
         "rewards": {
           "recipes": [
-            "metalbushesmod:copper_bush"
+            "metalbushesmod:zinc_bush"
           ]
         },
         "criteria": {
@@ -37,7 +28,7 @@
           "has_the_recipe": {
             "trigger": "minecraft:recipe_unlocked",
             "conditions": {
-              "recipe": "metalbushesmod:copper_bush"
+              "recipe": "metalbushesmod:zinc_bush"
             }
           }
         },

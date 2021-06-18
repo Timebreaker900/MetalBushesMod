@@ -14,7 +14,7 @@ public class ItemInit {
 
     public static final DeferredRegister<Item> ITEMS = DeferredRegister.create(ForgeRegistries.ITEMS, MetalBushesMod.MODID);
 
-    public static final DeferredRegister<Item> ITEMS_FOR_MEKANISM = DeferredRegister.create(ForgeRegistries.ITEMS, MetalBushesMod.MODID);
+    public static final DeferredRegister<Item> ITEMS_MODDED = DeferredRegister.create(ForgeRegistries.ITEMS, MetalBushesMod.MODID);
 
     public static final RegistryObject<Item> BUSH_BASE = ITEMS.register(
             "bush_base", () -> new Item(
@@ -45,18 +45,21 @@ public class ItemInit {
                     new Item.Properties().group(MetalBushesMod.MetalBushesModItemGroup.instance)));
 
 
-    //Mekanism
-    public static final RegistryObject<Item> COPPER_NUGGET = ITEMS_FOR_MEKANISM.register(
+    //Modded
+    public static final RegistryObject<Item> COPPER_NUGGET = ITEMS_MODDED.register(
             "copper_nugget", () -> new Item(
                     new Item.Properties().group(MetalBushesMod.MetalBushesModItemGroup.instance)));
 
-    public static final RegistryObject<Item> TIN_NUGGET = ITEMS_FOR_MEKANISM.register(
+    public static final RegistryObject<Item> TIN_NUGGET = ITEMS_MODDED.register(
             "tin_nugget", () -> new Item(
                     new Item.Properties().group(MetalBushesMod.MetalBushesModItemGroup.instance)));
 
-    public static final RegistryObject<Item> OSMIUM_NUGGET = ITEMS_FOR_MEKANISM.register(
+    public static final RegistryObject<Item> OSMIUM_NUGGET = ITEMS_MODDED.register(
             "osmium_nugget", () -> new Item(
                     new Item.Properties().group(MetalBushesMod.MetalBushesModItemGroup.instance)));
 
+    public static final RegistryObject<Item> ZINC_NUGGET = ITEMS_MODDED.register(
+            "zinc_nugget", () -> new Item(
+                    new Item.Properties().group(MetalBushesMod.MetalBushesModItemGroup.instance)));
 
 }

@@ -4,6 +4,7 @@ import com.dave.metalbushesmod.MetalBushesMod;
 import com.dave.metalbushesmod.objects.blocks.modded.CopperBush;
 import com.dave.metalbushesmod.objects.blocks.modded.OsmiumBush;
 import com.dave.metalbushesmod.objects.blocks.modded.TinBush;
+import com.dave.metalbushesmod.objects.blocks.modded.ZincBush;
 import com.dave.metalbushesmod.objects.blocks.vanilla.*;
 import net.minecraft.block.AbstractBlock;
 import net.minecraft.block.Block;
@@ -134,8 +135,8 @@ public class BlockInit {
     );
 
     //Create
-    public static final RegistryObject<OsmiumBush> ZINC_BUSH =  BLOCKS_MODDED.register(
-            "zinc_bush", () -> new OsmiumBush(AbstractBlock.Properties
+    public static final RegistryObject<ZincBush> ZINC_BUSH =  BLOCKS_MODDED.register(
+            "zinc_bush", () -> new ZincBush(AbstractBlock.Properties
                     .create(Material.PLANTS)
                     .hardnessAndResistance(0f)
                     .doesNotBlockMovement()

@@ -12,6 +12,8 @@ public class ConfigHandler {
 
     public static class General {
 
+        public final ForgeConfigSpec.BooleanValue allowCollision;
+
         public final ForgeConfigSpec.BooleanValue allowWorldGen;
 
         public final ForgeConfigSpec.BooleanValue allowCoalGen;
@@ -27,6 +29,11 @@ public class ConfigHandler {
         public final ForgeConfigSpec.BooleanValue allowZincGen;
 
         private General() {
+            ConfigBuilder.push("Collision");
+            allowCollision = ConfigBuilder
+                    .define("Allow Bush Collision", true);
+            ConfigBuilder.pop();
+
             ConfigBuilder.push("World Gen");
             allowWorldGen = ConfigBuilder
                     .define("Allow Bush World Generation", true);

@@ -12,6 +12,7 @@ import net.minecraft.world.gen.blockstateprovider.SimpleBlockStateProvider;
 import net.minecraft.world.gen.feature.*;
 import net.minecraft.world.gen.placement.Placement;
 import net.minecraft.world.gen.placement.TopSolidRangeConfig;
+import net.minecraftforge.common.BiomeManager;
 import net.minecraftforge.event.world.BiomeLoadingEvent;
 
 
@@ -33,6 +34,8 @@ public class BushWorldGen {
 
         Biome.Category bc = biome.getCategory();
 
+        float bt = biome.getClimate().temperature;
+
         //XP BUSH
         if(bc == Biome.Category.PLAINS || bc == Biome.Category.SAVANNA || bc == Biome.Category.FOREST) {
             if(ConfigHandler.CONFIG.allowExperienceGen.get() == true) {
@@ -45,7 +48,9 @@ public class BushWorldGen {
 
 
         //COAL BUSH
-        if(bc == Biome.Category.TAIGA || bc == Biome.Category.EXTREME_HILLS || bc == Biome.Category.ICY || bc == Biome.Category.FOREST) {
+        //Snowy & cold
+        if(bt >=  -0.5 && bt <= 0.3) {
+        //if(bc == Biome.Category.TAIGA || bc == Biome.Category.EXTREME_HILLS || bc == Biome.Category.ICY || bc == Biome.Category.FOREST) {
             if (ConfigHandler.CONFIG.allowCoalGen.get() == true) {
                 biome.getGeneration().withFeature(
                         GenerationStage.Decoration.VEGETAL_DECORATION,

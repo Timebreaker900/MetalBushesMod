@@ -85,19 +85,13 @@ public class MetalBushesMod
         BlockInit.BLOCKS_MODDED.register(modEventBus);
 
 
-        modEventBus.addListener(this::loadCompleteEvent);
-
-
-        MinecraftForge.EVENT_BUS.register(this);
-    }
-
-    private void loadCompleteEvent(final FMLClientSetupEvent event) {
-
         if (ConfigHandler.CONFIG.allowWorldGen.get() == true) {
             MinecraftForge.EVENT_BUS.addListener(BushWorldGen::addFeaturesToBiomes);
         }
 
+        MinecraftForge.EVENT_BUS.register(this);
     }
+
 
     @SubscribeEvent
     public static void onRegisterItems(final RegistryEvent.Register<Item> event) {

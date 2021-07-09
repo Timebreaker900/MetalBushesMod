@@ -174,7 +174,7 @@ public class RecipeBuilder extends RecipeProvider implements IConditionBuilder {
         ConditionalRecipe.builder()
                 .addCondition(
                     //modLoaded("mekanism")
-                        or(modLoaded("mekanism"), modLoaded("create"))
+                        or(modLoaded("mekanism"), modLoaded("create"), modLoaded("immersiveengineering"))
                 )
                 .addRecipe(
                         ShapedRecipeBuilder

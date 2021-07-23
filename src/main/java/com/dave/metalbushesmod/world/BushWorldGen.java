@@ -49,8 +49,8 @@ public class BushWorldGen {
 
         //COAL BUSH
         //Snowy & cold
-        if(bt >=  -0.5 && bt <= 0.3) {
-        //if(bc == Biome.Category.TAIGA || bc == Biome.Category.EXTREME_HILLS || bc == Biome.Category.ICY || bc == Biome.Category.FOREST) {
+        //if(bt >=  -0.5 && bt <= 0.3) {
+        if(bc == Biome.Category.TAIGA || bc == Biome.Category.EXTREME_HILLS || bc == Biome.Category.ICY || bc == Biome.Category.FOREST) {
             if (ConfigHandler.CONFIG.allowCoalGen.get() == true) {
                 biome.getGeneration().withFeature(
                         GenerationStage.Decoration.VEGETAL_DECORATION,
@@ -61,6 +61,8 @@ public class BushWorldGen {
 
 
         //IRON BUSH
+        //Temperature Biomes
+        //if(bt == 0.7 || bt == 0.8) {
         if(bc == Biome.Category.PLAINS || bc == Biome.Category.TAIGA || bc == Biome.Category.SAVANNA || bc == Biome.Category.FOREST) {
             if (ConfigHandler.CONFIG.allowIronGen.get() == true) {
                 biome.getGeneration().withFeature(

@@ -42,21 +42,9 @@ public class ZincBush extends SweetBerryBushBlock {
 
             return InteractionResult.SUCCESS;
         } else if (i == 3) {
-<<<<<<< Updated upstream
-            ITag<Item> tag = TagCollectionManager.getManager().getItemTags().get(new ResourceLocation("forge", "nuggets/zinc"));
-            //Ingredient item = Ingredient.fromTag(tag);
-
-            Item item = ForgeRegistries.ITEMS.getValue(new ResourceLocation("data/forge/tags/items", "nuggets/zinc"));
-
-            spawnAsEntity(worldIn, pos, new ItemStack(item, 2));
-            //spawnAsEntity(worldIn, pos, new ItemStack(ItemInit.ZINC_NUGGET.get(), 2));
-            worldIn.playSound((PlayerEntity) null, pos, SoundEvents.ITEM_SWEET_BERRIES_PICK_FROM_BUSH, SoundCategory.BLOCKS, 1.0f, 0.8F + worldIn.rand.nextFloat() * 0.4F);
-            worldIn.setBlockState(pos, state.with(AGE, Integer.valueOf(1)), 2);
-=======
             popResource(worldIn, pos, new ItemStack(ItemInit.ZINC_NUGGET.get(), 2));
             worldIn.playSound((Player) null, pos, SoundEvents.SWEET_BERRY_BUSH_PICK_BERRIES, SoundSource.BLOCKS, 1.0f, 0.8F + worldIn.random.nextFloat() * 0.4F);
             worldIn.setBlock(pos, state.setValue(AGE, Integer.valueOf(1)), 2);
->>>>>>> Stashed changes
 
             return InteractionResult.SUCCESS;
         } else {

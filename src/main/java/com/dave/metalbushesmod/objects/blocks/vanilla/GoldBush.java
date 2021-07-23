@@ -1,7 +1,6 @@
 package com.dave.metalbushesmod.objects.blocks.vanilla;
 
 import com.dave.metalbushesmod.Init.BlockInit;
-import com.dave.metalbushesmod.Init.ItemInit;
 import com.dave.metalbushesmod.config.ConfigHandler;
 import net.minecraft.core.BlockPos;
 import net.minecraft.sounds.SoundEvents;

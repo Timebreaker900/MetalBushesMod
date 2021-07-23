@@ -66,13 +66,8 @@ public class BushWorldGen {
 
         //COAL BUSH
         //Snowy & cold
-<<<<<<< Updated upstream
-        if(bt >=  -0.5 && bt <= 0.3) {
-        //if(bc == Biome.Category.TAIGA || bc == Biome.Category.EXTREME_HILLS || bc == Biome.Category.ICY || bc == Biome.Category.FOREST) {
-=======
         //if(bt >=  -0.5 && bt <= 0.3) {
         if(bc == Biome.BiomeCategory.TAIGA || bc == Biome.BiomeCategory.EXTREME_HILLS || bc == Biome.BiomeCategory.ICY || bc == Biome.BiomeCategory.FOREST) {
->>>>>>> Stashed changes
             if (ConfigHandler.CONFIG.allowCoalGen.get() == true) {
                 biome.getGeneration().addFeature(
                         GenerationStep.Decoration.VEGETAL_DECORATION,
@@ -83,11 +78,7 @@ public class BushWorldGen {
 
 
         //IRON BUSH
-<<<<<<< Updated upstream
-        if(bc == Biome.Category.PLAINS || bc == Biome.Category.TAIGA || bc == Biome.Category.SAVANNA || bc == Biome.Category.FOREST) {
-=======
         if(bc == Biome.BiomeCategory.PLAINS || bc == Biome.BiomeCategory.TAIGA || bc == Biome.BiomeCategory.SAVANNA || bc == Biome.BiomeCategory.FOREST) {
->>>>>>> Stashed changes
             if (ConfigHandler.CONFIG.allowIronGen.get() == true) {
                 biome.getGeneration().addFeature(
                         GenerationStep.Decoration.VEGETAL_DECORATION,

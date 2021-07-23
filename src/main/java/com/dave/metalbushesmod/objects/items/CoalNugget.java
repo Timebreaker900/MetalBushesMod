@@ -1,7 +1,7 @@
 package com.dave.metalbushesmod.objects.items;
 
-import net.minecraft.item.Item;
-import net.minecraft.item.ItemStack;
+import net.minecraft.world.item.Item;
+import net.minecraft.world.item.ItemStack;
 
 public class CoalNugget extends Item {
 
@@ -9,7 +9,7 @@ public class CoalNugget extends Item {
         super(properties);
     }
 
-    @Override
+    //@Override
     public int getBurnTime(ItemStack itemStack) {
         return 200;
     }

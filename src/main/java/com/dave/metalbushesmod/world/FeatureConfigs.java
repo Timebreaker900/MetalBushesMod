@@ -1,16 +1,21 @@
 package com.dave.metalbushesmod.world;
 
 import com.dave.metalbushesmod.Init.BlockInit;
-import com.google.common.collect.ImmutableList;
+import com.dave.metalbushesmod.Init.ItemInit;
 import com.google.common.collect.ImmutableSet;
-import net.minecraft.block.Block;
-import net.minecraft.block.Blocks;
-import net.minecraft.block.SandBlock;
-import net.minecraft.world.gen.blockplacer.SimpleBlockPlacer;
-import net.minecraft.world.gen.blockstateprovider.SimpleBlockStateProvider;
-import net.minecraft.world.gen.feature.BlockClusterFeatureConfig;
-import net.minecraft.world.gen.feature.ConfiguredFeature;
-import net.minecraft.world.gen.feature.Feature;
+import net.minecraft.core.BlockPos;
+import net.minecraft.world.level.block.Blocks;
+import net.minecraft.world.level.block.state.BlockState;
+import net.minecraft.world.level.levelgen.feature.ConfiguredFeature;
+import net.minecraft.world.level.levelgen.feature.Feature;
+import net.minecraft.world.level.levelgen.feature.blockplacers.BlockPlacer;
+import net.minecraft.world.level.levelgen.feature.blockplacers.SimpleBlockPlacer;
+import net.minecraft.world.level.levelgen.feature.configurations.RandomPatchConfiguration;
+import net.minecraft.world.level.levelgen.feature.stateproviders.BlockStateProvider;
+import net.minecraft.world.level.levelgen.feature.stateproviders.BlockStateProviderType;
+import net.minecraft.world.level.levelgen.feature.stateproviders.SimpleStateProvider;
+
+import java.util.Random;
 
 public class FeatureConfigs {
 
@@ -20,60 +25,76 @@ public class FeatureConfigs {
     #############
      */
     //Vanilla
-    public static final BlockClusterFeatureConfig XP_BUSH = (new BlockClusterFeatureConfig.Builder(
-            new SimpleBlockStateProvider(BlockInit.XP_BUSH.get().getDefaultState()),
-            new SimpleBlockPlacer())).whitelist(ImmutableSet.of(Blocks.GRASS_BLOCK))
+    public static final RandomPatchConfiguration XP_BUSH = (new RandomPatchConfiguration.GrassConfigurationBuilder(
+            new SimpleStateProvider(BlockInit.XP_BUSH.get().defaultBlockState()),
+            new SimpleBlockPlacer()))
+            .whitelist(ImmutableSet.of(Blocks.GRASS_BLOCK))
             .tries(1)
-            .xSpread(25)
-            .ySpread(25)
+            .xspread(25)
+            .yspread(25)
             .build();
 
-    public static final BlockClusterFeatureConfig COAL_BUSH = (new BlockClusterFeatureConfig.Builder(
-            new SimpleBlockStateProvider(BlockInit.COAL_BUSH.get().getDefaultState()),
-            new SimpleBlockPlacer())).whitelist(ImmutableSet.of(Blocks.GRASS_BLOCK))
+    public static final RandomPatchConfiguration COPPER_BUSH = (new RandomPatchConfiguration.GrassConfigurationBuilder(
+            new SimpleStateProvider(BlockInit.COPPER_BUSH.get().defaultBlockState()),
+            new SimpleBlockPlacer()))
+            .whitelist(ImmutableSet.of(Blocks.GRASS_BLOCK))
             .tries(1)
-            .xSpread(25)
-            .ySpread(25)
+            .xspread(25)
+            .yspread(25)
             .build();
 
-    public static final BlockClusterFeatureConfig IRON_BUSH = (new BlockClusterFeatureConfig.Builder(
-            new SimpleBlockStateProvider(BlockInit.IRON_BUSH.get().getDefaultState()),
-            new SimpleBlockPlacer())).whitelist(ImmutableSet.of(Blocks.GRASS_BLOCK))
+    public static final RandomPatchConfiguration COAL_BUSH = (new RandomPatchConfiguration.GrassConfigurationBuilder(
+            new SimpleStateProvider(BlockInit.COAL_BUSH.get().defaultBlockState()),
+            new SimpleBlockPlacer()))
+            .whitelist(ImmutableSet.of(Blocks.GRASS_BLOCK))
             .tries(1)
-            .xSpread(25)
-            .ySpread(25)
+            .xspread(25)
+            .yspread(25)
             .build();
 
-    public static final BlockClusterFeatureConfig GOLD_BUSH = (new BlockClusterFeatureConfig.Builder(
-            new SimpleBlockStateProvider(BlockInit.GOLD_BUSH.get().getDefaultState()),
-            new SimpleBlockPlacer())).whitelist(ImmutableSet.of(Blocks.GRASS_BLOCK))
+    public static final RandomPatchConfiguration IRON_BUSH = (new RandomPatchConfiguration.GrassConfigurationBuilder(
+            new SimpleStateProvider(BlockInit.IRON_BUSH.get().defaultBlockState()),
+            new SimpleBlockPlacer()))
+            .whitelist(ImmutableSet.of(Blocks.GRASS_BLOCK))
             .tries(1)
-            .xSpread(25)
-            .ySpread(25)
+            .xspread(25)
+            .yspread(25)
             .build();
 
-    public static final BlockClusterFeatureConfig REDSTONE_BUSH = (new BlockClusterFeatureConfig.Builder(
-            new SimpleBlockStateProvider(BlockInit.REDSTONE_BUSH.get().getDefaultState()),
-            new SimpleBlockPlacer())).whitelist(ImmutableSet.of(Blocks.GRASS_BLOCK))
+    public static final RandomPatchConfiguration GOLD_BUSH = (new RandomPatchConfiguration.GrassConfigurationBuilder(
+            new SimpleStateProvider(BlockInit.GOLD_BUSH.get().defaultBlockState()),
+            new SimpleBlockPlacer()))
+            .whitelist(ImmutableSet.of(Blocks.GRASS_BLOCK))
             .tries(1)
-            .xSpread(25)
-            .ySpread(25)
+            .xspread(25)
+            .yspread(25)
             .build();
 
-    public static final BlockClusterFeatureConfig DIAMOND_BUSH = (new BlockClusterFeatureConfig.Builder(
-            new SimpleBlockStateProvider(BlockInit.DIAMOND_BUSH.get().getDefaultState()),
-            new SimpleBlockPlacer())).whitelist(ImmutableSet.of(Blocks.GRASS_BLOCK))
+    public static final RandomPatchConfiguration REDSTONE_BUSH = (new RandomPatchConfiguration.GrassConfigurationBuilder(
+            new SimpleStateProvider(BlockInit.REDSTONE_BUSH.get().defaultBlockState()),
+            new SimpleBlockPlacer()))
+            .whitelist(ImmutableSet.of(Blocks.GRASS_BLOCK))
             .tries(1)
-            .xSpread(25)
-            .ySpread(25)
+            .xspread(25)
+            .yspread(25)
             .build();
 
-    public static final BlockClusterFeatureConfig BLAZE_BUSH = (new BlockClusterFeatureConfig.Builder(
-            new SimpleBlockStateProvider(BlockInit.BLAZE_BUSH.get().getDefaultState()),
-            new SimpleBlockPlacer())).whitelist(ImmutableSet.of(Blocks.SAND))
+    public static final RandomPatchConfiguration DIAMOND_BUSH = (new RandomPatchConfiguration.GrassConfigurationBuilder(
+            new SimpleStateProvider(BlockInit.DIAMOND_BUSH.get().defaultBlockState()),
+            new SimpleBlockPlacer()))
+            .whitelist(ImmutableSet.of(Blocks.GRASS_BLOCK))
             .tries(1)
-            .xSpread(25)
-            .ySpread(25)
+            .xspread(25)
+            .yspread(25)
+            .build();
+
+    public static final RandomPatchConfiguration BLAZE_BUSH = (new RandomPatchConfiguration.GrassConfigurationBuilder(
+            new SimpleStateProvider(BlockInit.BLAZE_BUSH.get().defaultBlockState()),
+            new SimpleBlockPlacer()))
+            .whitelist(ImmutableSet.of(Blocks.SAND))
+            .tries(2)
+            .xspread(25)
+            .yspread(25)
             .build();
 
 
@@ -82,9 +103,14 @@ public class FeatureConfigs {
     # Nether #
     ##########
      */
-    /* public static final BlockClusterFeatureConfig NETHER_QUARTZ_BUSH = (new BlockClusterFeatureConfig.Builder(
-            new SimpleBlockStateProvider(BlockInit.NETHER_QUARTZ_BUSH.get().getDefaultState()),
-            new SimpleBlockPlacer())).tries(1).build(); */
+    public static final RandomPatchConfiguration NETHER_QUARTZ_BUSH = (new RandomPatchConfiguration.GrassConfigurationBuilder(
+            new SimpleStateProvider(BlockInit.NETHER_QUARTZ_BUSH.get().defaultBlockState()),
+            new SimpleBlockPlacer()))
+            .whitelist(ImmutableSet.of(Blocks.NETHERRACK))
+            .tries(1)
+            .xspread(25)
+            .yspread(25)
+            .build();
 
 
 
@@ -98,6 +124,10 @@ public class FeatureConfigs {
     public static ConfiguredFeature XP_BUSH_Configured = new ConfiguredFeature(
             Feature.RANDOM_PATCH,
             XP_BUSH);
+
+    public static ConfiguredFeature COPPER_BUSH_Configured = new ConfiguredFeature(
+            Feature.RANDOM_PATCH,
+            COPPER_BUSH);
 
     public static ConfiguredFeature COAL_BUSH_Configured = new ConfiguredFeature(
             Feature.RANDOM_PATCH,
@@ -124,9 +154,9 @@ public class FeatureConfigs {
             BLAZE_BUSH);
 
     //Nether
-    /* public static ConfiguredFeature NETHER_QUARTZ_BUSH_Configured = new ConfiguredFeature(
+    public static ConfiguredFeature NETHER_QUARTZ_BUSH_Configured = new ConfiguredFeature(
             Feature.RANDOM_PATCH,
-            NETHER_QUARTZ_BUSH); */
+            NETHER_QUARTZ_BUSH);
 
 }
 

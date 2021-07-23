@@ -1,14 +1,10 @@
 package com.dave.metalbushesmod.Init;
 
 import com.dave.metalbushesmod.MetalBushesMod;
-import com.dave.metalbushesmod.config.ConfigHandler;
-import com.dave.metalbushesmod.objects.items.CoalNugget;
-import net.minecraft.item.Item;
-import net.minecraftforge.fml.ModList;
-import net.minecraftforge.fml.RegistryObject;
+import net.minecraft.world.item.Item;
+import net.minecraftforge.fmllegacy.RegistryObject;
 import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
-import org.apache.logging.log4j.core.util.Loader;
 
 public class ItemInit {
 
@@ -18,48 +14,48 @@ public class ItemInit {
 
     public static final RegistryObject<Item> BUSH_BASE = ITEMS.register(
             "bush_base", () -> new Item(
-                    new Item.Properties().group(MetalBushesMod.MetalBushesModItemGroup.instance)));
+                    new Item.Properties().tab(MetalBushesMod.MetalBushesModItemGroup.instance)));
 
     public static final RegistryObject<Item> BUSH_WOODEN_BASE = ITEMS.register(
             "bush_wooden_base", () -> new Item(
-                    new Item.Properties().group(MetalBushesMod.MetalBushesModItemGroup.instance)));
+                    new Item.Properties().tab(MetalBushesMod.MetalBushesModItemGroup.instance)));
 
     public static final RegistryObject<Item> NETHER_BUSH_BASE = ITEMS.register(
             "nether_bush_base", () -> new Item(
-                    new Item.Properties().group(MetalBushesMod.MetalBushesModItemGroup.instance)));
+                    new Item.Properties().tab(MetalBushesMod.MetalBushesModItemGroup.instance)));
 
 
 
 
 
     public static final RegistryObject<Item> COAL_NUGGET = ITEMS.register(
-            "coal_nugget", () -> new CoalNugget(
-                    new Item.Properties().group(MetalBushesMod.MetalBushesModItemGroup.instance)));
+            "coal_nugget", () -> new Item(
+                    new Item.Properties().tab(MetalBushesMod.MetalBushesModItemGroup.instance)));
 
     public static final RegistryObject<Item> DIAMOND_NUGGET = ITEMS.register(
             "diamond_nugget", () -> new Item(
-                    new Item.Properties().group(MetalBushesMod.MetalBushesModItemGroup.instance)));
+                    new Item.Properties().tab(MetalBushesMod.MetalBushesModItemGroup.instance)));
 
     public static final RegistryObject<Item> TINY_BLAZE_POWDER = ITEMS.register(
             "tiny_blaze_powder", () -> new Item(
-                    new Item.Properties().group(MetalBushesMod.MetalBushesModItemGroup.instance)));
+                    new Item.Properties().tab(MetalBushesMod.MetalBushesModItemGroup.instance)));
 
 
     //Modded
     public static final RegistryObject<Item> COPPER_NUGGET = ITEMS_MODDED.register(
             "copper_nugget", () -> new Item(
-                    new Item.Properties().group(MetalBushesMod.MetalBushesModItemGroup.instance)));
+                    new Item.Properties().tab(MetalBushesMod.MetalBushesModItemGroup.instance)));
 
     public static final RegistryObject<Item> TIN_NUGGET = ITEMS_MODDED.register(
             "tin_nugget", () -> new Item(
-                    new Item.Properties().group(MetalBushesMod.MetalBushesModItemGroup.instance)));
+                    new Item.Properties().tab(MetalBushesMod.MetalBushesModItemGroup.instance)));
 
     public static final RegistryObject<Item> OSMIUM_NUGGET = ITEMS_MODDED.register(
             "osmium_nugget", () -> new Item(
-                    new Item.Properties().group(MetalBushesMod.MetalBushesModItemGroup.instance)));
+                    new Item.Properties().tab(MetalBushesMod.MetalBushesModItemGroup.instance)));
 
     public static final RegistryObject<Item> ZINC_NUGGET = ITEMS_MODDED.register(
             "zinc_nugget", () -> new Item(
-                    new Item.Properties().group(MetalBushesMod.MetalBushesModItemGroup.instance)));
+                    new Item.Properties().tab(MetalBushesMod.MetalBushesModItemGroup.instance)));
 
 }

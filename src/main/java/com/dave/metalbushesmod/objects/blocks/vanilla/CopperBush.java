@@ -1,6 +1,7 @@
 package com.dave.metalbushesmod.objects.blocks.vanilla;
 
 import com.dave.metalbushesmod.Init.BlockInit;
+import com.dave.metalbushesmod.Init.ItemInit;
 import com.dave.metalbushesmod.config.ConfigHandler;
 import net.minecraft.core.BlockPos;
 import net.minecraft.sounds.SoundEvents;
@@ -17,17 +18,15 @@ import net.minecraft.world.level.block.SweetBerryBushBlock;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.phys.BlockHitResult;
 
+public class CopperBush extends SweetBerryBushBlock {
 
-public class IronBush extends SweetBerryBushBlock {
-
-
-    public IronBush(Properties properties) {
+    public CopperBush(Properties properties) {
         super(properties);
     }
 
     @Override
     public ItemStack getCloneItemStack(BlockGetter worldIn, BlockPos pos, BlockState state) {
-        return new ItemStack(BlockInit.IRON_BUSH.get());
+        return new ItemStack(BlockInit.COPPER_BUSH.get());
     }
 
     @Override
@@ -37,13 +36,13 @@ public class IronBush extends SweetBerryBushBlock {
         if (!flag && player.getItemInHand(handIn).is(Items.BONE_MEAL)) {
             return InteractionResult.PASS;
         } else if (i == 2) {
-            popResource(worldIn, pos, new ItemStack(Items.IRON_NUGGET, 1));
+            popResource(worldIn, pos, new ItemStack(ItemInit.COPPER_NUGGET.get(), 1));
             worldIn.playSound((Player) null, pos, SoundEvents.SWEET_BERRY_BUSH_PICK_BERRIES, SoundSource.BLOCKS, 1.0f, 0.8F + worldIn.random.nextFloat() * 0.4F);
             worldIn.setBlock(pos, state.setValue(AGE, Integer.valueOf(1)), 2);
 
             return InteractionResult.SUCCESS;
         } else if (i == 3) {
-            popResource(worldIn, pos, new ItemStack(Items.IRON_NUGGET, 2));
+            popResource(worldIn, pos, new ItemStack(ItemInit.COPPER_NUGGET.get(), 2));
             worldIn.playSound((Player) null, pos, SoundEvents.SWEET_BERRY_BUSH_PICK_BERRIES, SoundSource.BLOCKS, 1.0f, 0.8F + worldIn.random.nextFloat() * 0.4F);
             worldIn.setBlock(pos, state.setValue(AGE, Integer.valueOf(1)), 2);
 

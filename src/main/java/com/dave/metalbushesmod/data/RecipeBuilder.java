@@ -43,12 +43,12 @@ public class RecipeBuilder extends RecipeProvider implements IConditionBuilder {
         super(generatorIn);
     }
 
-    //@Override
-    protected void registerRecipes(Consumer<FinishedRecipe> consumer) {
+    @Override
+    protected void buildCraftingRecipes(Consumer<FinishedRecipe> consumer) {
 
-        ResourceLocation TIN_BUSH = new ResourceLocation("assets/metalbushesmod", "tin_bush");
-        ResourceLocation OSMIUM_BUSH = new ResourceLocation("assets/metalbushesmod", "osmium_bush");
-        ResourceLocation ZINC_BUSH = new ResourceLocation("assets/metalbushesmod", "zinc_bush");
+        ResourceLocation TIN_BUSH = new ResourceLocation("metalbushesmod", "tin_bush");
+        ResourceLocation OSMIUM_BUSH = new ResourceLocation("metalbushesmod", "osmium_bush");
+        ResourceLocation ZINC_BUSH = new ResourceLocation("metalbushesmod", "zinc_bush");
 
         //Bush Base
         ShapedRecipeBuilder.shaped(ItemInit.BUSH_BASE.get(), 1)

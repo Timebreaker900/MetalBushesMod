@@ -11,9 +11,9 @@ apply plugin: 'net.minecraftforge.gradle'
 apply plugin: 'idea'
 apply plugin: 'maven-publish'
 
-version = '${mod_version}'
+version = "v${mc_version}-${mod_version}"
 group = 'com.dave.metalbushesmod'
-archivesBaseName = 'metalbushesmod'
+archivesBaseName = 'Metal Bushes'
 
 java.toolchain.languageVersion = JavaLanguageVersion.of(16)
 
@@ -111,4 +111,9 @@ publishing {
             url "file://${project.projectDir}/mcmodsrepo"
         }
     }
+
+}
+
+processResources{
+    duplicatesStrategy = 'include'
 }

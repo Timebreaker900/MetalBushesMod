@@ -4,9 +4,7 @@ Remember the old OreBerrieBushes form Tinkers Construct?
 Now they are available in the 1.14.4 Style of the Sweet Berry Bush!
 
 On Growstage 2 the Bushes drop 1 Item. 
-On Growstage 3 the Bushes drop 2 Items.
-
- 
+On Growstage 3 the Bushes has a 25% chance to drop 2 Items.
 
 ## Overworld:
 
@@ -20,36 +18,22 @@ Nether Quartz Bush
 
 Copper Bush, Tin Bush, Osmium Bush
 
- 
-
-Create Support:
+## Create Support:
 
 Copper Bush, Zinc Bush
 
- 
+## Where to find them?
 
-Where to find them?
+**Coal Bush** - (Taiga, Extreme Hills, Icy, Forest)
+**Copper Bush** - (Plains, Savanna)
+**Iron Bush** - (Plains, Taiga, Savanna, Forest)
+**Gold Bush** - (Savanna, Forest)
+**Redstone Bush** - (Plains, Forest)
+**Diamond Bush** - (Plains, Forest)
+**Experience Bush** - (Plains, Savanna, Forest)
+**Blaze Bush** - (Desert)
 
-Coal Bush (Taiga, Extreme Hills, Icy, Forest)
-
-Iron Bush (Plains, Taiga, Savanna, Forest)
-
-Gold Bush (Savanna, Forest)
-
-Redstone Bush (Plains, Forest)
-
-Diamond Bush (Plains, Forest)
-
-Experience Bush (Plains, Savanna, Forest)
-
-Blaze Bush (Desert)
-
- 
-
-Copper Bush (Plains, Savanna)
-
-Tin Bush (Plains, Forest)
-
-Osmium Bush (Taiga, Icy)
-
-Zinc Bush (Plains, Savanna, Forest) 
+**_Mod Support_**
+**Tin Bush** - (Plains, Forest)
+**Osmium Bush** - (Taiga, Icy)
+**Zinc Bush** - (Plains, Savanna, Forest) 

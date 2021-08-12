@@ -11,7 +11,7 @@ On Growstage 3 the Bushes has a 25% chance to drop 2 Items.
 
 ## Overworld:
 
-Coal Bush, Copper Bush, Iron Bush, Gold Bush, Redstone Bush, Diamond Bush, Experience Bush, Blaze Bush
+Coal Bush, Copper Bush, Iron Bush, Gold Bush, Redstone Bush, Diamond Bush, Experience Bush, Blaze Bush, Slime Bush
 
 ## Nether:
 
@@ -42,6 +42,8 @@ Zinc Bush
 **Experience Bush** - (Plains, Savanna, Forest)
 
 **Blaze Bush** - (Desert)
+
+**Slime Bush** - (Swamp)
 
 
 ###### Mod Support

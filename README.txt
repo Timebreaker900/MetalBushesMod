@@ -1,30 +1,22 @@
-Metal Bushes Mod
+# Metal Bushes Mod
 
 Remember the old OreBerrieBushes form Tinkers Construct?
-
 Now they are available in the 1.14.4 Style of the Sweet Berry Bush!
 
- 
-
 On Growstage 2 the Bushes drop 1 Item. 
-
 On Growstage 3 the Bushes drop 2 Items.
 
  
 
-Overworld:
+## Overworld:
 
 Coal Bush, Iron Bush, Gold Bush, Redstone Bush, Diamond Bush, Experience Bush, Blaze Bush
 
- 
-
-Nether:
+## Nether:
 
 Nether Quartz Bush
 
- 
-
-Mekanism Support:
+## Mekanism Support:
 
 Copper Bush, Tin Bush, Osmium Bush
 

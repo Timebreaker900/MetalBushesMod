@@ -1,3 +1,5 @@
+![header_pic](https://i.imgur.com/vVMv5nL.png)
+
 # Metal Bushes Mod
 
 Remember the old OreBerrieBushes form Tinkers Construct?

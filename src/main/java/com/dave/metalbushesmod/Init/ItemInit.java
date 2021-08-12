@@ -40,6 +40,10 @@ public class ItemInit {
             "tiny_blaze_powder", () -> new Item(
                     new Item.Properties().tab(MetalBushesMod.MetalBushesModItemGroup.instance)));
 
+    public static final RegistryObject<Item> SLIME_CHUNK = ITEMS.register(
+            "slime_chunk", () -> new Item(
+                    new Item.Properties().tab(MetalBushesMod.MetalBushesModItemGroup.instance)));
+
 
     //Modded
     public static final RegistryObject<Item> COPPER_NUGGET = ITEMS_MODDED.register(

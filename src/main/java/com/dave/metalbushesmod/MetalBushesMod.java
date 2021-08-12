@@ -116,6 +116,7 @@ public class MetalBushesMod
         ItemBlockRenderTypes.setRenderLayer(BlockInit.REDSTONE_BUSH.get(), RenderType.cutout());
         ItemBlockRenderTypes.setRenderLayer(BlockInit.DIAMOND_BUSH.get(), RenderType.cutout());
         ItemBlockRenderTypes.setRenderLayer(BlockInit.BLAZE_BUSH.get(), RenderType.cutout());
+        ItemBlockRenderTypes.setRenderLayer(BlockInit.SLIME_BUSH.get(), RenderType.cutout());
         //Nether
         ItemBlockRenderTypes.setRenderLayer(BlockInit.NETHER_QUARTZ_BUSH.get(), RenderType.cutout());
 

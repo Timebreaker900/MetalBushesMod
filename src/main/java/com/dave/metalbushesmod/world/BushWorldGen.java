@@ -125,6 +125,16 @@ public class BushWorldGen {
             }
         }
 
+        //SLIME BUSH
+        if(bc == Biome.BiomeCategory.SWAMP){
+            if(ConfigHandler.CONFIG.allowSlimeGen.get() == true) {
+                biome.getGeneration().addFeature(
+                        GenerationStep.Decoration.VEGETAL_DECORATION,
+                        FeatureConfigs.SLIME_BUSH_Configured
+                );
+            }
+        }
+
 
         if (MetalBushesMod.mekanismLoaded == true) {
             //OSMIUM BUSH
@@ -181,21 +191,23 @@ public class BushWorldGen {
 
     private static void addBushesToNether(BiomeLoadingEvent biome){
         //Vanilla
-        biome.getGeneration().addFeature(
-                GenerationStep.Decoration.VEGETAL_DECORATION,
-                //new ConfiguredFeature(
-                        Feature.NETHER_FOREST_VEGETATION
-                        .configured(
-                                new BlockPileConfiguration(
-                                        new SimpleStateProvider(BlockInit.NETHER_QUARTZ_BUSH.get().defaultBlockState())
-                                )
-                        )
-                        .decorated(
-                                Spread32Decorator.COUNT_MULTILAYER.configured(new CountConfiguration(1))
-                                //Placement.COUNT_MULTILAYER.configure(new FeatureSpreadConfig(1))
-                        )
+        if (ConfigHandler.CONFIG.allowBlazeGen.get() == true) {
+            biome.getGeneration().addFeature(
+                    GenerationStep.Decoration.VEGETAL_DECORATION,
+                    //new ConfiguredFeature(
+                    Feature.NETHER_FOREST_VEGETATION
+                            .configured(
+                                    new BlockPileConfiguration(
+                                            new SimpleStateProvider(BlockInit.NETHER_QUARTZ_BUSH.get().defaultBlockState())
+                                    )
+                            )
+                            .decorated(
+                                    Spread32Decorator.COUNT_MULTILAYER.configured(new CountConfiguration(1))
+                                    //Placement.COUNT_MULTILAYER.configure(new FeatureSpreadConfig(1))
+                            )
 
-        );
+            );
+        }
     }
 
 }

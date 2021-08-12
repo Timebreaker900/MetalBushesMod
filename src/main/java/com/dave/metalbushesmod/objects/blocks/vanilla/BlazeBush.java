@@ -88,7 +88,8 @@ public class BlazeBush extends SweetBerryBushBlock {
 
             return InteractionResult.SUCCESS;
         } else if (i == 3) {
-            popResource(worldIn, pos, new ItemStack(ItemInit.TINY_BLAZE_POWDER.get(), 2));
+            int j = (Math.random() < 0.75) ? 1 : 2;
+            popResource(worldIn, pos, new ItemStack(ItemInit.TINY_BLAZE_POWDER.get(), j));
             worldIn.playSound((Player) null, pos, SoundEvents.SWEET_BERRY_BUSH_PICK_BERRIES, SoundSource.BLOCKS, 1.0f, 0.8F + worldIn.random.nextFloat() * 0.4F);
             worldIn.setBlock(pos, state.setValue(AGE, Integer.valueOf(1)), 2);
 

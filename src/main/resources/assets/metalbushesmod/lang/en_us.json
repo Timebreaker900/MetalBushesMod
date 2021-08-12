@@ -13,6 +13,7 @@
   "block.metalbushesmod.diamond_bush": "Diamond Bush",
 
   "block.metalbushesmod.blaze_bush": "Blaze Bush",
+  "block.metalbushesmod.slime_bush": "Slime Bush",
 
   "block.metalbushesmod.nether_quartz_bush": "Nether Quartz Bush",
 
@@ -21,6 +22,7 @@
   "item.metalbushesmod.coal_nugget": "Coal Nugget",
   "item.metalbushesmod.diamond_nugget": "Diamond Nugget",
   "item.metalbushesmod.tiny_blaze_powder": "Tiny Blaze Powder",
+  "item.metalbushesmod.slime_chunk": "Slime Chunk",
 
 
 

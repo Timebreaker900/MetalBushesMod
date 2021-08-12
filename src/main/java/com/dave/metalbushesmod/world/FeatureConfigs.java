@@ -97,6 +97,15 @@ public class FeatureConfigs {
             .yspread(25)
             .build();
 
+    public static final RandomPatchConfiguration SLIME_BUSH = (new RandomPatchConfiguration.GrassConfigurationBuilder(
+            new SimpleStateProvider(BlockInit.SLIME_BUSH.get().defaultBlockState()),
+            new SimpleBlockPlacer()))
+            .whitelist(ImmutableSet.of(Blocks.GRASS_BLOCK))
+            .tries(2)
+            .xspread(25)
+            .yspread(25)
+            .build();
+
 
     /*
     ##########
@@ -152,6 +161,10 @@ public class FeatureConfigs {
     public static ConfiguredFeature BLAZE_BUSH_Configured = new ConfiguredFeature(
             Feature.RANDOM_PATCH,
             BLAZE_BUSH);
+
+    public static ConfiguredFeature SLIME_BUSH_Configured = new ConfiguredFeature(
+            Feature.RANDOM_PATCH,
+            SLIME_BUSH);
 
     //Nether
     public static ConfiguredFeature NETHER_QUARTZ_BUSH_Configured = new ConfiguredFeature(

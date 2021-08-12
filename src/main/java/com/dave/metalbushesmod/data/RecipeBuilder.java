@@ -8,6 +8,7 @@ import net.minecraft.data.recipes.RecipeProvider;
 import net.minecraft.data.recipes.ShapedRecipeBuilder;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.tags.ItemTags;
+import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.level.block.Blocks;
@@ -50,6 +51,24 @@ public class RecipeBuilder extends RecipeProvider implements IConditionBuilder {
         ResourceLocation OSMIUM_BUSH = new ResourceLocation("metalbushesmod", "osmium_bush");
         ResourceLocation ZINC_BUSH = new ResourceLocation("metalbushesmod", "zinc_bush");
 
+        //ITEMS
+        //Copper Nuggets zu Ingot --> Im Vanilla gibt es keine Copper Nuggets
+        ShapedRecipeBuilder.shaped(Items.COPPER_INGOT, 1)
+                .pattern("NNN")
+                .pattern("NNN")
+                .pattern("NNN")
+                .define('N', ItemInit.COPPER_NUGGET.get())
+                .unlockedBy("has_dirt", has(Blocks.DIRT))
+                .save(consumer);
+
+        ShapedRecipeBuilder.shaped(Items.SLIME_BALL, 1)
+                .pattern("NNN")
+                .pattern("NNN")
+                .pattern("NNN")
+                .define('N', ItemInit.SLIME_CHUNK.get())
+                .unlockedBy("has_dirt", has(Blocks.DIRT))
+                .save(consumer);
+
         //Bush Base
         ShapedRecipeBuilder.shaped(ItemInit.BUSH_BASE.get(), 1)
                 .pattern("GGG")
@@ -85,6 +104,16 @@ public class RecipeBuilder extends RecipeProvider implements IConditionBuilder {
         * VANILLA *
         * *********
         */
+        //COAL BUSH
+        ShapedRecipeBuilder.shaped(BlockInit.COAL_BUSH.get(), 1)
+                .pattern(" I ")
+                .pattern("BSB")
+                .pattern(" I ")
+                .define('I', Items.COAL)
+                .define('B', Blocks.COAL_BLOCK)
+                .define('S', ItemInit.BUSH_BASE.get())
+                .unlockedBy("has_dirt", has(Blocks.DIRT))
+                .save(consumer);
         //COPPPER BUSH
         ShapedRecipeBuilder
                 .shaped(BlockInit.COPPER_BUSH.get(), 1)
@@ -93,16 +122,6 @@ public class RecipeBuilder extends RecipeProvider implements IConditionBuilder {
                 .pattern(" I ")
                 .define('I', Items.COPPER_INGOT)
                 .define('B', Blocks.COPPER_BLOCK)
-                .define('S', ItemInit.BUSH_BASE.get())
-                .unlockedBy("has_dirt", has(Blocks.DIRT))
-                .save(consumer);
-        //COAL BUSH
-        ShapedRecipeBuilder.shaped(BlockInit.COAL_BUSH.get(), 1)
-                .pattern(" I ")
-                .pattern("BSB")
-                .pattern(" I ")
-                .define('I', Items.COAL)
-                .define('B', Blocks.COAL_BLOCK)
                 .define('S', ItemInit.BUSH_BASE.get())
                 .unlockedBy("has_dirt", has(Blocks.DIRT))
                 .save(consumer);
@@ -165,6 +184,16 @@ public class RecipeBuilder extends RecipeProvider implements IConditionBuilder {
                 .define('I', Items.BLAZE_ROD)
                 .define('B', Items.BLAZE_POWDER)
                 .define('S', ItemInit.BUSH_WOODEN_BASE.get())
+                .unlockedBy("has_dirt", has(Blocks.DIRT))
+                .save(consumer);
+        //SLIME BUSH
+        ShapedRecipeBuilder.shaped(BlockInit.SLIME_BUSH.get(), 1)
+                .pattern(" I ")
+                .pattern("BSB")
+                .pattern(" I ")
+                .define('I', Items.SLIME_BALL)
+                .define('B', Items.SLIME_BLOCK)
+                .define('S', ItemInit.BUSH_BASE.get())
                 .unlockedBy("has_dirt", has(Blocks.DIRT))
                 .save(consumer);
 

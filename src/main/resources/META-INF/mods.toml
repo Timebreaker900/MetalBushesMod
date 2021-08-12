@@ -4,7 +4,7 @@ license="Dave's License"
 
 [[mods]] #mandatory
 modId="metalbushesmod" #mandatory
-version="1.17.1-2.7" #mandatory
+version="1.17.1-2.9" #mandatory
 displayName="Metal Bushes" #mandatory
 logoFile="examplemod.png" #optional
 credits="Thanks to early Tinkers Consturct!" #optional

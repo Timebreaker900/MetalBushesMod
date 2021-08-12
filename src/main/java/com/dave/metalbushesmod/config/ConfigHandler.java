@@ -16,14 +16,18 @@ public class ConfigHandler {
 
         public final ForgeConfigSpec.BooleanValue allowWorldGen;
 
+        //Vanilla
         public final ForgeConfigSpec.BooleanValue allowCoalGen;
+        public final ForgeConfigSpec.BooleanValue allowCopperGen;
         public final ForgeConfigSpec.BooleanValue allowIronGen;
         public final ForgeConfigSpec.BooleanValue allowGoldGen;
         public final ForgeConfigSpec.BooleanValue allowRedstoneGen;
         public final ForgeConfigSpec.BooleanValue allowDiamondGen;
         public final ForgeConfigSpec.BooleanValue allowExperienceGen;
+        public final ForgeConfigSpec.BooleanValue allowBlazeGen;
+        public final ForgeConfigSpec.BooleanValue allowSlimeGen;
 
-        public final ForgeConfigSpec.BooleanValue allowCopperGen;
+        //Modded
         public final ForgeConfigSpec.BooleanValue allowOsmiumGen;
         public final ForgeConfigSpec.BooleanValue allowTinGen;
         public final ForgeConfigSpec.BooleanValue allowZincGen;
@@ -42,6 +46,8 @@ public class ConfigHandler {
             ConfigBuilder.comment("Make sure World Generation is on true").push("World Gen Specific");
             allowCoalGen = ConfigBuilder
                     .define("Coal Bush Gen", true);
+            allowCopperGen = ConfigBuilder
+                    .define("Copper Bush Gen", true);
             allowIronGen = ConfigBuilder
                     .define("Iron Bush Gen", true);
             allowGoldGen = ConfigBuilder
@@ -52,13 +58,17 @@ public class ConfigHandler {
                     .define("Diamond Bush Gen", true);
             allowExperienceGen = ConfigBuilder
                     .define("Experience Bush Gen", true);
+            allowBlazeGen = ConfigBuilder
+                    .define("Blaze Bush Gen", true);
+            allowSlimeGen = ConfigBuilder
+                    .define("Slime Bush Gen", true);
             ConfigBuilder.pop();
 
-            ConfigBuilder.push("Copper Bush");
+            /* ConfigBuilder.push("Copper Bush");
             allowCopperGen = ConfigBuilder
                     .comment("Active with: Mekanism")
                     .define("Copper Bush Gen", true);
-            ConfigBuilder.pop();
+            ConfigBuilder.pop(); */
 
             ConfigBuilder.push("Osmium Bush");
             allowOsmiumGen = ConfigBuilder

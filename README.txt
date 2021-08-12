@@ -1,4 +1,4 @@
-Metal Bushes Mod
+<b>Metal Bushes Mod</b>
 
 Remember the old OreBerrieBushes form Tinkers Construct?
 

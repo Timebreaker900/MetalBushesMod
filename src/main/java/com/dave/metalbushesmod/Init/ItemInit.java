@@ -1,6 +1,7 @@
 package com.dave.metalbushesmod.Init;
 
 import com.dave.metalbushesmod.MetalBushesMod;
+import com.dave.metalbushesmod.objects.items.CoalNugget;
 import net.minecraft.world.item.Item;
 import net.minecraftforge.fmllegacy.RegistryObject;
 import net.minecraftforge.registries.DeferredRegister;
@@ -29,7 +30,7 @@ public class ItemInit {
 
 
     public static final RegistryObject<Item> COAL_NUGGET = ITEMS.register(
-            "coal_nugget", () -> new Item(
+            "coal_nugget", () -> new CoalNugget(
                     new Item.Properties().tab(MetalBushesMod.MetalBushesModItemGroup.instance)));
 
     public static final RegistryObject<Item> DIAMOND_NUGGET = ITEMS.register(

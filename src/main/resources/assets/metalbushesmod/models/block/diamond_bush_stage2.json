@@ -1,6 +1,0 @@
-{
-  "parent": "block/cross",
-  "textures": {
-    "cross": "metalbushesmod:blocks/diamond_bush_stage2"
-  }
-}

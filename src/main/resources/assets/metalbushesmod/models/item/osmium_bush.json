@@ -1,6 +1,0 @@
-{
-  "parent": "item/generated",
-  "textures": {
-    "layer0": "metalbushesmod:items/osmium_bush"
-  }
-}

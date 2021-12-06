@@ -2,43 +2,55 @@ package com.dave.metalbushesmod.world;
 
 import com.dave.metalbushesmod.Init.BlockInit;
 import com.dave.metalbushesmod.Init.ItemInit;
+import com.dave.metalbushesmod.MetalBushesMod;
 import com.google.common.collect.ImmutableSet;
 import net.minecraft.core.BlockPos;
+import net.minecraft.data.worldgen.placement.PlacementUtils;
+import net.minecraft.server.level.WorldGenRegion;
+import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.levelgen.feature.ConfiguredFeature;
 import net.minecraft.world.level.levelgen.feature.Feature;
-import net.minecraft.world.level.levelgen.feature.blockplacers.BlockPlacer;
-import net.minecraft.world.level.levelgen.feature.blockplacers.SimpleBlockPlacer;
 import net.minecraft.world.level.levelgen.feature.configurations.RandomPatchConfiguration;
-import net.minecraft.world.level.levelgen.feature.stateproviders.BlockStateProvider;
-import net.minecraft.world.level.levelgen.feature.stateproviders.BlockStateProviderType;
-import net.minecraft.world.level.levelgen.feature.stateproviders.SimpleStateProvider;
+import net.minecraft.world.level.levelgen.feature.configurations.SimpleBlockConfiguration;
+import net.minecraft.world.level.levelgen.feature.stateproviders.*;
+import net.minecraft.world.level.levelgen.placement.*;
+import net.minecraft.world.level.levelgen.synth.NormalNoise;
 
+import java.util.List;
 import java.util.Random;
+import java.util.function.Supplier;
 
 public class FeatureConfigs {
+
 
     /*
     #############
     # Overworld #
     #############
      */
-    public static final RandomPatchConfiguration Test = (new RandomPatchConfiguration(
-            new SimpleStateProvider(BlockInit.XP_BUSH.get().defaultBlockState()),
-    ))
+    public static final PlacedFeature FEATURE_BUSHES = PlacementUtils.register("feature_bushes",
+            WorldGenRegister.BUSHES.placed(
+                    NoiseThresholdCountPlacement.of(-0.8D, 15, 4),
+                    RarityFilter.onAverageOnceEvery(32),
+                    InSquarePlacement.spread(),
+                    PlacementUtils.HEIGHTMAP, BiomeFilter.biome()
+            )
+    );
+
 
     //Vanilla
-    public static final RandomPatchConfiguration XP_BUSH = (new RandomPatchConfiguration.GrassConfigurationBuilder(
+    /* public static final RandomPatchConfiguration XP_BUSH = (new RandomPatchConfiguration.GrassConfigurationBuilder(
             new SimpleStateProvider(BlockInit.XP_BUSH.get().defaultBlockState()),
             new SimpleBlockPlacer()))
             .whitelist(ImmutableSet.of(Blocks.GRASS_BLOCK))
             .tries(1)
             .xspread(25)
             .yspread(25)
-            .build();
+            .build(); */
 
-    public static final RandomPatchConfiguration COPPER_BUSH = (new RandomPatchConfiguration.GrassConfigurationBuilder(
+    /* public static final RandomPatchConfiguration COPPER_BUSH = (new RandomPatchConfiguration.GrassConfigurationBuilder(
             new SimpleStateProvider(BlockInit.COPPER_BUSH.get().defaultBlockState()),
             new SimpleBlockPlacer()))
             .whitelist(ImmutableSet.of(Blocks.GRASS_BLOCK))
@@ -111,12 +123,15 @@ public class FeatureConfigs {
             .build();
 
 
+     */
+
+
     /*
     ##########
     # Nether #
     ##########
      */
-    public static final RandomPatchConfiguration NETHER_QUARTZ_BUSH = (new RandomPatchConfiguration.GrassConfigurationBuilder(
+    /* public static final RandomPatchConfiguration NETHER_QUARTZ_BUSH = (new RandomPatchConfiguration.GrassConfigurationBuilder(
             new SimpleStateProvider(BlockInit.NETHER_QUARTZ_BUSH.get().defaultBlockState()),
             new SimpleBlockPlacer()))
             .whitelist(ImmutableSet.of(Blocks.NETHERRACK))
@@ -126,6 +141,8 @@ public class FeatureConfigs {
             .build();
 
 
+     */
+
 
 
     /*
@@ -134,7 +151,7 @@ public class FeatureConfigs {
     #######################
      */
     //Vanilla
-    public static ConfiguredFeature XP_BUSH_Configured = new ConfiguredFeature(
+    /* public static ConfiguredFeature XP_BUSH_Configured = new ConfiguredFeature(
             Feature.RANDOM_PATCH,
             XP_BUSH);
 
@@ -174,6 +191,10 @@ public class FeatureConfigs {
     public static ConfiguredFeature NETHER_QUARTZ_BUSH_Configured = new ConfiguredFeature(
             Feature.RANDOM_PATCH,
             NETHER_QUARTZ_BUSH);
+
+     */
+
+
 
 }
 

@@ -1,0 +1,6 @@
+{
+  "parent": "block/cross",
+  "textures": {
+    "cross": "metalbushesmod:blocks/blaze_bush_stage3"
+  }
+}

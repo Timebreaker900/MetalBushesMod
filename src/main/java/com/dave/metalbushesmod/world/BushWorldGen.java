@@ -6,16 +6,17 @@ import com.dave.metalbushesmod.config.ConfigHandler;
 import com.google.common.collect.ImmutableSet;
 import net.minecraft.world.level.biome.Biome;
 import net.minecraft.world.level.block.Blocks;
+import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.levelgen.GenerationStep;
 import net.minecraft.world.level.levelgen.feature.ConfiguredFeature;
 import net.minecraft.world.level.levelgen.feature.Feature;
-import net.minecraft.world.level.levelgen.feature.blockplacers.SimpleBlockPlacer;
 import net.minecraft.world.level.levelgen.feature.configurations.BlockPileConfiguration;
 import net.minecraft.world.level.levelgen.feature.configurations.CountConfiguration;
 import net.minecraft.world.level.levelgen.feature.configurations.RandomPatchConfiguration;
 import net.minecraft.world.level.levelgen.feature.stateproviders.SimpleStateProvider;
-import net.minecraft.world.level.levelgen.placement.Spread32Decorator;
 import net.minecraftforge.event.world.BiomeLoadingEvent;
+
+import java.util.ArrayList;
 
 
 public class BushWorldGen {
@@ -28,31 +29,47 @@ public class BushWorldGen {
             addBushToOverworld(biome);
         }
 
-        if (biome.getCategory() == Biome.BiomeCategory.NETHER) {
+        /* if (biome.getCategory() == Biome.BiomeCategory.NETHER) {
             addBushesToNether(biome);
-        }
+        } */
     }
 
     private static void addBushToOverworld(BiomeLoadingEvent biome) {
 
         Biome.BiomeCategory bc = biome.getCategory();
 
-        float bt = biome.getClimate().temperature;
+        //float bt = biome.getClimate().temperature;
 
         //XP BUSH
-        if(bc == Biome.BiomeCategory.PLAINS || bc == Biome.BiomeCategory.SAVANNA || bc == Biome.BiomeCategory.FOREST) {
-            if(ConfigHandler.CONFIG.allowExperienceGen.get() == true) {
-                biome.getGeneration().addFeature(
-                        GenerationStep.Decoration.VEGETAL_DECORATION,
-                        FeatureConfigs.XP_BUSH_Configured
-                );
-            }
-        }
+        //if(bc == Biome.BiomeCategory.PLAINS || bc == Biome.BiomeCategory.SAVANNA || bc == Biome.BiomeCategory.FOREST) {
+            //if(ConfigHandler.CONFIG.allowExperienceGen.get() == true) {
+
+                /* if(MetalBushesMod.mekanismLoaded = true){
+
+                    lowStates.add(BlockInit.OSMIUM_BUSH.get().defaultBlockState());
+                } */
+
+            //FeatureConfigs.core = BlockInit.XP_BUSH.get().defaultBlockState();
+
+            /* FeatureConfigs.highStates.add(BlockInit.COPPER_BUSH.get().defaultBlockState());
+            FeatureConfigs.highStates.add(BlockInit.IRON_BUSH.get().defaultBlockState());
+            FeatureConfigs.highStates.add(BlockInit.REDSTONE_BUSH.get().defaultBlockState());
+            FeatureConfigs.highStates.add(BlockInit.DIAMOND_BUSH.get().defaultBlockState()); */
+
+            biome.getGeneration().addFeature(
+                    GenerationStep.Decoration.VEGETAL_DECORATION,
+                    FeatureConfigs.FEATURE_BUSHES
+            );
+
+            //FeatureConfigs.core = null;
+            //FeatureConfigs.highStates = new ArrayList<>();
+            //}
+        //}
 
 
 
         //COPPER BUSH
-        if (bc == Biome.BiomeCategory.PLAINS || bc == Biome.BiomeCategory.SAVANNA) {
+        /* if (bc == Biome.BiomeCategory.PLAINS || bc == Biome.BiomeCategory.SAVANNA) {
             if (ConfigHandler.CONFIG.allowCopperGen.get() == true) {
                 if (ConfigHandler.CONFIG.allowCoalGen.get() == true) {
                     biome.getGeneration().addFeature(
@@ -187,9 +204,11 @@ public class BushWorldGen {
                 }
             }
         }
+
+         */
     }
 
-    private static void addBushesToNether(BiomeLoadingEvent biome){
+    /* private static void addBushesToNether(BiomeLoadingEvent biome){
         //Vanilla
         if (ConfigHandler.CONFIG.allowBlazeGen.get() == true) {
             biome.getGeneration().addFeature(
@@ -208,6 +227,6 @@ public class BushWorldGen {
 
             );
         }
-    }
+    } */
 
 }

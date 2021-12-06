@@ -1,0 +1,6 @@
+{
+  "parent": "block/cross",
+  "textures": {
+    "cross": "metalbushesmod:blocks/nether_bush_stage0"
+  }
+}

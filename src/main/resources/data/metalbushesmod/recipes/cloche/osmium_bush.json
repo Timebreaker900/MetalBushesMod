@@ -1,0 +1,20 @@
+{
+  "type": "immersiveengineering:cloche",
+  "results": [
+    {
+      "item": "metalbushesmod:osmium_nugget",
+      "count": 2
+    }
+  ],
+  "input": {
+    "item": "metalbushesmod:osmium_bush"
+  },
+  "soil": {
+    "item": "minecraft:dirt"
+  },
+  "time": 1000,
+  "render": {
+    "type": "crop",
+    "block": "metalbushesmod:osmium_bush"
+  }
+}

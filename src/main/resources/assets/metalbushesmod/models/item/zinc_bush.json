@@ -1,0 +1,6 @@
+{
+  "parent": "item/generated",
+  "textures": {
+    "layer0": "metalbushesmod:items/zinc_bush"
+  }
+}

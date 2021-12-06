@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "NNN",
+    "N N",
+    "NNN"
+  ],
+  "key": {
+    "N": {
+      "item": "metalbushesmod:coal_nugget"
+    }
+  },
+  "result": {
+    "item": "minecraft:coal"
+  }
+
+}

@@ -1,0 +1,20 @@
+{
+  "type": "immersiveengineering:cloche",
+  "results": [
+    {
+      "item": "metalbushesmod:tiny_blaze_powder",
+      "count": 2
+    }
+  ],
+  "input": {
+    "item": "metalbushesmod:blaze_bush"
+  },
+  "soil": {
+    "item": "minecraft:sand"
+  },
+  "time": 1000,
+  "render": {
+    "type": "crop",
+    "block": "metalbushesmod:blaze_bush"
+  }
+}

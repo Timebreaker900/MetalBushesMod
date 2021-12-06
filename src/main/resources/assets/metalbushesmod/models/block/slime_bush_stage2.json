@@ -1,0 +1,6 @@
+{
+  "parent": "block/cross",
+  "textures": {
+    "cross": "metalbushesmod:blocks/slime_bush_stage2"
+  }
+}

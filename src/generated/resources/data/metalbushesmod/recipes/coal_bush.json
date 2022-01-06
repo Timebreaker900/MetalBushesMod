@@ -1,0 +1,22 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    " I ",
+    "BSB",
+    " I "
+  ],
+  "key": {
+    "I": {
+      "item": "minecraft:coal"
+    },
+    "B": {
+      "item": "minecraft:coal_block"
+    },
+    "S": {
+      "item": "metalbushesmod:bush_base"
+    }
+  },
+  "result": {
+    "item": "metalbushesmod:coal_bush"
+  }
+}

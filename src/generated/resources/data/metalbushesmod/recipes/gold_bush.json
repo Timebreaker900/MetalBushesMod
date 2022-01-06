@@ -1,0 +1,22 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    " I ",
+    "BSB",
+    " I "
+  ],
+  "key": {
+    "I": {
+      "item": "minecraft:gold_ingot"
+    },
+    "B": {
+      "item": "minecraft:gold_block"
+    },
+    "S": {
+      "item": "metalbushesmod:bush_base"
+    }
+  },
+  "result": {
+    "item": "metalbushesmod:gold_bush"
+  }
+}

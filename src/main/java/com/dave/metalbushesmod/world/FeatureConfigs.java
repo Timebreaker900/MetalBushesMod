@@ -39,7 +39,6 @@ public class FeatureConfigs {
             )
     );
 
-
     //Vanilla
     /* public static final RandomPatchConfiguration XP_BUSH = (new RandomPatchConfiguration.GrassConfigurationBuilder(
             new SimpleStateProvider(BlockInit.XP_BUSH.get().defaultBlockState()),

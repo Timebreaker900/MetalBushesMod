@@ -1,0 +1,22 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    " I ",
+    "BSB",
+    " I "
+  ],
+  "key": {
+    "I": {
+      "item": "minecraft:slime_ball"
+    },
+    "B": {
+      "item": "minecraft:slime_block"
+    },
+    "S": {
+      "item": "metalbushesmod:bush_base"
+    }
+  },
+  "result": {
+    "item": "metalbushesmod:slime_bush"
+  }
+}

@@ -1,0 +1,22 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    " I ",
+    "BSB",
+    " I "
+  ],
+  "key": {
+    "I": {
+      "item": "minecraft:diamond"
+    },
+    "B": {
+      "item": "minecraft:diamond_block"
+    },
+    "S": {
+      "item": "metalbushesmod:bush_base"
+    }
+  },
+  "result": {
+    "item": "metalbushesmod:diamond_bush"
+  }
+}

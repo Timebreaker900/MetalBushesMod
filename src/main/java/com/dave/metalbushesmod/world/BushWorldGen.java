@@ -29,9 +29,9 @@ public class BushWorldGen {
             addBushToOverworld(biome);
         }
 
-        /* if (biome.getCategory() == Biome.BiomeCategory.NETHER) {
+        if (biome.getCategory() == Biome.BiomeCategory.NETHER) {
             addBushesToNether(biome);
-        } */
+        }
     }
 
     private static void addBushToOverworld(BiomeLoadingEvent biome) {
@@ -41,40 +41,22 @@ public class BushWorldGen {
         //float bt = biome.getClimate().temperature;
 
         //XP BUSH
-        //if(bc == Biome.BiomeCategory.PLAINS || bc == Biome.BiomeCategory.SAVANNA || bc == Biome.BiomeCategory.FOREST) {
-            //if(ConfigHandler.CONFIG.allowExperienceGen.get() == true) {
-
-                /* if(MetalBushesMod.mekanismLoaded = true){
-
-                    lowStates.add(BlockInit.OSMIUM_BUSH.get().defaultBlockState());
-                } */
-
-            //FeatureConfigs.core = BlockInit.XP_BUSH.get().defaultBlockState();
-
-            /* FeatureConfigs.highStates.add(BlockInit.COPPER_BUSH.get().defaultBlockState());
-            FeatureConfigs.highStates.add(BlockInit.IRON_BUSH.get().defaultBlockState());
-            FeatureConfigs.highStates.add(BlockInit.REDSTONE_BUSH.get().defaultBlockState());
-            FeatureConfigs.highStates.add(BlockInit.DIAMOND_BUSH.get().defaultBlockState()); */
-
-            biome.getGeneration().addFeature(
-                    GenerationStep.Decoration.VEGETAL_DECORATION,
-                    FeatureConfigs.FEATURE_BUSHES
-            );
-
-            //FeatureConfigs.core = null;
-            //FeatureConfigs.highStates = new ArrayList<>();
-            //}
-        //}
-
-
+        if(bc == Biome.BiomeCategory.PLAINS || bc == Biome.BiomeCategory.SAVANNA || bc == Biome.BiomeCategory.FOREST) {
+            if(ConfigHandler.CONFIG.allowExperienceGen.get() == true) {
+                biome.getGeneration().addFeature(
+                        GenerationStep.Decoration.VEGETAL_DECORATION,
+                        FeatureConfigs.getFeatureBushes(BlockInit.XP_BUSH.get().defaultBlockState())
+                );
+            }
+        }
 
         //COPPER BUSH
-        /* if (bc == Biome.BiomeCategory.PLAINS || bc == Biome.BiomeCategory.SAVANNA) {
+        if (bc == Biome.BiomeCategory.PLAINS || bc == Biome.BiomeCategory.SAVANNA) {
             if (ConfigHandler.CONFIG.allowCopperGen.get() == true) {
                 if (ConfigHandler.CONFIG.allowCoalGen.get() == true) {
                     biome.getGeneration().addFeature(
                             GenerationStep.Decoration.VEGETAL_DECORATION,
-                            FeatureConfigs.COPPER_BUSH_Configured
+                            FeatureConfigs.getFeatureBushes(BlockInit.COPPER_BUSH.get().defaultBlockState())
                     );
                 }
             }
@@ -88,7 +70,7 @@ public class BushWorldGen {
             if (ConfigHandler.CONFIG.allowCoalGen.get() == true) {
                 biome.getGeneration().addFeature(
                         GenerationStep.Decoration.VEGETAL_DECORATION,
-                        FeatureConfigs.COAL_BUSH_Configured
+                        FeatureConfigs.getFeatureBushes(BlockInit.COAL_BUSH.get().defaultBlockState())
                 );
             }
         }
@@ -99,7 +81,7 @@ public class BushWorldGen {
             if (ConfigHandler.CONFIG.allowIronGen.get() == true) {
                 biome.getGeneration().addFeature(
                         GenerationStep.Decoration.VEGETAL_DECORATION,
-                        FeatureConfigs.IRON_BUSH_Configured
+                        FeatureConfigs.getFeatureBushes(BlockInit.IRON_BUSH.get().defaultBlockState())
                 );
             }
         }
@@ -109,7 +91,7 @@ public class BushWorldGen {
             if (ConfigHandler.CONFIG.allowGoldGen.get() == true) {
                 biome.getGeneration().addFeature(
                         GenerationStep.Decoration.VEGETAL_DECORATION,
-                        FeatureConfigs.GOLD_BUSH_Configured
+                        FeatureConfigs.getFeatureBushes(BlockInit.GOLD_BUSH.get().defaultBlockState())
                 );
             }
         }
@@ -120,14 +102,14 @@ public class BushWorldGen {
             if (ConfigHandler.CONFIG.allowRedstoneGen.get() == true) {
                 biome.getGeneration().addFeature(
                         GenerationStep.Decoration.VEGETAL_DECORATION,
-                        FeatureConfigs.REDSTONE_BUSH_Configured
+                        FeatureConfigs.getFeatureBushes(BlockInit.REDSTONE_BUSH.get().defaultBlockState())
                 );
             }
 
             if(ConfigHandler.CONFIG.allowDiamondGen.get() == true) {
                 biome.getGeneration().addFeature(
                         GenerationStep.Decoration.VEGETAL_DECORATION,
-                        FeatureConfigs.DIAMOND_BUSH_Configured
+                        FeatureConfigs.getFeatureBushes(BlockInit.DIAMOND_BUSH.get().defaultBlockState())
                 );
             }
         }
@@ -137,7 +119,7 @@ public class BushWorldGen {
             if(ConfigHandler.CONFIG.allowExperienceGen.get() == true) {
                 biome.getGeneration().addFeature(
                         GenerationStep.Decoration.VEGETAL_DECORATION,
-                        FeatureConfigs.BLAZE_BUSH_Configured
+                        FeatureConfigs.getFeatureBushes(BlockInit.BLAZE_BUSH.get().defaultBlockState())
                 );
             }
         }
@@ -147,7 +129,7 @@ public class BushWorldGen {
             if(ConfigHandler.CONFIG.allowSlimeGen.get() == true) {
                 biome.getGeneration().addFeature(
                         GenerationStep.Decoration.VEGETAL_DECORATION,
-                        FeatureConfigs.SLIME_BUSH_Configured
+                        FeatureConfigs.getFeatureBushes(BlockInit.SLIME_BUSH.get().defaultBlockState())
                 );
             }
         }
@@ -159,13 +141,7 @@ public class BushWorldGen {
                 if (ConfigHandler.CONFIG.allowOsmiumGen.get() == true) {
                     biome.getGeneration().addFeature(
                             GenerationStep.Decoration.VEGETAL_DECORATION,
-                            new ConfiguredFeature(
-                                    Feature.RANDOM_PATCH,
-                                    (new RandomPatchConfiguration.GrassConfigurationBuilder(
-                                            new SimpleStateProvider(BlockInit.COPPER_BUSH.get().defaultBlockState()),
-                                            new SimpleBlockPlacer())
-                                    ).whitelist(ImmutableSet.of(Blocks.GRASS_BLOCK)).tries(1).build()
-                            )
+                            FeatureConfigs.getFeatureBushes(BlockInit.OSMIUM_BUSH.get().defaultBlockState())
                     );
                 }
             }
@@ -175,13 +151,7 @@ public class BushWorldGen {
                 if (ConfigHandler.CONFIG.allowTinGen.get() == true) {
                     biome.getGeneration().addFeature(
                             GenerationStep.Decoration.VEGETAL_DECORATION,
-                            new ConfiguredFeature(
-                                    Feature.RANDOM_PATCH,
-                                    (new RandomPatchConfiguration.GrassConfigurationBuilder(
-                                            new SimpleStateProvider(BlockInit.COPPER_BUSH.get().defaultBlockState()),
-                                            new SimpleBlockPlacer())
-                                    ).whitelist(ImmutableSet.of(Blocks.GRASS_BLOCK)).tries(1).build()
-                            )
+                            FeatureConfigs.getFeatureBushes(BlockInit.TIN_BUSH.get().defaultBlockState())
                     );
                 }
             }
@@ -193,19 +163,11 @@ public class BushWorldGen {
                 if (ConfigHandler.CONFIG.allowZincGen.get() == true) {
                     biome.getGeneration().addFeature(
                             GenerationStep.Decoration.VEGETAL_DECORATION,
-                            new ConfiguredFeature(
-                                    Feature.RANDOM_PATCH,
-                                    (new RandomPatchConfiguration.GrassConfigurationBuilder(
-                                            new SimpleStateProvider(BlockInit.COPPER_BUSH.get().defaultBlockState()),
-                                            new SimpleBlockPlacer())
-                                    ).whitelist(ImmutableSet.of(Blocks.GRASS_BLOCK)).tries(1).build()
-                            )
+                            FeatureConfigs.getFeatureBushes(BlockInit.ZINC_BUSH.get().defaultBlockState())
                     );
                 }
             }
         }
-
-         */
     }
 
     /* private static void addBushesToNether(BiomeLoadingEvent biome){
@@ -213,6 +175,7 @@ public class BushWorldGen {
         if (ConfigHandler.CONFIG.allowBlazeGen.get() == true) {
             biome.getGeneration().addFeature(
                     GenerationStep.Decoration.VEGETAL_DECORATION,
+                    FeatureConfigs.getFeatureBushes(BlockInit.NETHER_QUARTZ_BUSH.get().defaultBlockState())
                     //new ConfiguredFeature(
                     Feature.NETHER_FOREST_VEGETATION
                             .configured(

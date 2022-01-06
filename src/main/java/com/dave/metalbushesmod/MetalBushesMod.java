@@ -55,7 +55,7 @@ public class MetalBushesMod
         mekanismLoaded = ModList.get().isLoaded("mekanism");
         //LOGGER.debug("mekanismLoaded: " + mekanismLoaded);
 
-        immersiveEngineeringLoaded = ModList.get().isLoaded("immersiveengineering");
+        //immersiveEngineeringLoaded = ModList.get().isLoaded("immersiveengineering");
         //LOGGER.debug("immersiveengineeringLoaded: " + immersiveEngineeringLoaded);
 
         createLoaded = ModList.get().isLoaded("create");

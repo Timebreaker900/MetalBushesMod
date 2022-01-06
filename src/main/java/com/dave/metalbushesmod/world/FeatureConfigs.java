@@ -30,14 +30,25 @@ public class FeatureConfigs {
     # Overworld #
     #############
      */
-    public static final PlacedFeature FEATURE_BUSHES = PlacementUtils.register("feature_bushes",
-            WorldGenRegister.BUSHES.placed(
+    public static final PlacedFeature getFeatureBushes(BlockState currentBush) {
+        return PlacementUtils.register("feature_bushes",
+                WorldGenRegister.getConfiguredFeature(currentBush).placed(
+                        NoiseThresholdCountPlacement.of(-0.8D, 15, 4),
+                        RarityFilter.onAverageOnceEvery(32),
+                        InSquarePlacement.spread(),
+                        PlacementUtils.HEIGHTMAP, BiomeFilter.biome()
+                ));
+    }
+
+    /* public static final PlacedFeature FEATURE_BUSHES = PlacementUtils.register("feature_bushes",
+            WorldGenRegister.getConfiguredFeature(BlockInit.XP_BUSH.get().defaultBlockState()).placed(
                     NoiseThresholdCountPlacement.of(-0.8D, 15, 4),
                     RarityFilter.onAverageOnceEvery(32),
                     InSquarePlacement.spread(),
                     PlacementUtils.HEIGHTMAP, BiomeFilter.biome()
             )
-    );
+    ); */
+
 
     //Vanilla
     /* public static final RandomPatchConfiguration XP_BUSH = (new RandomPatchConfiguration.GrassConfigurationBuilder(
